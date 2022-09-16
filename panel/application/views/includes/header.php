@@ -8,15 +8,15 @@
                         <img src="<?php echo base_url("assets"); ?>/img/profile.jpeg" width="30px" class="profile-img">
                     </a>
                     <div class="dropdown-menu shadow-lg rounded-4">
-                        <a class="dropdown-item" href="<?php echo base_url("assets"); ?>">
+                        <a class="dropdown-item" href="<?php echo base_url("profile"); ?>">
                             <i class="bi bi-person dropdown-icon mx-1"></i>
                             Profile
                         </a>
-                        <a class="dropdown-item" href="settings">
+                        <a class="dropdown-item" href="<?php echo base_url("settings"); ?>">
                             <i class="bi bi-gear dropdown-icon mx-1"></i>
                             Settings
                         </a>
-                        <a class="dropdown-item" href="login">
+                        <a class="dropdown-item" href="<?php echo base_url("logout"); ?>">
                             <i class="bi bi-box-arrow-left dropdown-icon mx-1"></i>
                             Logout
                         </a>
