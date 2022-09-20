@@ -1,6 +1,6 @@
         <div class="px-4 page-title title-color">
-            <h3>User Roles</h3>
-            <a href="" class="btn add-new-button text-white rounded-4 shadow float-end">
+            <h3>Portfolio</h3>
+            <a href="" class="btn add-new-button btn-theme text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
             </a>
         </div>
@@ -17,16 +17,16 @@
                                         <tr>
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Role</th>
+                                            <th scope="col">Name</th>
                                             <th scope="col">Situation</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-center" style="vertical-align: baseline;">
-                                        
+                                    
                                         <?php foreach($items as $item) { ?>
                                             <tr>
-                                                <td><i class="bi bi-list fs-5"></i></td>
+                                                <td> <i class="bi bi-list fs-5"></i> </td>
                                                 <td> <?php echo $item->id; ?> </td>
                                                 <td> <?php echo $item->title; ?> </td>
                                                 <td>
@@ -36,26 +36,26 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="index.html">
+                                                        <a href="product-images.html">
+                                                            <i class="bi bi-images fs-5 text-info mx-2"></i>
+                                                        </a>
+                                                        <a href="update-product.html">
                                                             <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
                                                         </a>
-                                                        <a href="index.html">
+                                                        <a href="#">
                                                             <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                        </a>
-                                                        <a href="user-permissions">
-                                                            <i class="bi bi-person-x fs-5 text-info mx-2"></i>
                                                         </a>
                                                     </div>
                                                 </td>
                                             </tr>
                                         <?php } ?>
-                                        
+                                    
                                     </tbody>
                                     <tfoot class="text-center">
                                         <tr>
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Role</th>
+                                            <th scope="col">Name</th>
                                             <th scope="col">Situation</th>
                                             <th scope="col">Action</th>
                                         </tr>

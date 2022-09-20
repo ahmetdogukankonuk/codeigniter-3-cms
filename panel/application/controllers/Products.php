@@ -12,14 +12,22 @@ class Products extends CI_Controller {
 
         $this->viewFolder = "products_v";
 
+        $this->load->model("products_model");
+
     }
 
     public function index()
 	{
-        
+       
 	    $viewData = new stdClass();
+
+        $items = $this->products_model->get_all(
+            array(), "id DESC"
+        );
+
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
+        $viewData->items = $items;
 
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         

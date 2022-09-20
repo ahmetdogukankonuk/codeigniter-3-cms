@@ -1,5 +1,5 @@
         <div class="px-4 page-title title-color">
-            <h3>User Roles</h3>
+            <h3>Blog Comments</h3>
             <a href="" class="btn add-new-button text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
             </a>
@@ -17,17 +17,19 @@
                                         <tr>
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Role</th>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">Title</th>
                                             <th scope="col">Situation</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="text-center" style="vertical-align: baseline;">
+                                    <tbody id="sortable" class="text-center" style="vertical-align: baseline;">
                                         
                                         <?php foreach($items as $item) { ?>
-                                            <tr>
-                                                <td><i class="bi bi-list fs-5"></i></td>
+                                            <tr id="ord-<?php echo $item->id; ?>">
+                                                <td class="sortable"><i class="bi bi-list fs-5"></i></td>
                                                 <td> <?php echo $item->id; ?> </td>
+                                                <td> <?php echo get_user_name($item->userID); ?> <?php echo get_user_surname($item->userID); ?></td>
                                                 <td> <?php echo $item->title; ?> </td>
                                                 <td>
                                                     <div class="form-check form-switch d-flex justify-content-center">
@@ -36,14 +38,11 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="index.html">
-                                                            <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
+                                                        <a href="update-product.html">
+                                                            <i class="bi bi-eye fs-5 text-info mx-2"></i>
                                                         </a>
-                                                        <a href="index.html">
+                                                        <a href="#">
                                                             <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                        </a>
-                                                        <a href="user-permissions">
-                                                            <i class="bi bi-person-x fs-5 text-info mx-2"></i>
                                                         </a>
                                                     </div>
                                                 </td>
@@ -55,7 +54,8 @@
                                         <tr>
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
-                                            <th scope="col">Role</th>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">Title</th>
                                             <th scope="col">Situation</th>
                                             <th scope="col">Action</th>
                                         </tr>

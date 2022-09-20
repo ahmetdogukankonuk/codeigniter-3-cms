@@ -140,9 +140,9 @@
                             <div class="collapse" id="gallery-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pt-2 small">
                                     <li>
-                                        <a href="<?php echo base_url("references"); ?>" class="sidebar-sublink rounded">
+                                        <a href="<?php echo base_url("portfolio"); ?>" class="sidebar-sublink rounded">
                                             <i class="bi bi-collection sub-sidebar-icon"></i>
-                                            References
+                                            Portfolio
                                         </a>
                                         <a href="<?php echo base_url("sliders"); ?>" class="sidebar-sublink rounded">
                                             <i class="bi bi-images sub-sidebar-icon"></i>

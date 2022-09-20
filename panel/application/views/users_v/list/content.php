@@ -18,269 +18,51 @@
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
                                             <th scope="col">Name</th>
+                                            <th scope="col">Surname</th>
                                             <th scope="col">E-Mail</th>
                                             <th scope="col">User Role</th>
                                             <th scope="col">Situation</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="sortable" class="text-center" style="vertical-align: baseline;">
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>1</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>2</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>3</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>4</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>5</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>6</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>7</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>8</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>9</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sortable"><i class="bi bi-list fs-5"></i></td>
-                                            <td>10</td>
-                                            <td>Ahmet Doğukan Konuk</td>
-                                            <td>ahmetdogukankonuk@gmail.com</td>
-                                            <td>CEO</td>
-                                            <td>
-                                                <div class="form-check form-switch d-flex justify-content-center">
-                                                    <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex justify-content-center">
-                                                    <a href="#">
-                                                        <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-trash fs-5 text-danger mx-2"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                    <tbody class="text-center" style="vertical-align: baseline;">
+                                        
+                                        <?php foreach($items as $item) { ?>
+                                            <tr>
+                                                <td> <i class="bi bi-list fs-5"></i> </td>
+                                                <td> <?php echo $item->id; ?> </td>
+                                                <td> <?php echo $item->name; ?> </td>
+                                                <td> <?php echo $item->surname; ?> </td>
+                                                <td> <?php echo $item->email; ?> </td>
+                                                <td> <?php echo get_user_role($item->userRoleID); ?> </td>
+                                                <td>
+                                                    <div class="form-check form-switch d-flex justify-content-center">
+                                                        <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center">
+                                                        <a href="#">
+                                                            <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <i class="bi bi-trash fs-5 text-danger mx-2"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <i class="bi bi-lock-fill fs-5 text-black mx-2"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                            
                                     </tbody>
                                     <tfoot class="text-center">
                                         <tr>
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
                                             <th scope="col">Name</th>
+                                            <th scope="col">Surname</th>
                                             <th scope="col">E-Mail</th>
                                             <th scope="col">User Role</th>
                                             <th scope="col">Situation</th>

@@ -12,14 +12,22 @@ class User_roles extends CI_Controller {
 
         $this->viewFolder = "user_roles_v";
 
+        $this->load->model("user_roles_model");
+
     }
 
     public function index()
 	{
-        
+       
 	    $viewData = new stdClass();
+
+        $items = $this->user_roles_model->get_all(
+            array(), "id DESC"
+        );
+
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
+        $viewData->items = $items;
 
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         

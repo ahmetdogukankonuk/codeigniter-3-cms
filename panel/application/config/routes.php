@@ -55,11 +55,20 @@ $route['translate_uri_dashes']  = FALSE;
 
 $route["categories"]            = "product_categories";
 $route["products"]              = "products";
+
 $route["orders"]                = "orders";
+$route["completed-orders"]      = "orders/completed_orders";
+$route["incomplete-orders"]     = "orders/incomplete_orders";
+$route["cancelled-orders"]     = "orders/cancelled_orders";
+
 $route["blog"]                  = "blog";
+$route["blog-comments"]         = "blog/blog_comments";
+
 $route["users"]                 = "users";
+$route["authorized-users"]      = "users/authorized_users";
 $route["user-roles"]            = "user_roles";
 $route["user-permissions"]      = "user_permissions";
+
 $route["sliders"]               = "sliders";
-$route["references"]            = "references";
+$route["portfolio"]             = "portfolio";
 $route["settings"]              = "settings";
