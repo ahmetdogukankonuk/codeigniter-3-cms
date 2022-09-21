@@ -38,7 +38,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="product-images.html">
+                                                        <a href="<?php echo base_url("products/images/$item->id"); ?>">
                                                             <i class="bi bi-images fs-5 text-info mx-2"></i>
                                                         </a>
                                                         <a href="update-product.html">

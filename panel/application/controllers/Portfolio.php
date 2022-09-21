@@ -13,6 +13,7 @@ class Portfolio extends CI_Controller {
         $this->viewFolder = "portfolio_v";
 
         $this->load->model("portfolio_model");
+        $this->load->model("portfolio_images_model");
 
     }
 
@@ -32,4 +33,26 @@ class Portfolio extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+    
+    public function image_form($id){
+
+        $viewData = new stdClass();
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "image";
+
+        $viewData->item = $this->portfolio_model->get(
+            array(
+                "id"    => $id
+            )
+        );
+
+        $viewData->item_images = $this->portfolio_images_model->get_all(
+            array(
+                "portfolioID"    => $id
+            ), "rank ASC"
+        );
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
 }

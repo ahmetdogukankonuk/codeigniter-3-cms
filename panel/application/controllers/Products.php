@@ -13,6 +13,7 @@ class Products extends CI_Controller {
         $this->viewFolder = "products_v";
 
         $this->load->model("products_model");
+        $this->load->model("product_images_model");
 
     }
 
@@ -32,4 +33,26 @@ class Products extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
+    public function image_form($id){
+
+        $viewData = new stdClass();
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "image";
+
+        $viewData->item = $this->products_model->get(
+            array(
+                "id"    => $id
+            )
+        );
+
+        $viewData->item_images = $this->product_images_model->get_all(
+            array(
+                "productID"    => $id
+            ), "rank ASC"
+        );
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
 }

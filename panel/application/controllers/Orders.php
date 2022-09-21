@@ -33,7 +33,6 @@ class Orders extends CI_Controller {
         
 	}
 
-
     public function completed_orders()
 	{
        
@@ -53,7 +52,6 @@ class Orders extends CI_Controller {
         
 	}
 
-
     public function incomplete_orders()
 	{
        
@@ -72,7 +70,6 @@ class Orders extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
-
 
     public function cancelled_orders()
 	{
