@@ -18,6 +18,10 @@ class Orders extends CI_Controller {
 
     public function index()
 	{
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
        
 	    $viewData = new stdClass();
 

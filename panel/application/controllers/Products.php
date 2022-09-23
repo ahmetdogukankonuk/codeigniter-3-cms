@@ -20,6 +20,10 @@ class Products extends CI_Controller {
     public function index()
 	{
        
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+        
 	    $viewData = new stdClass();
 
         $items = $this->products_model->get_all(
@@ -36,6 +40,10 @@ class Products extends CI_Controller {
 
     public function image_form($id){
 
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+        
         $viewData = new stdClass();
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "image";

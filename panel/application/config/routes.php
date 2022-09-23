@@ -76,3 +76,9 @@ $route["portfolio"]                 = "portfolio";
 $route["portfolio/images/(:any)"]   = "portfolio/image_form/$1";
 
 $route["settings"]                  = "settings";
+
+$route["login"]                     = "userop/login";
+$route["logout"]                    = "userop/logout";
+$route["register"]                  = "userop/register";
+$route["forget-password"]           = "userop/forget_password";
+$route["reset-password"]            = "userop/reset_password";

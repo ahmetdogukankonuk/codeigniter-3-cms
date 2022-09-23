@@ -18,7 +18,11 @@ class Users extends CI_Controller {
 
     public function index()
 	{
-       
+        
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
 	    $viewData = new stdClass();
 
         $items = $this->users_model->get_all(
@@ -35,7 +39,11 @@ class Users extends CI_Controller {
 
     public function authorized_users()
 	{
-       
+        
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+        
 	    $viewData = new stdClass();
 
         $items = $this->users_model->get_all(
