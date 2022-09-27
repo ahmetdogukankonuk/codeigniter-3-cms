@@ -32,7 +32,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="index.html">
+                                                        <a class="remove-btn" data-url="<?php echo base_url("products/imageDelete/$items->id/$items->productID"); ?>">
                                                             <i class="bi bi-trash fs-5 text-danger mx-2"></i>
                                                         </a>
                                                     </div>

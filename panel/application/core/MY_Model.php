@@ -22,11 +22,7 @@ class MY_Model extends CI_Model
 
     public function add($data = array())
     {
-        if(isAllowedWriteModule()) {
-            return $this->db->insert($this->tableName, $data);
-        } else {
-            return false;
-        }
+        return $this->db->insert($this->tableName, $data);
     }
 
     public function register_admin($data = array())
@@ -36,20 +32,12 @@ class MY_Model extends CI_Model
 
     public function update($where = array(), $data = array())
     {
-        if(isAllowedUpdateModule()) {
-            return $this->db->where($where)->update($this->tableName, $data);
-        } else {
-            return false;
-        }
+        return $this->db->where($where)->update($this->tableName, $data);
     }
 
     public function delete($where = array())
     {
-        if(isAllowedDeleteModule()) {
-            return $this->db->where($where)->delete($this->tableName);
-        } else {
-            return false;
-        }  
+        return $this->db->where($where)->delete($this->tableName);
     }
 
 }

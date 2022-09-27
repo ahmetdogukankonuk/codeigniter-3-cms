@@ -93,4 +93,128 @@ class Orders extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
+    public function delete($id){
+
+        $delete = $this->orders_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("orders"));
+
+    }
+
+    public function cancelledDelete($id){
+
+        $delete = $this->orders_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("cancelled-orders"));
+
+    }
+
+    public function completedDelete($id){
+
+        $delete = $this->orders_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("completed-orders"));
+
+    }
+
+    public function incompleteDelete($id){
+
+        $delete = $this->orders_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("incomplete-orders"));
+
+    }
 }

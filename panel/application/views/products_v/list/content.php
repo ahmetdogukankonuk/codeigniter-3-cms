@@ -41,10 +41,10 @@
                                                         <a href="<?php echo base_url("products/images/$item->id"); ?>">
                                                             <i class="bi bi-images fs-5 text-info mx-2"></i>
                                                         </a>
-                                                        <a href="update-product.html">
+                                                        <a href="<?php echo base_url("products/update/$item->id"); ?>">
                                                             <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
                                                         </a>
-                                                        <a href="#">
+                                                        <a class="remove-btn" data-url="<?php echo base_url("products/imageDelete/$item->id"); ?>">
                                                             <i class="bi bi-trash fs-5 text-danger mx-2"></i>
                                                         </a>
                                                     </div>

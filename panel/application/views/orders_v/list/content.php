@@ -46,7 +46,7 @@
                                                         <a href="index.html">
                                                             <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
                                                         </a>
-                                                        <a href="index.html">
+                                                        <a class="remove-btn" data-url="<?php echo base_url("orders/delete/$item->id"); ?>">
                                                             <i class="bi bi-trash fs-5 text-danger mx-2"></i>
                                                         </a>
                                                     </div>

@@ -467,6 +467,10 @@ div.dt-button-collection {
 .sortable{
   cursor: pointer;
 }
+
+.remove-btn{
+  cursor: pointer;
+}
 /* Tables End */
 
 /* Other Start */

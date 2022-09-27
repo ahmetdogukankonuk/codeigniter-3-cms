@@ -63,4 +63,63 @@ class Products extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
+    public function delete($id){
+
+        $delete = $this->products_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("products"));
+
+    }
+
+    public function imageDelete($id, $parent_id){
+        
+        $fileName = $this->product_images_model->get(
+            array(
+                "id"    => $id
+            )
+        );
+
+        $delete = $this->product_images_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+            
+            unlink("uploads/{$this->viewFolder}/$fileName->img_url");
+
+            redirect(base_url("products/images/$parent_id"));
+
+        } else {
+
+            redirect(base_url("products/images/$parent_id"));
+            
+        }
+        
+    }
 }

@@ -59,4 +59,66 @@ class Users extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
+    public function delete($id){
+
+        $delete = $this->users_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("users"));
+
+    }
+
+    public function authorizedDelete($id){
+
+        $delete = $this->users_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("authorized-users"));
+
+    }
 }
