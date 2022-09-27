@@ -111,6 +111,80 @@ class Userop extends CI_Controller {
 
     }
 
+    public function admin_register(){
+        
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("name", "Name", "required|trim");
+        $this->form_validation->set_rules("surname", "Surname", "required|trim");
+        $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email|is_unique[users.email]");
+        $this->form_validation->set_rules("password", "Password", "required|trim|min_length[6]|max_length[20]");
+        $this->form_validation->set_rules("re_password", "Confirm Password", "required|trim|min_length[6]|max_length[20]|matches[password]");
+
+        $this->form_validation->set_message(
+            array(
+                "required" => "<b>{field}</b> is a required place!",
+                "valid_email" => "<b>{field}</b> Please enter a valid email!",
+                "is_unique" => "<b>{field}</b> You already have an account with this email!",
+                "matches"   => "<b>{field}</b> Passwords does not match!"
+            )
+        );
+        
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $insert = $this->users_model->register_admin(
+                array(
+                    "name"          => $this->input->post("name"),
+                    "surname"       => $this->input->post("surname"),
+                    "email"         => $this->input->post("email"),
+                    "password"      => md5($this->input->post("password")),
+                    "isActive"      => 1,
+                    "isAuthority"   => 0,
+                    "createdAt"     => date("Y-m-d H:i:s"),
+                    "updatedAt"     => date("Y-m-d H:i:s")
+                )
+            );
+            
+            if($insert){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The record was added successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is Unsuccessful!",
+                    "text"  => "Kayıt Ekleme sırasında bir problem oluştu",
+                    "type"  => "error"
+                );
+
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("users"));
+
+            die();
+
+        } else {
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "register";
+            $viewData->form_error = true;
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+        }
+
+    }
+
     public function forget_password(){
         
         if(get_active_user()){

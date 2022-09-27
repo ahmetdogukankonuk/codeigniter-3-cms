@@ -29,6 +29,11 @@ class MY_Model extends CI_Model
         }
     }
 
+    public function register_admin($data = array())
+    {
+        return $this->db->insert($this->tableName, $data);
+    }
+
     public function update($where = array(), $data = array())
     {
         if(isAllowedUpdateModule()) {

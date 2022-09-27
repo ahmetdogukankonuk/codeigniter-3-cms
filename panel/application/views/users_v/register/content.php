@@ -13,23 +13,37 @@
                                     <b> A lot of hard work is hidden behind nice things. </b>
                                 </h6>
                             </div>
-                            <form>
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-                                        <input type="mail" class="form-control rounded-4" id="email" placeholder="E-Mail Address">
+                            <form action="<?php echo base_url("userop/admin_register"); ?>" method="post">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <input type="text" class="form-control rounded-4" name="name" id="name" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <input type="text" class="form-control rounded-4" name="surname" id="surname" placeholder="Surname">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-                                        <input type="password" class="form-control rounded-4" name="password" id="password" placeholder="Password">
+                                <div class="col-md-12 mb-3">
+                                    <div>
+                                        <input type="mail" class="form-control rounded-4" name="email" id="email" placeholder="E-Mail Address">
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <div class="mb-3">
-                                        <input type="re_password" class="form-control rounded-4" name="re_password" id="re_password" placeholder="Confirm Your Password">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <input type="password" class="form-control rounded-4" name="password" id="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>
+                                            <input type="password" class="form-control rounded-4" name="re_password" id="re_password" placeholder="Confirm Your Password">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-grid mt-4">
+                                <div class="d-grid">
                                     <button type="submit" class="btn btn-primary rounded-4 p-2">
                                         Register
                                     </button>
