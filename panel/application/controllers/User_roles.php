@@ -65,6 +65,7 @@ class User_roles extends CI_Controller {
             $insert = $this->user_roles_model->add(
                 array(
                     "title"                 => $this->input->post("title"),
+                    "permissions"           => "null",
                     "isActive"              => 1,
                     "createdAt"             => date("Y-m-d H:i:s"),
                     "updatedAt"             => date("Y-m-d H:i:s")
@@ -135,4 +136,58 @@ class User_roles extends CI_Controller {
         redirect(base_url("user-roles"));
 
     }
+
+    public function permissions_form($id){
+
+        $viewData = new stdClass();
+
+        $item = $this->user_roles_model->get(
+            array(
+                "id"    => $id,
+            )
+        );
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "permissions";
+        $viewData->item = $item;
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function update_permissions($id){
+
+        $permissions = json_encode($this->input->post("permissions"));
+
+        $update = $this->user_roles_model->update(
+            array("id" => $id),
+            array(
+                "permissions"      => $permissions
+            )
+        );
+
+        if($update){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "Successfully Updated!",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Unsuccessful!",
+                "text"  => "There Was a Problem During the Update!",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+
+        redirect(base_url("user-roles/permissions/$id"));
+
+    }
+    
 }
