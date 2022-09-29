@@ -12,6 +12,7 @@ class Users extends CI_Controller {
 
         $this->viewFolder = "users_v";
 
+        $this->load->model("user_roles_model");
         $this->load->model("users_model");
 
     }
@@ -37,6 +38,90 @@ class Users extends CI_Controller {
         
 	}
 
+    public function new_form(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $viewData->user_roles = $this->user_roles_model->get_all(
+            array(
+                "isActive"  => 1
+            )
+        );
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "add";
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function admin_register(){
+
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("name", "User Name", "required|trim");
+        $this->form_validation->set_rules("surname", "User Surname", "required|trim");
+        $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email|is_unique[users.email]");
+        $this->form_validation->set_rules("userRoleID", "User Role", "required|trim");
+        $this->form_validation->set_rules("password", "Password", "required|trim|min_length[6]|max_length[20]");
+        $this->form_validation->set_rules("re_password", "Confirm Password", "required|trim|min_length[6]|max_length[20]|matches[password]");
+        
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $insert = $this->users_model->add(
+                array(
+                    "name"                  => $this->input->post("name"),
+                    "surname"               => $this->input->post("surname"),
+                    "email"                 => $this->input->post("email"),
+                    "password"              => md5($this->input->post("password")),
+                    "userRoleID"            => $this->input->post("userRoleID"),
+                    "isActive"              => 1,
+                    "isAuthority"           => 1,
+                    "createdAt"             => date("Y-m-d H:i:s"),
+                    "updatedAt"             => date("Y-m-d H:i:s")
+                )
+            );
+
+            if($insert){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The record was added successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is not Successful!",
+                    "text"  => "There was a problem while adding data",
+                    "type"  => "error"
+                );
+                
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+            redirect(base_url("users"));
+
+        } else {
+
+            $viewData = new stdClass();
+            $viewData->viewFolder       = $this->viewFolder;
+            $viewData->subViewFolder    = "add";
+            $viewData->form_error       = true;
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+            
+        }
+
+    }
+    
     public function authorized_users()
 	{
         

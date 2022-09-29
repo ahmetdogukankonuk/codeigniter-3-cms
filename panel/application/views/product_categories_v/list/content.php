@@ -1,6 +1,6 @@
         <div class="px-4 page-title title-color">
-            <h3>Categories</h3>
-            <a href="new-category.html" class="btn add-new-button text-white rounded-4 shadow float-end">
+            <h3> Product Categories </h3>
+            <a href="<?php echo base_url("categories/new") ?>" class="btn add-new-button text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
             </a>
         </div>

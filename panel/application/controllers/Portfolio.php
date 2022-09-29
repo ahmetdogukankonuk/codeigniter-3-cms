@@ -37,6 +37,85 @@ class Portfolio extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
+    public function new_form(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "add";
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function save(){
+
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("title", "Product Name English", "required|trim");
+        
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $insert = $this->portfolio_model->add(
+                array(
+                    "title"                 => $this->input->post("title"),
+                    "title_tr"              => $this->input->post("title_tr"),
+                    "description"           => $this->input->post("description"),
+                    "description_tr"        => $this->input->post("description_tr"),
+                    "video"                 => $this->input->post("video"),
+                    "companyName"           => $this->input->post("companyName"),
+                    "companyWebsite"        => $this->input->post("companyWebsite"),
+                    "companyPhone"          => $this->input->post("companyPhone"),
+                    "companyMail"           => $this->input->post("companyMail"),
+                    "date"                  => $this->input->post("date"),
+                    "isActive"              => 1,
+                    "isOnMain"              => 0,
+                    "isSuggested"           => 0,
+                    "createdAt"             => date("Y-m-d H:i:s"),
+                    "updatedAt"             => date("Y-m-d H:i:s")
+                )
+            );
+
+            if($insert){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The record was added successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is not Successful!",
+                    "text"  => "There was a problem while adding data",
+                    "type"  => "error"
+                );
+                
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+            redirect(base_url("portfolio"));
+
+        } else {
+
+            $viewData = new stdClass();
+            $viewData->viewFolder       = $this->viewFolder;
+            $viewData->subViewFolder    = "add";
+            $viewData->form_error       = true;
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+            
+        }
+
+    }
     
     public function image_form($id){
         

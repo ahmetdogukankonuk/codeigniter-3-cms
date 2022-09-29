@@ -40,6 +40,10 @@ class Orders extends CI_Controller {
     public function completed_orders()
 	{
        
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
 	    $viewData = new stdClass();
 
         $items = $this->orders_model->get_all(
@@ -59,6 +63,10 @@ class Orders extends CI_Controller {
     public function incomplete_orders()
 	{
        
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
 	    $viewData = new stdClass();
 
         $items = $this->orders_model->get_all(
@@ -78,6 +86,10 @@ class Orders extends CI_Controller {
     public function cancelled_orders()
 	{
        
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+        
 	    $viewData = new stdClass();
 
         $items = $this->orders_model->get_all(

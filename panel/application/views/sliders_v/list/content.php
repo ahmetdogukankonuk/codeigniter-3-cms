@@ -1,6 +1,6 @@
         <div class="px-4 page-title title-color">
             <h3>Sliders</h3>
-            <a href="new-category.html" class="btn add-new-button text-white rounded-4 shadow float-end">
+            <a href="<?php echo base_url("sliders/new") ?>" class="btn add-new-button text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
             </a>
         </div>

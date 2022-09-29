@@ -12,6 +12,7 @@ class Products extends CI_Controller {
 
         $this->viewFolder = "products_v";
 
+        $this->load->model("product_categories_model");
         $this->load->model("products_model");
         $this->load->model("product_images_model");
 
@@ -37,6 +38,90 @@ class Products extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
+    public function new_form(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $viewData->product_categories = $this->product_categories_model->get_all(
+            array(
+                "isActive"  => 1
+            )
+        );
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "add";
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function save(){
+
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("categoryID", "Product Category", "required|trim");
+        $this->form_validation->set_rules("title", "Product Name English", "required|trim");
+        $this->form_validation->set_rules("price", "Product Price", "required|trim");
+        
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $insert = $this->products_model->add(
+                array(
+                    "categoryID"            => $this->input->post("categoryID"),
+                    "title"                 => $this->input->post("title"),
+                    "title_tr"              => $this->input->post("title_tr"),
+                    "description"           => $this->input->post("description"),
+                    "description_tr"        => $this->input->post("description_tr"),
+                    "video"                 => $this->input->post("video"),
+                    "price"                 => $this->input->post("price"),
+                    "isActive"              => 1,
+                    "isOnMain"              => 0,
+                    "isSuggested"           => 0,
+                    "createdAt"             => date("Y-m-d H:i:s"),
+                    "updatedAt"             => date("Y-m-d H:i:s")
+                )
+            );
+
+            if($insert){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The record was added successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is not Successful!",
+                    "text"  => "There was a problem while adding data",
+                    "type"  => "error"
+                );
+                
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+            redirect(base_url("products"));
+
+        } else {
+
+            $viewData = new stdClass();
+            $viewData->viewFolder       = $this->viewFolder;
+            $viewData->subViewFolder    = "add";
+            $viewData->form_error       = true;
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+            
+        }
+
+    }
 
     public function image_form($id){
 

@@ -1,6 +1,6 @@
         <div class="px-4 page-title title-color">
             <h3>Products</h3>
-            <a href="" class="btn add-new-button btn-theme text-white rounded-4 shadow float-end">
+            <a href="<?php echo base_url("products/new") ?>" class="btn add-new-button btn-theme text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
             </a>
         </div>
@@ -44,7 +44,7 @@
                                                         <a href="<?php echo base_url("products/update/$item->id"); ?>">
                                                             <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
                                                         </a>
-                                                        <a class="remove-btn" data-url="<?php echo base_url("products/imageDelete/$item->id"); ?>">
+                                                        <a class="remove-btn" data-url="<?php echo base_url("products/delete/$item->id"); ?>">
                                                             <i class="bi bi-trash fs-5 text-danger mx-2"></i>
                                                         </a>
                                                     </div>

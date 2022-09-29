@@ -1,6 +1,6 @@
         <div class="px-4 page-title title-color">
             <h3>Portfolio</h3>
-            <a href="" class="btn add-new-button btn-theme text-white rounded-4 shadow float-end">
+            <a href="<?php echo base_url("portfolio/new") ?>" class="btn add-new-button btn-theme text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
             </a>
         </div>

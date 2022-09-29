@@ -37,6 +37,125 @@ class Sliders extends CI_Controller {
         
 	}
 
+    public function new_form(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "add";
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function save(){
+        
+        $this->load->library("form_validation");
+        $this->load->helper("tools");
+
+        if($_FILES["imgUrl"]["name"] == ""){
+
+            $alert = array(
+                "title" => "Operation is Unsuccessful!",
+                "text"  => "Please select an image",
+                "type"  => "error"
+            );
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("sliders/new"));
+
+            die();
+        }
+        
+        $this->form_validation->set_rules("title", "Category Name English", "required|trim");
+
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $file_name = convertToSEO(pathinfo($_FILES["imgUrl"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["imgUrl"]["name"], PATHINFO_EXTENSION);
+
+            $config["allowed_types"] = "jpg|jpeg|png";
+            $config["upload_path"]   = "uploads/$this->viewFolder/";
+            $config["file_name"] = $file_name;
+
+            $this->load->library("upload", $config);
+
+            $upload = $this->upload->do_upload("imgUrl");
+
+            if($upload){
+
+                $uploaded_file = $this->upload->data("file_name");
+
+                $insert = $this->sliders_model->add(
+                    array(
+                        "title"                 => $this->input->post("title"),
+                        "buttonTitle"           => $this->input->post("buttonTitle"),
+                        "buttonLink"            => $this->input->post("buttonLink"),
+                        "imgUrl"                => $uploaded_file,
+                        "rank"                  => 0,
+                        "isActive"              => 1,
+                        "createdAt"             => date("Y-m-d H:i:s"),
+                        "updatedAt"             => date("Y-m-d H:i:s")
+                    )
+                );
+
+                if($insert){
+
+                    $alert = array(
+                        "title" => "Operation is Successful!",
+                        "text"  => "The record was added successfully",
+                        "type"  => "success"
+                    );
+
+                } else {
+
+                    $alert = array(
+                        "title" => "Operation is Unsuccessful!",
+                        "text"  => "There was a problem while adding the record",
+                        "type"  => "error"
+                    );
+                    
+                }
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is Unsuccessful!",
+                    "text"  => "There was a problem while adding the record",
+                    "type"  => "error"
+                );
+
+                $this->session->set_flashdata("alert", $alert);
+
+                redirect(base_url("sliders/new"));
+
+                die();
+
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("sliders"));
+
+        } else {
+
+            $viewData = new stdClass();
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "add";
+            $viewData->form_error = true;
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+        }
+
+    }
+
     public function delete($id){
 
         $delete = $this->sliders_model->delete(

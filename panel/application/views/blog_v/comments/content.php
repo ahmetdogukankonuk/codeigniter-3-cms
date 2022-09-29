@@ -1,8 +1,5 @@
         <div class="px-4 page-title title-color">
             <h3>Blog Comments</h3>
-            <a href="" class="btn add-new-button text-white rounded-4 shadow float-end">
-                <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
-            </a>
         </div>
 
         <section class="mb-5">

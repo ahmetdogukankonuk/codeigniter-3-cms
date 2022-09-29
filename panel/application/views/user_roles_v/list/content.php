@@ -1,6 +1,6 @@
         <div class="px-4 page-title title-color">
             <h3>User Roles</h3>
-            <a href="" class="btn add-new-button text-white rounded-4 shadow float-end">
+            <a href="<?php echo base_url("user-roles/save") ?>" class="btn add-new-button text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
             </a>
         </div>
@@ -42,7 +42,7 @@
                                                         <a class="remove-btn" data-url="<?php echo base_url("user_roles/delete/$item->id"); ?>">
                                                             <i class="bi bi-trash fs-5 text-danger mx-2"></i>
                                                         </a>
-                                                        <a href="user-permissions">
+                                                        <a href="<?php echo base_url("user-roles/permissions/$item->id"); ?>">
                                                             <i class="bi bi-person-x fs-5 text-info mx-2"></i>
                                                         </a>
                                                     </div>

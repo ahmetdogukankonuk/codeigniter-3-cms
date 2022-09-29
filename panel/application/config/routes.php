@@ -49,36 +49,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller']        = 'dashboard';
-$route['404_override']              = '';
-$route['translate_uri_dashes']      = FALSE;
+$route['default_controller']                = 'dashboard';
+$route['404_override']                      = '';
+$route['translate_uri_dashes']              = FALSE;
 
-$route["categories"]                = "product_categories";
-$route["products"]                  = "products";
-$route["products/images/(:any)"]    = "products/image_form/$1";
+$route["categories"]                        = "product_categories";
+$route["categories/new"]                    = "product_categories/new_form";
+$route["categories/update/(:any)"]          = "product_categories/update_form/$1";
 
-$route["orders"]                    = "orders";
-$route["completed-orders"]          = "orders/completed_orders";
-$route["incomplete-orders"]         = "orders/incomplete_orders";
-$route["cancelled-orders"]          = "orders/cancelled_orders";
+$route["products"]                          = "products";
+$route["products/images/(:any)"]            = "products/image_form/$1";
+$route["products/new"]                      = "products/new_form";
+$route["products/update/(:any)"]            = "products/update_form/$1";
 
-$route["blog"]                      = "blog";
-$route["blog-comments"]             = "blog/blog_comments";
+$route["orders"]                            = "orders";
+$route["completed-orders"]                  = "orders/completed_orders";
+$route["incomplete-orders"]                 = "orders/incomplete_orders";
+$route["cancelled-orders"]                  = "orders/cancelled_orders";
 
-$route["users"]                     = "users";
-$route["authorized-users"]          = "users/authorized_users";
-$route["user-roles"]                = "user_roles";
-$route["user-permissions"]          = "user_permissions";
+$route["blog"]                              = "blog";
+$route["blog-comments"]                     = "blog/blog_comments";
+$route["blog/new"]                          = "blog/new_form";
+$route["blog/update/(:any)"]                = "blog/update_form/$1";
 
-$route["sliders"]                   = "sliders";
+$route["users"]                             = "users";
+$route["authorized-users"]                  = "users/authorized_users";
+$route["users/new"]                         = "users/new_form";
+$route["users/update/(:any)"]               = "users/update_form/$1";
+$route["users/update-password/(:any)"]      = "users/update_password_form/$1";
 
-$route["portfolio"]                 = "portfolio";
-$route["portfolio/images/(:any)"]   = "portfolio/image_form/$1";
+$route["user-roles"]                        = "user_roles";
+$route["user-roles/new"]                    = "user_roles/new_form";
+$route["user-roles/update/(:any)"]          = "user_roles/update_form/$1";
+$route["user-roles/permissions/(:any)"]     = "user_roles/permissions_form/$1";
 
-$route["settings"]                  = "settings";
+$route["sliders"]                           = "sliders";
+$route["sliders/new"]                       = "sliders/new_form";
+$route["sliders/update/(:any)"]             = "sliders/update_form/$1";
 
-$route["login"]                     = "userop/login";
-$route["logout"]                    = "userop/logout";
-$route["register"]                  = "userop/register";
-$route["forget-password"]           = "userop/forget_password";
-$route["reset-password"]            = "userop/reset_password";
+$route["portfolio"]                         = "portfolio";
+$route["portfolio/images/(:any)"]           = "portfolio/image_form/$1";
+$route["portfolio/new"]                     = "portfolio/new_form";
+$route["portfolio/update/(:any)"]           = "portfolio/update_form/$1";
+
+$route["settings"]                          = "settings";
+
+$route["login"]                             = "userop/login";
+$route["logout"]                            = "userop/logout";
+$route["register"]                          = "userop/register";
+$route["forget-password"]                   = "userop/forget_password";
+$route["reset-password"]                    = "userop/reset_password";

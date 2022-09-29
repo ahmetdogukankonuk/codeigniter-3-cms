@@ -37,6 +37,74 @@ class User_roles extends CI_Controller {
         
 	}
 
+    public function new_form(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "add";
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function save(){
+
+        $this->load->library("form_validation");
+        
+        $this->form_validation->set_rules("title", "Product Name English", "required|trim");
+        
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $insert = $this->user_roles_model->add(
+                array(
+                    "title"                 => $this->input->post("title"),
+                    "isActive"              => 1,
+                    "createdAt"             => date("Y-m-d H:i:s"),
+                    "updatedAt"             => date("Y-m-d H:i:s")
+                )
+            );
+
+            if($insert){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The record was added successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is not Successful!",
+                    "text"  => "There was a problem while adding data",
+                    "type"  => "error"
+                );
+                
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+            redirect(base_url("user-roles"));
+
+        } else {
+
+            $viewData = new stdClass();
+            $viewData->viewFolder       = $this->viewFolder;
+            $viewData->subViewFolder    = "add";
+            $viewData->form_error       = true;
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+            
+        }
+
+    }
+
     public function delete($id){
 
         $delete = $this->user_roles_model->delete(

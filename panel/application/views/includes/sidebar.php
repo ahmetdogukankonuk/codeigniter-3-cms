@@ -20,7 +20,7 @@
                             <div class="collapse" id="dashboard-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pt-2 small">
                                     <li>
-                                        <a href="<?php echo base_url("new-category"); ?>" class="sidebar-sublink rounded">
+                                        <a href="<?php echo base_url("categories/new"); ?>" class="sidebar-sublink rounded">
                                             <i class="bi bi-folder-plus sub-sidebar-icon"></i>
                                             New Category
                                         </a>
@@ -28,7 +28,7 @@
                                             <i class="bi bi-folder sub-sidebar-icon"></i>
                                             Categories
                                         </a>
-                                        <a href="<?php echo base_url("new-product"); ?>" class="sidebar-sublink rounded">
+                                        <a href="<?php echo base_url("products/new"); ?>" class="sidebar-sublink rounded">
                                             <i class="bi bi-plus-circle sub-sidebar-icon"></i>
                                             New Product
                                         </a>
@@ -49,7 +49,7 @@
                             <div class="collapse" id="orders-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pt-2 small">
                                     <li>
-                                        <a href="<?php echo base_url("new-order"); ?>" class="sidebar-sublink rounded">
+                                        <a href="<?php echo base_url("orders/new"); ?>" class="sidebar-sublink rounded">
                                             <i class="bi bi-bag-plus sub-sidebar-icon"></i>
                                             New Order
                                         </a>
@@ -82,7 +82,7 @@
                             <div class="collapse" id="blog-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pt-2 small">
                                     <li>
-                                        <a href="<?php echo base_url("new-post"); ?>" class="sidebar-sublink rounded">
+                                        <a href="<?php echo base_url("blog/new"); ?>" class="sidebar-sublink rounded">
                                             <i class="bi bi-pencil-square sub-sidebar-icon"></i>
                                             New Post
                                         </a>
@@ -111,7 +111,7 @@
                                             <i class="bi bi-chat sub-sidebar-icon"></i>
                                             User Messages
                                         </a>
-                                        <a href="<?php echo base_url("new-user"); ?>" class="sidebar-sublink rounded">
+                                        <a href="<?php echo base_url("users/new"); ?>" class="sidebar-sublink rounded">
                                             <i class="bi bi-person-plus sub-sidebar-icon"></i>
                                             New User
                                         </a>
