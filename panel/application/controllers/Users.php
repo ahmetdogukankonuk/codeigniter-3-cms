@@ -121,6 +121,102 @@ class Users extends CI_Controller {
         }
 
     }
+
+    public function update_form($id){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $item = $this->users_model->get(
+            array(
+                "id"    => $id,
+            )
+        );
+
+        $viewData->user_roles = $this->user_roles_model->get_all(
+            array(
+                "isActive"  => 1
+            )
+        );
+
+        $this->load->helper("tools");
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "update";
+        $viewData->item = $item;
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function update_user($id){
+
+        $this->load->library("form_validation");
+        
+        $this->form_validation->set_rules("name", "User Name", "required|trim");
+        $this->form_validation->set_rules("surname", "User Surname", "required|trim");
+        $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email|is_unique[users.email]");
+        $this->form_validation->set_rules("userRoleID", "User Role", "required|trim");
+
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $update = $this->users_model->update(
+                array(
+                        "id" => $id
+                ),
+                array(
+                    "name"                  => $this->input->post("name"),
+                    "surname"               => $this->input->post("surname"),
+                    "email"                 => $this->input->post("email"),
+                    "userRoleID"            => $this->input->post("userRoleID"),
+                    "updatedAt"             => date("Y-m-d H:i:s")
+                )
+            );
+
+            if($update){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The record was updated successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is Unsuccessful!",
+                    "text"  => "There was a problem while updating the record",
+                    "type"  => "error"
+                );
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("users"));
+
+        } else {
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "update";
+            $viewData->form_error = true;
+            
+            $viewData->item = $this->users_model->get(
+                array(
+                    "id"    => $id,
+                )
+            );
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+        }
+
+    }
     
     public function authorized_users()
 	{

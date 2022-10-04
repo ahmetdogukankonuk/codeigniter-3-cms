@@ -58,7 +58,7 @@ class Product_categories extends CI_Controller {
 
     }
 
-    public function save(){
+    public function add_product_categories(){
         
         $this->load->library("form_validation");
         $this->load->helper("tools");
@@ -163,7 +163,136 @@ class Product_categories extends CI_Controller {
         }
 
     }
+
+    public function update_form($id){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $item = $this->product_categories_model->get(
+            array(
+                "id"    => $id,
+            )
+        );
+        
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "update";
+        $viewData->item = $item;
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
     
+    public function update_product_category($id){
+
+        $this->load->library("form_validation");
+        $this->load->helper("tools");
+        
+        $this->form_validation->set_rules("title", "Category Name English", "required|trim");
+        
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            if($_FILES["imgUrl"]["name"] !== "") {
+
+                $file_name = convertToSEO(pathinfo($_FILES["imgUrl"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["imgUrl"]["name"], PATHINFO_EXTENSION);
+
+                $config["allowed_types"] = "jpg|jpeg|png";
+                $config["upload_path"] = "uploads/$this->viewFolder/";
+                $config["file_name"] = $file_name;
+
+                $this->load->library("upload", $config);
+
+                $upload = $this->upload->do_upload("imgUrl");
+
+                if ($upload) {
+
+                    $uploaded_file = $this->upload->data("file_name");
+
+                    $data = array(
+                        "title"                 => $this->input->post("title"),
+                        "title_tr"              => $this->input->post("title_tr"),
+                        "description"           => $this->input->post("description"),
+                        "description_tr"        => $this->input->post("description_tr"),
+                        "imgUrl"                => $uploaded_file,
+                        "updatedAt"             => date("Y-m-d H:i:s")
+                    );
+
+                } else {
+
+                    $alert = array(
+                        "title" => "Operation is Unsuccessful!",
+                        "text"  => "There was a problem while adding data",
+                        "type"  => "error"
+                    );
+
+                    $this->session->set_flashdata("alert", $alert);
+
+                    redirect(base_url("categories/update/$id"));
+
+                    die();
+
+                }
+
+            } else {
+
+                $data = array(
+                    "title"                 => $this->input->post("title"),
+                    "title_tr"              => $this->input->post("title_tr"),
+                    "description"           => $this->input->post("description"),
+                    "description_tr"        => $this->input->post("description_tr"),
+                    "updatedAt"             => date("Y-m-d H:i:s")
+                );
+
+            }
+
+            $update = $this->product_categories_model->update(array("id" => $id), $data);
+
+            if($update){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The record was updated successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is Unsuccessful!",
+                    "text"  => "There was a problem while updating the record",
+                    "type"  => "error"
+                );
+
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("categories"));
+
+        } else {
+
+            $viewData = new stdClass();
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "update";
+            $viewData->form_error = true;
+
+            $viewData->item = $this->product_categories_model->get(
+                array(
+                    "id"    => $id,
+                )
+            );
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+        }
+
+    }
+
     public function delete($id){
         
         $delete = $this->product_categories_model->delete(

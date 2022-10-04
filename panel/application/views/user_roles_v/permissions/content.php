@@ -83,6 +83,12 @@
                                         <button class="btn btn-theme rounded-4" type="submit">Save</button>
                                     </div>
 
+                                    <div class="d-grid mt-2">
+                                        <a href="<?php echo base_url("user-roles") ?>" class="btn btn-outline-primary rounded-4 p-2">
+                                            User Roles
+                                        </a>
+                                    </div>
+
                                 </form>
 
                             </div>

@@ -8,7 +8,7 @@
                     <div class="col-12">
                         <div class="card border-0 rounded-4 shadow py-5 card-bg">
                             <div class="px-xl-5 px-4">
-                                <form action="<?php echo base_url("sliders/save"); ?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url("sliders/add_slider"); ?>" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mb-3">

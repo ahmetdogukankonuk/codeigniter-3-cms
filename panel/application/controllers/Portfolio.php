@@ -53,7 +53,7 @@ class Portfolio extends CI_Controller {
 
     }
 
-    public function save(){
+    public function add_project(){
 
         $this->load->library("form_validation");
 
@@ -113,6 +113,99 @@ class Portfolio extends CI_Controller {
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
             
+        }
+
+    }
+
+    public function update_form($id){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $item = $this->portfolio_model->get(
+            array(
+                "id"    => $id,
+            )
+        );
+
+        $this->load->helper("tools");
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "update";
+        $viewData->item = $item;
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function update_project($id){
+
+        $this->load->library("form_validation");
+        
+        $this->form_validation->set_rules("title", "Product Name English", "required|trim");
+
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $update = $this->portfolio_model->update(
+                array(
+                        "id" => $id
+                ),
+                array(
+                    "title"                 => $this->input->post("title"),
+                    "title_tr"              => $this->input->post("title_tr"),
+                    "description"           => $this->input->post("description"),
+                    "description_tr"        => $this->input->post("description_tr"),
+                    "video"                 => $this->input->post("video"),
+                    "companyName"           => $this->input->post("companyName"),
+                    "companyWebsite"        => $this->input->post("companyWebsite"),
+                    "companyPhone"          => $this->input->post("companyPhone"),
+                    "companyMail"           => $this->input->post("companyMail"),
+                    "date"                  => $this->input->post("date"),
+                    "updatedAt"             => date("Y-m-d H:i:s")
+                )
+            );
+
+            if($update){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The record was updated successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is Unsuccessful!",
+                    "text"  => "There was a problem while updating the record",
+                    "type"  => "error"
+                );
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("portfolio"));
+
+        } else {
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "update";
+            $viewData->form_error = true;
+            
+            $viewData->item = $this->portfolio_model->get(
+                array(
+                    "id"    => $id,
+                )
+            );
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         }
 
     }

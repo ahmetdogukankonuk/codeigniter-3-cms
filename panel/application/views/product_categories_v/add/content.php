@@ -8,7 +8,7 @@
                     <div class="col-12">
                         <div class="card border-0 rounded-4 shadow py-5 card-bg">
                             <div class="px-xl-5 px-4">
-                                <form action="<?php echo base_url("product_categories/save"); ?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url("product_categories/add_product_categories"); ?>" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">

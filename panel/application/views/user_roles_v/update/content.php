@@ -1,5 +1,5 @@
         <div class="px-4 page-title title-color">
-            <h3>New User Role</h3>
+            <h3>Update User Role</h3>
         </div>
 
         <section class="mb-5">
@@ -8,18 +8,18 @@
                     <div class="col-12">
                         <div class="card border-0 rounded-4 shadow py-5 card-bg">
                             <div class="px-xl-5 px-4">
-                                <form action="<?php echo base_url("user_roles/add_user_role"); ?>" method="post">
+                                <form action="<?php echo base_url("user_roles/update_user_role/$item->id"); ?>" method="post">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="">
                                                 <label for="title" class="form-label text-color">Title</label>
-                                                <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                                                <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="<?php echo $item->title; ?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="d-grid mt-3">
                                         <button type="submit" class="btn btn-theme rounded-4 p-2">
-                                            Save
+                                            Update
                                         </button>
                                     </div>
                                     <div class="d-grid mt-2">

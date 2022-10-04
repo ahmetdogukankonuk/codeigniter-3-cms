@@ -40,7 +40,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="update-product.html">
+                                                        <a href="<?php echo base_url("blog/update/$item->id"); ?>">
                                                             <i class="bi bi-pencil-square fs-5 text-info mx-2"></i>
                                                         </a>
                                                         <a class="remove-btn" data-url="<?php echo base_url("blog/delete/$item->id"); ?>">

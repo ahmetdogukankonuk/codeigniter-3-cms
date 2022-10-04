@@ -60,7 +60,7 @@ class Products extends CI_Controller {
 
     }
 
-    public function save(){
+    public function add_product(){
 
         $this->load->library("form_validation");
 
@@ -119,6 +119,104 @@ class Products extends CI_Controller {
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
             
+        }
+
+    }
+
+    public function update_form($id){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $item = $this->products_model->get(
+            array(
+                "id"    => $id,
+            )
+        );
+        
+        $viewData->product_categories = $this->product_categories_model->get_all(
+            array(
+                "isActive"  => 1
+            )
+        );
+
+        $this->load->helper("tools");
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "update";
+        $viewData->item = $item;
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function update_product($id){
+
+        $this->load->library("form_validation");
+        
+        $this->form_validation->set_rules("categoryID", "Product Category", "required|trim");
+        $this->form_validation->set_rules("title", "Product Name English", "required|trim");
+        $this->form_validation->set_rules("price", "Product Price", "required|trim");
+
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $update = $this->products_model->update(
+                array(
+                        "id" => $id
+                ),
+                array(
+                    "categoryID"            => $this->input->post("categoryID"),
+                    "title"                 => $this->input->post("title"),
+                    "title_tr"              => $this->input->post("title_tr"),
+                    "description"           => $this->input->post("description"),
+                    "description_tr"        => $this->input->post("description_tr"),
+                    "video"                 => $this->input->post("video"),
+                    "price"                 => $this->input->post("price"),
+                    "updatedAt"             => date("Y-m-d H:i:s")
+                )
+            );
+
+            if($update){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The record was updated successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is Unsuccessful!",
+                    "text"  => "There was a problem while updating the record",
+                    "type"  => "error"
+                );
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("products"));
+
+        } else {
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "update";
+            $viewData->form_error = true;
+            
+            $viewData->item = $this->products_model->get(
+                array(
+                    "id"    => $id,
+                )
+            );
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         }
 
     }

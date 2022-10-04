@@ -42,7 +42,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="#">
+                                                        <a href="<?php echo base_url("users/update/$item->id"); ?>">
                                                             <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
                                                         </a>
                                                         <a class="remove-btn" data-url="<?php echo base_url("users/authorizedDelete/$item->id"); ?>">

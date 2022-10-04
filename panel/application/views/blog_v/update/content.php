@@ -1,5 +1,5 @@
         <div class="px-4 page-title title-color">
-            <h3>New Post</h3>
+            <h3>Update Post</h3>
         </div>
 
         <section class="mb-5">
@@ -8,18 +8,18 @@
                     <div class="col-12">
                         <div class="card border-0 rounded-4 shadow py-5 card-bg">
                             <div class="px-xl-5 px-4">
-                                <form action="<?php echo base_url("blog/add_post"); ?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url("blog/update_post/$item->id"); ?>" method="post" enctype="multipart/form-data">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="title" class="form-label text-color">Post Title (English)</label>
-                                                <input type="text" class="form-control" name="title" id="title" placeholder="Post Title (English)">
+                                                <input type="text" class="form-control" name="title" id="title" placeholder="Post Title (English)" value="<?php echo $item->title; ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="title_tr" class="form-label text-color">Post Title (Turkish)</label>
-                                                <input type="text" class="form-control" name="title_tr" id="title_tr" placeholder="Post Title (Turkish)">
+                                                <input type="text" class="form-control" name="title_tr" id="title_tr" placeholder="Post Title (Turkish)" value="<?php echo $item->title_tr; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -28,14 +28,20 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="text" class="form-label text-color">Post Text (English)</label>
-                                                <textarea class="form-control" name="text" id="text" cols="30" rows="10" placeholder="Post Text (English)"></textarea>
+                                                <textarea class="form-control" name="text" id="text" cols="30" rows="10" placeholder="Post Text (English)"><?php echo $item->text; ?></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="text_tr" class="form-label text-color">Post Text (Turkish)</label>
-                                                <textarea class="form-control" name="text_tr" id="text_tr" cols="30" rows="10" placeholder="Post Text (Turkish)"></textarea>
+                                                <textarea class="form-control" name="text_tr" id="text_tr" cols="30" rows="10" placeholder="Post Text (Turkish)"><?php echo $item->text_tr; ?></textarea>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12 my-3">
+                                            <img class="img-fluid rounded-4" src="<?php echo base_url("uploads/blog_v/$item->imgUrl"); ?>" alt="">
                                         </div>
                                     </div>
 
