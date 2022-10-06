@@ -302,4 +302,86 @@ class Users extends CI_Controller {
         redirect(base_url("authorized-users"));
 
     }
+
+    public function update_password_form($id){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        $viewData = new stdClass();
+
+        $item = $this->users_model->get(
+            array(
+                "id"    => $id,
+            )
+        );
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "password";
+        $viewData->item = $item;
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    public function update_password($id){
+
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("password", "Password", "required|trim|min_length[6]|max_length[8]");
+        $this->form_validation->set_rules("re_password", "Confirm Password", "required|trim|min_length[6]|max_length[8]|matches[password]");
+
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $update = $this->users_model->update(
+                array("id" => $id),
+                array(
+                    "password"      => md5($this->input->post("password")),
+                )
+            );
+            
+            if($update){
+
+                $alert = array(
+                    "title" => "Operation is Successful!",
+                    "text"  => "The password changed successfully",
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => "Operation is Unsuccessful!",
+                    "text"  => "There was a problem while changing the password",
+                    "type"  => "error"
+                );
+
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("users"));
+
+        } else {
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "password";
+            $viewData->form_error = true;
+
+            $viewData->item = $this->users_model->get(
+                array(
+                    "id"    => $id,
+                )
+            );
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+        }
+
+    }
 }
