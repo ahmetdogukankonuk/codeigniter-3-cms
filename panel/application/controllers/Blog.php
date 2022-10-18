@@ -24,8 +24,8 @@ class Blog extends CI_Controller {
             redirect(base_url("login"));
         }
         
-        if(!get_active_user()){
-            redirect(base_url("login"));
+        if(!isAllowedViewModule()){
+            redirect(base_url());
         }
        
 	    $viewData = new stdClass();
@@ -47,6 +47,10 @@ class Blog extends CI_Controller {
         if(!get_active_user()){
             redirect(base_url("login"));
         }
+
+        if(!isAllowedWriteModule()){
+            redirect(base_url("blog"));
+        }
         
         $viewData = new stdClass();
 
@@ -65,6 +69,10 @@ class Blog extends CI_Controller {
 
     public function add_post(){
         
+        if(!isAllowedWriteModule()){
+            redirect(base_url("blog"));
+        }
+
         $this->load->library("form_validation");
         $this->load->helper("tools");
 
@@ -178,6 +186,10 @@ class Blog extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("blog"));
+        }
+
         $viewData = new stdClass();
 
         $item = $this->blog_model->get(
@@ -195,6 +207,10 @@ class Blog extends CI_Controller {
     }
 
     public function update_post($id){
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("blog"));
+        }
 
         $this->load->library("form_validation");
         $this->load->helper("tools");
@@ -305,9 +321,12 @@ class Blog extends CI_Controller {
 
     }
 
-    public function blog_comments()
-	{
-       
+    public function blog_comments(){
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
+        }
+
 	    $viewData = new stdClass();
 
         $items = $this->blog_comments_model->get_all(
@@ -323,6 +342,10 @@ class Blog extends CI_Controller {
 	}
 
     public function delete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("blog"));
+        }
 
         $delete = $this->blog_model->delete(
             array(
@@ -355,6 +378,10 @@ class Blog extends CI_Controller {
 
     public function commentDelete($id){
 
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("blog"));
+        }
+        
         $delete = $this->blog_comments_model->delete(
             array(
                 "id"    => $id

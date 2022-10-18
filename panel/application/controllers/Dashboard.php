@@ -21,6 +21,10 @@ class Dashboard extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedViewModule()){
+            redirect(base_url());
+        }
+        
 	    $viewData = new stdClass();
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";

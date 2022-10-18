@@ -31,6 +31,10 @@ class Settings extends CI_Controller {
         if(!get_active_user()){
             redirect(base_url("login"));
         }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
+        }
         
 	    $viewData = new stdClass();
 
@@ -103,6 +107,14 @@ class Settings extends CI_Controller {
 
     public function website_update(){
 
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
+
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("websiteTitle", "Website Title", "required|trim");
@@ -169,6 +181,14 @@ class Settings extends CI_Controller {
     }
 
     public function company_update(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
 
         $this->load->library("form_validation");
 
@@ -237,6 +257,14 @@ class Settings extends CI_Controller {
     
     public function social_update(){
 
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
+
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("whatsapp", "Whatsapp", "required|trim");
@@ -304,6 +332,14 @@ class Settings extends CI_Controller {
 
     public function address_update(){
 
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
+
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("text", "Address", "required|trim");
@@ -364,6 +400,14 @@ class Settings extends CI_Controller {
     }
 
     public function about_update(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
 
         $this->load->library("form_validation");
 
@@ -426,6 +470,14 @@ class Settings extends CI_Controller {
 
     public function mission_update(){
 
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
+
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("text", "Address", "required|trim");
@@ -486,6 +538,14 @@ class Settings extends CI_Controller {
     }
 
     public function vision_update(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
 
         $this->load->library("form_validation");
 
@@ -548,6 +608,14 @@ class Settings extends CI_Controller {
 
     public function privacy_update(){
 
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
+
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("text", "Address", "required|trim");
@@ -609,6 +677,14 @@ class Settings extends CI_Controller {
 
     public function terms_update(){
 
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
+
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("text", "Address", "required|trim");
@@ -669,6 +745,14 @@ class Settings extends CI_Controller {
     }
 
     public function navbar_logo_update(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
 
         $this->load->library("form_validation");
         $this->load->helper("tools");
@@ -769,6 +853,14 @@ class Settings extends CI_Controller {
 
     public function footer_logo_update(){
 
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
+
         $this->load->library("form_validation");
         $this->load->helper("tools");
         
@@ -867,6 +959,14 @@ class Settings extends CI_Controller {
     }
 
     public function favicon_update(){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
 
         $this->load->library("form_validation");
         $this->load->helper("tools");

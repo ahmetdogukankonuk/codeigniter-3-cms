@@ -35,28 +35,28 @@
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-switch d-flex justify-content-center">
-                                                            <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                                                            <input class="form-check-input fs-4" type="checkbox" role="switch" id="read"
                                                             name="permissions[<?php echo $controllerName; ?>][read]" 
                                                             <?php echo (isset($permissions->$controllerName) && isset($permissions->$controllerName->read)) ? "checked" : ""; ?>>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-switch d-flex justify-content-center">
-                                                            <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" 
+                                                            <input class="form-check-input fs-4" type="checkbox" role="switch" id="write" 
                                                             name="permissions[<?php echo $controllerName; ?>][write]" 
                                                             <?php echo (isset($permissions->$controllerName) && isset($permissions->$controllerName->write)) ? "checked" : ""; ?>>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-switch d-flex justify-content-center">
-                                                            <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                                                            <input class="form-check-input fs-4" type="checkbox" role="switch" id="update"
                                                             name="permissions[<?php echo $controllerName; ?>][update]" 
                                                             <?php echo (isset($permissions->$controllerName) && isset($permissions->$controllerName->update)) ? "checked" : ""; ?>>
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <div class="form-check form-switch d-flex justify-content-center">
-                                                            <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" 
+                                                            <input class="form-check-input fs-4" type="checkbox" role="switch" id="delete" 
                                                             name="permissions[<?php echo $controllerName; ?>][delete]" 
                                                             <?php echo (isset($permissions->$controllerName) && isset($permissions->$controllerName->delete)) ? "checked" : ""; ?>>
                                                         </div>

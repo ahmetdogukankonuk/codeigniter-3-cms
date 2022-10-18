@@ -22,6 +22,10 @@ class Product_categories extends CI_Controller {
         if(!get_active_user()){
             redirect(base_url("login"));
         }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
+        }
         
 	    $viewData = new stdClass();
 
@@ -43,6 +47,10 @@ class Product_categories extends CI_Controller {
             redirect(base_url("login"));
         }
         
+        if(!isAllowedWriteModule()){
+            redirect(base_url("product-categories"));
+        }
+
         $viewData = new stdClass();
 
         $viewData->product_categories = $this->product_categories_model->get_all(
@@ -60,6 +68,10 @@ class Product_categories extends CI_Controller {
 
     public function add_product_categories(){
         
+        if(!isAllowedWriteModule()){
+            redirect(base_url("product-categories"));
+        }
+
         $this->load->library("form_validation");
         $this->load->helper("tools");
 
@@ -165,9 +177,13 @@ class Product_categories extends CI_Controller {
     }
 
     public function update_form($id){
-
+        
         if(!get_active_user()){
             redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("product-categories"));
         }
 
         $viewData = new stdClass();
@@ -187,6 +203,10 @@ class Product_categories extends CI_Controller {
     }
     
     public function update_product_category($id){
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("product-categories"));
+        }
 
         $this->load->library("form_validation");
         $this->load->helper("tools");
@@ -295,6 +315,10 @@ class Product_categories extends CI_Controller {
 
     public function delete($id){
         
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("product-categories"));
+        }
+
         $delete = $this->product_categories_model->delete(
             array(
                 "id"    => $id

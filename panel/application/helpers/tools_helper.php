@@ -119,6 +119,12 @@ function getControllerList(){
     
 }
 
+function get_user_roles(){
+
+    $t = &get_instance();
+    return $t->session->userdata("user_roles");
+}
+
 function setUserRoles(){
 
     $t = &get_instance();

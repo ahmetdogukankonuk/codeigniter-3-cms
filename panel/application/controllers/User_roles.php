@@ -16,11 +16,14 @@ class User_roles extends CI_Controller {
 
     }
 
-    public function index()
-	{
+    public function index(){
        
         if(!get_active_user()){
             redirect(base_url("login"));
+        }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
         }
         
 	    $viewData = new stdClass();
@@ -43,6 +46,10 @@ class User_roles extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedWriteModule()){
+            redirect(base_url("user-roles"));
+        }
+
         $viewData = new stdClass();
 
         $viewData->viewFolder = $this->viewFolder;
@@ -54,6 +61,10 @@ class User_roles extends CI_Controller {
 
     public function add_user_role(){
 
+        if(!isAllowedWriteModule()){
+            redirect(base_url("user-roles"));
+        }
+        
         $this->load->library("form_validation");
         
         $this->form_validation->set_rules("title", "Product Name English", "required|trim");
@@ -112,6 +123,10 @@ class User_roles extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("user-roles"));
+        }
+
         $viewData = new stdClass();
 
         $item = $this->user_roles_model->get(
@@ -131,6 +146,10 @@ class User_roles extends CI_Controller {
     }
 
     public function update_user_role($id){
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("user-roles"));
+        }
 
         $this->load->library("form_validation");
         
@@ -192,6 +211,10 @@ class User_roles extends CI_Controller {
 
     public function delete($id){
 
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("user-roles"));
+        }
+
         $delete = $this->user_roles_model->delete(
             array(
                 "id"    => $id
@@ -223,6 +246,14 @@ class User_roles extends CI_Controller {
 
     public function permissions_form($id){
 
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
+        }
+
         $viewData = new stdClass();
 
         $item = $this->user_roles_model->get(
@@ -240,6 +271,10 @@ class User_roles extends CI_Controller {
     }
 
     public function update_permissions($id){
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("user-roles"));
+        }
 
         $permissions = json_encode($this->input->post("permissions"));
 

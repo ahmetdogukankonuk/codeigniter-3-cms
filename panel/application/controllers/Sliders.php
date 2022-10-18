@@ -16,11 +16,14 @@ class Sliders extends CI_Controller {
 
     }
 
-    public function index()
-	{
+    public function index(){
         
         if(!get_active_user()){
             redirect(base_url("login"));
+        }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
         }
         
 	    $viewData = new stdClass();
@@ -43,6 +46,10 @@ class Sliders extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedWriteModule()){
+            redirect(base_url("sliders"));
+        }
+
         $viewData = new stdClass();
 
         $viewData->viewFolder = $this->viewFolder;
@@ -53,6 +60,10 @@ class Sliders extends CI_Controller {
     }
 
     public function add_slider(){
+
+        if(!isAllowedWriteModule()){
+            redirect(base_url("sliders"));
+        }
         
         $this->load->library("form_validation");
         $this->load->helper("tools");
@@ -162,6 +173,10 @@ class Sliders extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("sliders"));
+        }
+
         $viewData = new stdClass();
 
         $item = $this->sliders_model->get(
@@ -179,6 +194,10 @@ class Sliders extends CI_Controller {
     }
 
     public function update_slider($id){
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("sliders"));
+        }
 
         $this->load->library("form_validation");
         $this->load->helper("tools");
@@ -284,6 +303,10 @@ class Sliders extends CI_Controller {
     }
 
     public function delete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("sliders"));
+        }
 
         $delete = $this->sliders_model->delete(
             array(

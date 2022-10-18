@@ -16,11 +16,14 @@ class Orders extends CI_Controller {
 
     }
 
-    public function index()
-	{
+    public function index(){
 
         if(!get_active_user()){
             redirect(base_url("login"));
+        }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
         }
        
 	    $viewData = new stdClass();
@@ -37,11 +40,14 @@ class Orders extends CI_Controller {
         
 	}
 
-    public function completed_orders()
-	{
+    public function completed_orders(){
        
         if(!get_active_user()){
             redirect(base_url("login"));
+        }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
         }
 
 	    $viewData = new stdClass();
@@ -60,11 +66,14 @@ class Orders extends CI_Controller {
         
 	}
 
-    public function incomplete_orders()
-	{
+    public function incomplete_orders(){
        
         if(!get_active_user()){
             redirect(base_url("login"));
+        }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
         }
 
 	    $viewData = new stdClass();
@@ -83,11 +92,14 @@ class Orders extends CI_Controller {
         
 	}
 
-    public function cancelled_orders()
-	{
+    public function cancelled_orders(){
        
         if(!get_active_user()){
             redirect(base_url("login"));
+        }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
         }
         
 	    $viewData = new stdClass();
@@ -107,6 +119,10 @@ class Orders extends CI_Controller {
 	}
 
     public function delete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("orders"));
+        }
 
         $delete = $this->orders_model->delete(
             array(
@@ -139,6 +155,10 @@ class Orders extends CI_Controller {
 
     public function cancelledDelete($id){
 
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("orders"));
+        }
+
         $delete = $this->orders_model->delete(
             array(
                 "id"    => $id
@@ -169,6 +189,10 @@ class Orders extends CI_Controller {
     }
 
     public function completedDelete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("orders"));
+        }
 
         $delete = $this->orders_model->delete(
             array(
@@ -201,6 +225,10 @@ class Orders extends CI_Controller {
 
     public function incompleteDelete($id){
 
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("orders"));
+        }
+        
         $delete = $this->orders_model->delete(
             array(
                 "id"    => $id

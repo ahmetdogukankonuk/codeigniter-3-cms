@@ -17,11 +17,14 @@ class Users extends CI_Controller {
 
     }
 
-    public function index()
-	{
+    public function index(){
         
         if(!get_active_user()){
             redirect(base_url("login"));
+        }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
         }
 
 	    $viewData = new stdClass();
@@ -44,6 +47,10 @@ class Users extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedWriteModule()){
+            redirect(base_url("users"));
+        }
+
         $viewData = new stdClass();
 
         $viewData->user_roles = $this->user_roles_model->get_all(
@@ -60,6 +67,10 @@ class Users extends CI_Controller {
     }
 
     public function admin_register(){
+
+        if(!isAllowedWriteModule()){
+            redirect(base_url("users"));
+        }
 
         $this->load->library("form_validation");
 
@@ -128,6 +139,10 @@ class Users extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("users"));
+        }
+
         $viewData = new stdClass();
 
         $item = $this->users_model->get(
@@ -153,6 +168,10 @@ class Users extends CI_Controller {
     }
 
     public function update_user($id){
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("users"));
+        }
 
         $this->load->library("form_validation");
         
@@ -218,11 +237,14 @@ class Users extends CI_Controller {
 
     }
     
-    public function authorized_users()
-	{
+    public function authorized_users(){
         
         if(!get_active_user()){
             redirect(base_url("login"));
+        }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
         }
         
 	    $viewData = new stdClass();
@@ -242,6 +264,10 @@ class Users extends CI_Controller {
 	}
 
     public function delete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("users"));
+        }
 
         $delete = $this->users_model->delete(
             array(
@@ -273,6 +299,10 @@ class Users extends CI_Controller {
     }
 
     public function authorizedDelete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("users"));
+        }
 
         $delete = $this->users_model->delete(
             array(
@@ -309,6 +339,10 @@ class Users extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("users"));
+        }
+
         $viewData = new stdClass();
 
         $item = $this->users_model->get(
@@ -326,6 +360,14 @@ class Users extends CI_Controller {
     }
 
     public function update_password($id){
+
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("users"));
+        }
 
         $this->load->library("form_validation");
 

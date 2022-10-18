@@ -24,6 +24,10 @@ class Products extends CI_Controller {
         if(!get_active_user()){
             redirect(base_url("login"));
         }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
+        }
         
 	    $viewData = new stdClass();
 
@@ -45,6 +49,10 @@ class Products extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedWriteModule()){
+            redirect(base_url("products"));
+        }
+
         $viewData = new stdClass();
 
         $viewData->product_categories = $this->product_categories_model->get_all(
@@ -61,6 +69,10 @@ class Products extends CI_Controller {
     }
 
     public function add_product(){
+
+        if(!isAllowedWriteModule()){
+            redirect(base_url("products"));
+        }
 
         $this->load->library("form_validation");
 
@@ -129,6 +141,10 @@ class Products extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("products"));
+        }
+
         $viewData = new stdClass();
 
         $item = $this->products_model->get(
@@ -154,6 +170,10 @@ class Products extends CI_Controller {
     }
 
     public function update_product($id){
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("products"));
+        }
 
         $this->load->library("form_validation");
         
@@ -226,6 +246,10 @@ class Products extends CI_Controller {
         if(!get_active_user()){
             redirect(base_url("login"));
         }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url());
+        }
         
         $viewData = new stdClass();
         $viewData->viewFolder = $this->viewFolder;
@@ -248,6 +272,10 @@ class Products extends CI_Controller {
     }
 
     public function delete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("products"));
+        }
 
         $delete = $this->products_model->delete(
             array(
@@ -280,6 +308,10 @@ class Products extends CI_Controller {
 
     public function imageDelete($id, $parent_id){
         
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("products"));
+        }
+
         $fileName = $this->product_images_model->get(
             array(
                 "id"    => $id

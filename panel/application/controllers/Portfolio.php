@@ -24,6 +24,10 @@ class Portfolio extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedViewModule()){
+            redirect(base_url());
+        }
+
 	    $viewData = new stdClass();
 
         $items = $this->portfolio_model->get_all(
@@ -44,6 +48,10 @@ class Portfolio extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedWriteModule()){
+            redirect(base_url("portfolio"));
+        }
+
         $viewData = new stdClass();
 
         $viewData->viewFolder = $this->viewFolder;
@@ -54,6 +62,10 @@ class Portfolio extends CI_Controller {
     }
 
     public function add_project(){
+
+        if(!isAllowedWriteModule()){
+            redirect(base_url("portfolio"));
+        }
 
         $this->load->library("form_validation");
 
@@ -123,6 +135,10 @@ class Portfolio extends CI_Controller {
             redirect(base_url("login"));
         }
 
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("portfolio"));
+        }
+
         $viewData = new stdClass();
 
         $item = $this->portfolio_model->get(
@@ -142,6 +158,10 @@ class Portfolio extends CI_Controller {
     }
 
     public function update_project($id){
+
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("portfolio"));
+        }
 
         $this->load->library("form_validation");
         
@@ -215,6 +235,10 @@ class Portfolio extends CI_Controller {
         if(!get_active_user()){
             redirect(base_url("login"));
         }
+
+        if(!isAllowedViewModule()){
+            redirect(base_url("portfolio"));
+        }
         
         $viewData = new stdClass();
         $viewData->viewFolder = $this->viewFolder;
@@ -237,6 +261,10 @@ class Portfolio extends CI_Controller {
     }
 
     public function delete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("portfolio"));
+        }
 
         $delete = $this->portfolio_model->delete(
             array(
@@ -269,6 +297,10 @@ class Portfolio extends CI_Controller {
 
     public function imageDelete($id, $parent_id){
         
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("portfolio"));
+        }
+
         $fileName = $this->portfolio_images_model->get(
             array(
                 "id"    => $id
