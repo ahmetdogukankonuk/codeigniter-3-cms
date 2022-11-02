@@ -5,8 +5,7 @@ class Orders extends CI_Controller {
 
     public $viewFolder = "";
 
-    public function __construct()
-    {
+    public function __construct(){
 
         parent::__construct();
 
@@ -15,6 +14,7 @@ class Orders extends CI_Controller {
         $this->load->model("orders_model");
 
     }
+
 
     public function index(){
 
@@ -39,6 +39,7 @@ class Orders extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
 
     public function completed_orders(){
        
@@ -66,6 +67,7 @@ class Orders extends CI_Controller {
         
 	}
 
+
     public function incomplete_orders(){
        
         if(!get_active_user()){
@@ -92,6 +94,7 @@ class Orders extends CI_Controller {
         
 	}
 
+
     public function cancelled_orders(){
        
         if(!get_active_user()){
@@ -117,6 +120,30 @@ class Orders extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
+
+    public function orderSituationSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+        
+        if($id){
+
+            $orderSituation = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->orders_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "orderSituation"  => $orderSituation
+                )
+            );
+        }
+
+    }
+
 
     public function delete($id){
 
@@ -153,6 +180,7 @@ class Orders extends CI_Controller {
 
     }
 
+
     public function cancelledDelete($id){
 
         if(!isAllowedDeleteModule()){
@@ -187,6 +215,7 @@ class Orders extends CI_Controller {
         redirect(base_url("cancelled-orders"));
 
     }
+
 
     public function completedDelete($id){
 
@@ -223,6 +252,7 @@ class Orders extends CI_Controller {
 
     }
 
+    
     public function incompleteDelete($id){
 
         if(!isAllowedDeleteModule()){

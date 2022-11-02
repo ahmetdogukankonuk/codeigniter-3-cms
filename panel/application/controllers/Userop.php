@@ -4,8 +4,7 @@ class Userop extends CI_Controller {
 
     public $viewFolder = "";
 
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
 
         $this->viewFolder = "users_v";
@@ -14,13 +13,15 @@ class Userop extends CI_Controller {
 
     }
 
+
     public function logout(){
 
         $this->session->unset_userdata("user");
         redirect(base_url("login"));
         
     }
-    
+
+
     public function login(){
 
         if(get_active_user()){
@@ -35,7 +36,8 @@ class Userop extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
-    
+
+
     public function do_login(){
         
         $this->load->library("form_validation");
@@ -96,6 +98,7 @@ class Userop extends CI_Controller {
         }
     }
 
+
     public function register(){
 
         if(get_active_user()){
@@ -110,6 +113,7 @@ class Userop extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function admin_register(){
         
@@ -184,6 +188,7 @@ class Userop extends CI_Controller {
         }
 
     }
+
 
     public function forget_password(){
         

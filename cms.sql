@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: localhost
--- Üretim Zamanı: 02 Kas 2022, 14:36:46
+-- Üretim Zamanı: 02 Kas 2022, 16:17:10
 -- Sunucu sürümü: 10.4.22-MariaDB
 -- PHP Sürümü: 8.1.2
 
@@ -89,8 +89,8 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `rank`, `userID`, `title`, `title_tr`, `text`, `text_tr`, `imgUrl`, `isActive`, `isOnMain`, `createdAt`, `updatedAt`) VALUES
-(1, 0, 0, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed dapibus ipsum, vitae rutrum diam. Integer sodales sed magna id bibendum. Curabitur pharetra ante vel risus blandit, sed venenatis purus viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In suscipit tellus urna, et eleifend diam bibendum iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla blandit ac orci at placerat.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed dapibus ipsum, vitae rutrum diam. Integer sodales sed magna id bibendum. Curabitur pharetra ante vel risus blandit, sed venenatis purus viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In suscipit tellus urna, et eleifend diam bibendum iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla blandit ac orci at placerat.', 'default.png', 1, 0, '2022-11-01 13:35:14', '2022-11-01 15:48:13'),
-(2, 0, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'default1.png', 1, 0, '2022-11-01 15:45:41', '2022-11-01 15:45:41'),
+(1, 0, 0, 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed dapibus ipsum, vitae rutrum diam. Integer sodales sed magna id bibendum. Curabitur pharetra ante vel risus blandit, sed venenatis purus viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In suscipit tellus urna, et eleifend diam bibendum iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla blandit ac orci at placerat.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed dapibus ipsum, vitae rutrum diam. Integer sodales sed magna id bibendum. Curabitur pharetra ante vel risus blandit, sed venenatis purus viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In suscipit tellus urna, et eleifend diam bibendum iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla blandit ac orci at placerat.', 'default.png', 1, 1, '2022-11-01 13:35:14', '2022-11-01 15:48:13'),
+(2, 0, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'default1.png', 1, 1, '2022-11-01 15:45:41', '2022-11-01 15:45:41'),
 (3, 0, 0, 'x', 'x', 'xxxLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'xxxLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'default2.png', 1, 0, '2022-11-01 15:47:20', '2022-11-01 15:48:32');
 
 -- --------------------------------------------------------
@@ -105,6 +105,7 @@ CREATE TABLE `blog_comments` (
   `userID` int(11) DEFAULT 1,
   `title` varchar(255) NOT NULL,
   `text` text DEFAULT NULL,
+  `isActive` tinyint(4) NOT NULL DEFAULT 1,
   `createdAt` datetime NOT NULL DEFAULT current_timestamp(),
   `updatedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -113,8 +114,8 @@ CREATE TABLE `blog_comments` (
 -- Tablo döküm verisi `blog_comments`
 --
 
-INSERT INTO `blog_comments` (`id`, `postID`, `userID`, `title`, `text`, `createdAt`, `updatedAt`) VALUES
-(1, 1, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', '2022-11-01 14:49:23', '2022-11-01 15:49:07');
+INSERT INTO `blog_comments` (`id`, `postID`, `userID`, `title`, `text`, `isActive`, `createdAt`, `updatedAt`) VALUES
+(1, 1, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 1, '2022-11-01 14:49:23', '2022-11-01 15:49:07');
 
 -- --------------------------------------------------------
 
@@ -537,6 +538,13 @@ CREATE TABLE `orders` (
   `updatedAt` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Tablo döküm verisi `orders`
+--
+
+INSERT INTO `orders` (`id`, `userID`, `name`, `surname`, `companyName`, `phone`, `email`, `addressTitle`, `country`, `city`, `town`, `postCode`, `address`, `orderTotal`, `orderTime`, `orderType`, `orderNotes`, `orderPayment`, `orderSituation`, `createdAt`, `updatedAt`) VALUES
+(1, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 119.90, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, '0', '2022-11-02 14:19:53', '2022-11-02 15:16:53');
+
 -- --------------------------------------------------------
 
 --
@@ -583,7 +591,7 @@ CREATE TABLE `portfolio` (
 --
 
 INSERT INTO `portfolio` (`id`, `date`, `title`, `title_tr`, `description`, `description_tr`, `video`, `companyName`, `companyWebsite`, `companyPhone`, `companyMail`, `isActive`, `isOnMain`, `isSuggested`, `createdAt`, `updatedAt`) VALUES
-(1, '2012-12-11', 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'https://www.youtube.com/watch?v=aEh0cJCwmTc', 'Lorem ipsum dolor', 'Lorem ipsum dolor', '+1111111', 'info@company.com', 1, 0, 0, '2022-11-02 16:08:57', '2022-11-01 16:11:41');
+(1, '2012-12-11', 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'https://www.youtube.com/watch?v=aEh0cJCwmTc', 'Lorem ipsum dolor', 'Lorem ipsum dolor', '+1111111', 'info@company.com', 1, 1, 1, '2022-11-02 16:08:57', '2022-11-01 16:11:41');
 
 -- --------------------------------------------------------
 
@@ -600,6 +608,14 @@ CREATE TABLE `portfolio_images` (
   `isCover` tinyint(4) NOT NULL DEFAULT 0,
   `createdAt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Tablo döküm verisi `portfolio_images`
+--
+
+INSERT INTO `portfolio_images` (`id`, `rank`, `portfolioID`, `imgUrl`, `isActive`, `isCover`, `createdAt`) VALUES
+(1, 0, 1, 'default.png', 1, 1, '2022-11-02 14:29:37'),
+(2, 0, 1, 'default1.png', 1, 0, '2022-11-02 14:29:37');
 
 -- --------------------------------------------------------
 
@@ -650,7 +666,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `rank`, `categoryID`, `title`, `title_tr`, `description`, `description_tr`, `video`, `price`, `isActive`, `isSuggested`, `isOnMain`, `createdAt`, `updatedAt`) VALUES
-(1, 0, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'https://www.youtube.com/watch?v=y3mVbF3Fr-g', 99.00, 1, 0, 0, '2022-11-01 15:19:17', '2022-11-01 15:19:26');
+(1, 0, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'https://www.youtube.com/watch?v=y3mVbF3Fr-g', 99.00, 1, 1, 1, '2022-11-01 15:19:17', '2022-11-01 15:19:26');
 
 -- --------------------------------------------------------
 
@@ -667,6 +683,15 @@ CREATE TABLE `product_images` (
   `isCover` tinyint(4) NOT NULL DEFAULT 0,
   `createdAt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Tablo döküm verisi `product_images`
+--
+
+INSERT INTO `product_images` (`id`, `rank`, `productID`, `imgUrl`, `isActive`, `isCover`, `createdAt`) VALUES
+(1, 0, 1, 'default.png', 1, 0, '2022-11-02 14:29:46'),
+(2, 0, 1, 'default1.png', 1, 0, '2022-11-02 14:29:46'),
+(3, 0, 1, 'default2.png', 1, 1, '2022-11-02 14:29:46');
 
 -- --------------------------------------------------------
 
@@ -815,8 +840,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `userRoleID`, `name`, `surname`, `email`, `password`, `addressTitle`, `companyName`, `country`, `city`, `town`, `address`, `postCode`, `isActive`, `isAuthority`, `createdAt`, `updatedAt`) VALUES
 (1, 2, 'Jane', 'Doe', 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', '', '', '', '', 1, 1, '2022-11-01 13:24:49', '2022-11-01 16:00:19'),
-(2, 1, 'Joe', 'Doe', 'joedoe@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'x', NULL, 'ZAMBIA', 'x', 'x', 'x', 'x', 1, 1, '2022-11-01 16:02:02', '2022-11-02 14:33:55'),
-(3, 1, 'Jane', 'Doe', 'janedoe@hotmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'x', NULL, 'UNITED STATES', 'x', 'x', 'x', 'x', 1, 1, '2022-11-02 14:35:46', '2022-11-02 14:35:46');
+(2, 1, 'Joe', 'Doe', 'joedoe@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'x', NULL, 'ZAMBIA', 'x', 'x', 'x', 'x', 1, 1, '2022-11-01 16:02:02', '2022-11-02 14:33:55');
 
 -- --------------------------------------------------------
 
@@ -1117,7 +1141,7 @@ ALTER TABLE `mission`
 -- Tablo için AUTO_INCREMENT değeri `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `order_details`
@@ -1135,7 +1159,7 @@ ALTER TABLE `portfolio`
 -- Tablo için AUTO_INCREMENT değeri `portfolio_images`
 --
 ALTER TABLE `portfolio_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `privacypolicy`
@@ -1153,7 +1177,7 @@ ALTER TABLE `products`
 -- Tablo için AUTO_INCREMENT değeri `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `returnpolicy`

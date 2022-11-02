@@ -5,8 +5,7 @@ class Products extends CI_Controller {
 
     public $viewFolder = "";
 
-    public function __construct()
-    {
+    public function __construct(){
 
         parent::__construct();
 
@@ -18,8 +17,8 @@ class Products extends CI_Controller {
 
     }
 
-    public function index()
-	{
+
+    public function index(){
        
         if(!get_active_user()){
             redirect(base_url("login"));
@@ -42,6 +41,7 @@ class Products extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
 
     public function new_form(){
 
@@ -67,6 +67,7 @@ class Products extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function add_product(){
 
@@ -135,6 +136,7 @@ class Products extends CI_Controller {
 
     }
 
+
     public function update_form($id){
 
         if(!get_active_user()){
@@ -168,6 +170,7 @@ class Products extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function update_product($id){
 
@@ -241,6 +244,7 @@ class Products extends CI_Controller {
 
     }
 
+
     public function image_form($id){
 
         if(!get_active_user()){
@@ -270,6 +274,7 @@ class Products extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function image_upload($id){
 
@@ -301,6 +306,145 @@ class Products extends CI_Controller {
 
     }
 
+
+    public function isActiveSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+        
+        if($id){
+
+            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->products_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isActive"  => $isActive
+                )
+            );
+        }
+
+    }
+
+
+    public function isOnMainSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        if($id){
+
+            $isOnMain = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->products_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isOnMain"  => $isOnMain
+                )
+            );
+        }
+    }
+
+
+    public function isSuggestedSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        if($id){
+
+            $isSuggested = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->products_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isSuggested"  => $isSuggested
+                )
+            );
+        }
+    }
+
+
+    public function imageIsActiveSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        if($id){
+
+            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->product_images_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isActive"  => $isActive
+                )
+            );
+        }
+    }
+
+
+    public function isCoverSetter($id, $parent_id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        if($id && $parent_id){
+
+            $isCover = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->product_images_model->update(
+                array(
+                    "id"        => $id,
+                    "productID" => $parent_id
+                ),
+                array(
+                    "isCover"   => $isCover
+                )
+            );
+
+            $this->product_images_model->update(
+                array(
+                    "id !="     => $id,
+                    "productID" => $parent_id
+                ),
+                array(
+                    "isCover"   => 0
+                )
+            );
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "image";
+
+            $viewData->item_images = $this->product_images_model->get_all(
+                array(
+                    "productID"    => $parent_id
+                ), "rank ASC"
+            );
+
+            $render_html = $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/render_elements/image_list_v", $viewData, true);
+
+            echo $render_html;
+
+        }
+    }
+
+    
     public function delete($id){
 
         if(!isAllowedDeleteModule()){
@@ -335,6 +479,7 @@ class Products extends CI_Controller {
         redirect(base_url("products"));
 
     }
+
 
     public function imageDelete($id, $parent_id){
         

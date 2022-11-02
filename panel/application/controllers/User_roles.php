@@ -5,8 +5,7 @@ class User_roles extends CI_Controller {
 
     public $viewFolder = "";
 
-    public function __construct()
-    {
+    public function __construct(){
 
         parent::__construct();
 
@@ -15,6 +14,7 @@ class User_roles extends CI_Controller {
         $this->load->model("user_roles_model");
 
     }
+
 
     public function index(){
        
@@ -40,6 +40,7 @@ class User_roles extends CI_Controller {
         
 	}
 
+
     public function new_form(){
 
         if(!get_active_user()){
@@ -58,6 +59,7 @@ class User_roles extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function add_user_role(){
 
@@ -117,6 +119,7 @@ class User_roles extends CI_Controller {
 
     }
 
+
     public function update_form($id){
 
         if(!get_active_user()){
@@ -144,6 +147,7 @@ class User_roles extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function update_user_role($id){
 
@@ -209,40 +213,6 @@ class User_roles extends CI_Controller {
 
     }
 
-    public function delete($id){
-
-        if(!isAllowedDeleteModule()){
-            redirect(base_url("user-roles"));
-        }
-
-        $delete = $this->user_roles_model->delete(
-            array(
-                "id"    => $id
-            )
-        );
-
-        if($delete){
-
-            $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "The record was successfully deleted",
-                "type"  => "success"
-            );
-
-        } else {
-
-            $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "There was a problem while deleting the record",
-                "type"  => "error"
-            );
-
-        }
-
-        $this->session->set_flashdata("alert", $alert);
-        redirect(base_url("user-roles"));
-
-    }
 
     public function permissions_form($id){
 
@@ -270,6 +240,7 @@ class User_roles extends CI_Controller {
 
     }
 
+    
     public function update_permissions($id){
 
         if(!isAllowedUpdateModule()){
@@ -308,5 +279,63 @@ class User_roles extends CI_Controller {
         redirect(base_url("user-roles/permissions/$id"));
 
     }
-    
+
+
+    public function isActiveSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+        
+        if($id){
+
+            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->user_roles_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isActive"  => $isActive
+                )
+            );
+        }
+
+    }
+
+
+    public function delete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("user-roles"));
+        }
+
+        $delete = $this->user_roles_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("user-roles"));
+
+    }
 }

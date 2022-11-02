@@ -5,8 +5,7 @@ class Users extends CI_Controller {
 
     public $viewFolder = "";
 
-    public function __construct()
-    {
+    public function __construct(){
 
         parent::__construct();
 
@@ -17,6 +16,7 @@ class Users extends CI_Controller {
         $this->load->model("country_model");
 
     }
+
 
     public function index(){
         
@@ -41,6 +41,7 @@ class Users extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
 
     public function new_form(){
 
@@ -72,6 +73,7 @@ class Users extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function admin_register(){
 
@@ -146,6 +148,7 @@ class Users extends CI_Controller {
 
     }
 
+
     public function update_form($id){
 
         if(!get_active_user()){
@@ -185,6 +188,7 @@ class Users extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function update_user($id){
 
@@ -261,7 +265,8 @@ class Users extends CI_Controller {
         }
 
     }
-    
+
+
     public function authorized_users(){
         
         if(!get_active_user()){
@@ -288,75 +293,6 @@ class Users extends CI_Controller {
         
 	}
 
-    public function delete($id){
-
-        if(!isAllowedDeleteModule()){
-            redirect(base_url("users"));
-        }
-
-        $delete = $this->users_model->delete(
-            array(
-                "id"    => $id
-            )
-        );
-
-        if($delete){
-
-            $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "The record was successfully deleted",
-                "type"  => "success"
-            );
-
-        } else {
-
-            $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "There was a problem while deleting the record",
-                "type"  => "error"
-            );
-
-        }
-
-        $this->session->set_flashdata("alert", $alert);
-        redirect(base_url("users"));
-
-    }
-
-    public function authorizedDelete($id){
-
-        if(!isAllowedDeleteModule()){
-            redirect(base_url("users"));
-        }
-
-        $delete = $this->users_model->delete(
-            array(
-                "id"    => $id
-            )
-        );
-
-        if($delete){
-
-            $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "The record was successfully deleted",
-                "type"  => "success"
-            );
-
-        } else {
-
-            $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "There was a problem while deleting the record",
-                "type"  => "error"
-            );
-
-        }
-
-        $this->session->set_flashdata("alert", $alert);
-        redirect(base_url("authorized-users"));
-
-    }
 
     public function update_password_form($id){
 
@@ -383,6 +319,7 @@ class Users extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function update_password($id){
 
@@ -449,6 +386,125 @@ class Users extends CI_Controller {
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
         }
+
+    }
+
+
+    public function isActiveSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+        
+        if($id){
+
+            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->users_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isActive"  => $isActive
+                )
+            );
+        }
+
+    }
+
+
+    public function isAuthoritySetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        if($id){
+
+            $isAuthority = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->users_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isAuthority"  => $isAuthority
+                )
+            );
+        }
+
+
+    }
+
+
+    public function delete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("users"));
+        }
+
+        $delete = $this->users_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("users"));
+
+    }
+
+    
+    public function authorizedDelete($id){
+
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("users"));
+        }
+
+        $delete = $this->users_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "The record was successfully deleted",
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => "Operation is Successful!",
+                "text"  => "There was a problem while deleting the record",
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("authorized-users"));
 
     }
 }

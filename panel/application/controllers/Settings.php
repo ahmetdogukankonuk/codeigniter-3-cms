@@ -5,8 +5,7 @@ class Settings extends CI_Controller {
 
     public $viewFolder = "";
 
-    public function __construct()
-    {
+    public function __construct(){
 
         parent::__construct();
 
@@ -25,8 +24,8 @@ class Settings extends CI_Controller {
 
     }
 
-    public function index()
-	{
+
+    public function index(){
         
         if(!get_active_user()){
             redirect(base_url("login"));
@@ -105,6 +104,7 @@ class Settings extends CI_Controller {
         
 	}
 
+
     public function website_update(){
 
         if(!get_active_user()){
@@ -180,6 +180,7 @@ class Settings extends CI_Controller {
 
     }
 
+
     public function company_update(){
 
         if(!get_active_user()){
@@ -254,7 +255,8 @@ class Settings extends CI_Controller {
         }
 
     }
-    
+
+
     public function social_update(){
 
         if(!get_active_user()){
@@ -330,6 +332,7 @@ class Settings extends CI_Controller {
 
     }
 
+
     public function address_update(){
 
         if(!get_active_user()){
@@ -398,6 +401,7 @@ class Settings extends CI_Controller {
         }
 
     }
+
 
     public function about_update(){
 
@@ -468,6 +472,7 @@ class Settings extends CI_Controller {
 
     }
 
+
     public function mission_update(){
 
         if(!get_active_user()){
@@ -536,6 +541,7 @@ class Settings extends CI_Controller {
         }
 
     }
+
 
     public function vision_update(){
 
@@ -606,6 +612,7 @@ class Settings extends CI_Controller {
 
     }
 
+
     public function privacy_update(){
 
         if(!get_active_user()){
@@ -675,6 +682,7 @@ class Settings extends CI_Controller {
 
     }
 
+
     public function terms_update(){
 
         if(!get_active_user()){
@@ -743,6 +751,7 @@ class Settings extends CI_Controller {
         }
 
     }
+
 
     public function navbar_logo_update(){
 
@@ -851,6 +860,7 @@ class Settings extends CI_Controller {
 
     }
 
+
     public function footer_logo_update(){
 
         if(!get_active_user()){
@@ -958,6 +968,7 @@ class Settings extends CI_Controller {
 
     }
 
+    
     public function favicon_update(){
 
         if(!get_active_user()){

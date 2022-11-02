@@ -5,8 +5,7 @@ class Sliders extends CI_Controller {
 
     public $viewFolder = "";
 
-    public function __construct()
-    {
+    public function __construct(){
 
         parent::__construct();
 
@@ -15,6 +14,7 @@ class Sliders extends CI_Controller {
         $this->load->model("sliders_model");
 
     }
+
 
     public function index(){
         
@@ -40,6 +40,7 @@ class Sliders extends CI_Controller {
         
 	}
 
+
     public function new_form(){
 
         if(!get_active_user()){
@@ -58,6 +59,7 @@ class Sliders extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function add_slider(){
 
@@ -167,6 +169,7 @@ class Sliders extends CI_Controller {
 
     }
 
+
     public function update_form($id){
 
         if(!get_active_user()){
@@ -192,6 +195,7 @@ class Sliders extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function update_slider($id){
 
@@ -301,6 +305,30 @@ class Sliders extends CI_Controller {
         }
 
     }
+
+    
+    public function isActiveSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+        
+        if($id){
+
+            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->sliders_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isActive"  => $isActive
+                )
+            );
+        }
+
+    }
+
 
     public function delete($id){
 

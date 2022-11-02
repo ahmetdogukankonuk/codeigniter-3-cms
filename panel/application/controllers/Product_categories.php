@@ -5,8 +5,7 @@ class Product_categories extends CI_Controller {
 
     public $viewFolder = "";
 
-    public function __construct()
-    {
+    public function __construct(){
 
         parent::__construct();
 
@@ -16,8 +15,8 @@ class Product_categories extends CI_Controller {
 
     }
 
-    public function index()
-	{
+
+    public function index(){
         
         if(!get_active_user()){
             redirect(base_url("login"));
@@ -40,6 +39,7 @@ class Product_categories extends CI_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
+
 
     public function new_form(){
 
@@ -65,6 +65,7 @@ class Product_categories extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
+
 
     public function add_product_categories(){
         
@@ -176,6 +177,7 @@ class Product_categories extends CI_Controller {
 
     }
 
+
     public function update_form($id){
         
         if(!get_active_user()){
@@ -201,7 +203,8 @@ class Product_categories extends CI_Controller {
         $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
 
     }
-    
+
+
     public function update_product_category($id){
 
         if(!isAllowedUpdateModule()){
@@ -312,6 +315,52 @@ class Product_categories extends CI_Controller {
         }
 
     }
+
+
+    public function isActiveSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+        
+        if($id){
+
+            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->product_categories_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isActive"  => $isActive
+                )
+            );
+        }
+
+    }
+
+
+    public function isOnMainSetter($id){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        if($id){
+
+            $isOnMain = ($this->input->post("data") === "true") ? 1 : 0;
+
+            $this->product_categories_model->update(
+                array(
+                    "id"    => $id
+                ),
+                array(
+                    "isOnMain"  => $isOnMain
+                )
+            );
+        }
+    }
+
 
     public function delete($id){
         

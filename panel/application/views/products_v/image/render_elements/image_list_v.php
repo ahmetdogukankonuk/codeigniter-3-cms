@@ -22,12 +22,24 @@
                                                 </td>
                                                 <td>
                                                     <div class="form-check form-switch d-flex justify-content-center">
-                                                        <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                                        <input 
+                                                            data-url="<?php echo base_url("products/isCoverSetter/$items->id/$items->productID"); ?>"
+                                                            class="isCover form-check-input fs-4" 
+                                                            type="checkbox" role="switch" id="isCover" 
+                                                            dataID="<?php echo $items->id; ?>"
+                                                            <?php echo ($items->isCover == 1) ? "checked" : ""; ?>
+                                                        />
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="form-check form-switch d-flex justify-content-center">
-                                                        <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                                        <input 
+                                                            data-url="<?php echo base_url("products/imageIsActiveSetter/$items->id"); ?>"
+                                                            class="situationSetter form-check-input fs-4" 
+                                                            type="checkbox" role="switch" id="isActive" 
+                                                            dataID="<?php echo $items->id; ?>"
+                                                            <?php echo ($items->isActive == 1) ? "checked" : ""; ?>
+                                                        />
                                                     </div>
                                                 </td>
                                                 <td>

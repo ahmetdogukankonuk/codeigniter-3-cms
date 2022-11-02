@@ -18,6 +18,8 @@
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
                                             <th scope="col">Name</th>
+                                            <th scope="col">Suggested</th>
+                                            <th scope="col">On Main</th>
                                             <th scope="col">Situation</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -31,7 +33,35 @@
                                                 <td> <?php echo $item->title; ?> </td>
                                                 <td>
                                                     <div class="form-check form-switch d-flex justify-content-center">
-                                                        <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                                        <input 
+                                                            data-url="<?php echo base_url("portfolio/isSuggestedSetter/$item->id"); ?>"
+                                                            class="situationSetter form-check-input fs-4" 
+                                                            type="checkbox" role="switch" id="isSuggested" 
+                                                            dataID="<?php echo $item->id; ?>"
+                                                            <?php echo ($item->isSuggested == 1) ? "checked" : ""; ?>
+                                                        />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-check form-switch d-flex justify-content-center">
+                                                        <input 
+                                                            data-url="<?php echo base_url("portfolio/isOnMainSetter/$item->id"); ?>"
+                                                            class="situationSetter form-check-input fs-4" 
+                                                            type="checkbox" role="switch" id="isOnMain" 
+                                                            dataID="<?php echo $item->id; ?>"
+                                                            <?php echo ($item->isOnMain == 1) ? "checked" : ""; ?>
+                                                        />
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-check form-switch d-flex justify-content-center">
+                                                        <input 
+                                                            data-url="<?php echo base_url("portfolio/isActiveSetter/$item->id"); ?>"
+                                                            class="situationSetter form-check-input fs-4" 
+                                                            type="checkbox" role="switch" id="situationSetter" 
+                                                            dataID="<?php echo $item->id; ?>"
+                                                            <?php echo ($item->isActive == 1) ? "checked" : ""; ?>
+                                                        />
                                                     </div>
                                                 </td>
                                                 <td>
@@ -56,6 +86,8 @@
                                             <th scope="col"></th>
                                             <th scope="col">ID</th>
                                             <th scope="col">Name</th>
+                                            <th scope="col">Suggested</th>
+                                            <th scope="col">On Main</th>
                                             <th scope="col">Situation</th>
                                             <th scope="col">Action</th>
                                         </tr>

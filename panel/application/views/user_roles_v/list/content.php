@@ -31,7 +31,13 @@
                                                 <td> <?php echo $item->title; ?> </td>
                                                 <td>
                                                     <div class="form-check form-switch d-flex justify-content-center">
-                                                        <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                                        <input 
+                                                            data-url="<?php echo base_url("user_roles/isActiveSetter/$item->id"); ?>"
+                                                            class="situationSetter form-check-input fs-4" 
+                                                            type="checkbox" role="switch" id="situationSetter" 
+                                                            dataID="<?php echo $item->id; ?>"
+                                                            <?php echo ($item->isActive == 1) ? "checked" : ""; ?>
+                                                        />
                                                     </div>
                                                 </td>
                                                 <td>

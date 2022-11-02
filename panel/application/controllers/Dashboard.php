@@ -5,8 +5,7 @@ class Dashboard extends CI_Controller {
 
     public $viewFolder = "";
 
-    public function __construct()
-    {
+    public function __construct(){
 
         parent::__construct();
 
@@ -14,8 +13,8 @@ class Dashboard extends CI_Controller {
 
     }
 
-    public function index()
-	{
+
+    public function index(){
 
         if(!get_active_user()){
             redirect(base_url("login"));
