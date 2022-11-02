@@ -1,8 +1,8 @@
 <?php
 
-class Privacy_model extends MY_Model
+class Country_model extends MY_Model
 {
-    public $tableName = "privacypolicy";
+    public $tableName = "country";
 
     public function __construct()
     {

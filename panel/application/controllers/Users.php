@@ -14,6 +14,7 @@ class Users extends CI_Controller {
 
         $this->load->model("user_roles_model");
         $this->load->model("users_model");
+        $this->load->model("country_model");
 
     }
 
@@ -59,6 +60,12 @@ class Users extends CI_Controller {
             )
         );
 
+        $viewData->countries = $this->country_model->get_all(
+            array(
+                "isActive"  => 1
+            )
+        );
+
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "add";
 
@@ -92,6 +99,12 @@ class Users extends CI_Controller {
                     "email"                 => $this->input->post("email"),
                     "password"              => md5($this->input->post("password")),
                     "userRoleID"            => $this->input->post("userRoleID"),
+                    "addressTitle"          => $this->input->post("addressTitle"),
+                    "country"               => $this->input->post("country"),
+                    "city"                  => $this->input->post("city"),
+                    "town"                  => $this->input->post("town"),
+                    "postCode"              => $this->input->post("postCode"),
+                    "address"               => $this->input->post("address"),
                     "isActive"              => 1,
                     "isAuthority"           => 1,
                     "createdAt"             => date("Y-m-d H:i:s"),
@@ -157,6 +170,12 @@ class Users extends CI_Controller {
             )
         );
 
+        $viewData->countries = $this->country_model->get_all(
+            array(
+                "isActive"  => 1
+            )
+        );
+
         $this->load->helper("tools");
 
         $viewData->viewFolder = $this->viewFolder;
@@ -177,7 +196,7 @@ class Users extends CI_Controller {
         
         $this->form_validation->set_rules("name", "User Name", "required|trim");
         $this->form_validation->set_rules("surname", "User Surname", "required|trim");
-        $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email|is_unique[users.email]");
+        $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email");
         $this->form_validation->set_rules("userRoleID", "User Role", "required|trim");
 
         $validate = $this->form_validation->run();
@@ -193,6 +212,12 @@ class Users extends CI_Controller {
                     "surname"               => $this->input->post("surname"),
                     "email"                 => $this->input->post("email"),
                     "userRoleID"            => $this->input->post("userRoleID"),
+                    "addressTitle"          => $this->input->post("addressTitle"),
+                    "country"               => $this->input->post("country"),
+                    "city"                  => $this->input->post("city"),
+                    "town"                  => $this->input->post("town"),
+                    "postCode"              => $this->input->post("postCode"),
+                    "address"               => $this->input->post("address"),
                     "updatedAt"             => date("Y-m-d H:i:s")
                 )
             );

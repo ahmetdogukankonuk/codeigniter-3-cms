@@ -271,6 +271,36 @@ class Products extends CI_Controller {
 
     }
 
+    public function image_upload($id){
+
+        $file_name = convertToSEO(pathinfo($_FILES["file"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+
+        $config["allowed_types"] = "jpg|jpeg|png";
+        $config["upload_path"]   = "uploads/$this->viewFolder/";
+        $config["file_name"] = $file_name;
+
+        $image_720x480 = upload_picture($_FILES["file"]["tmp_name"], "uploads/$this->viewFolder",720,480, $file_name);
+        $image_238x158 = upload_picture($_FILES["file"]["tmp_name"], "uploads/$this->viewFolder",238,158, $file_name);
+
+        if($image_238x158 && $image_720x480){
+
+            $this->product_images_model->add(
+                array(
+                    "imgUrl"        => $file_name,
+                    "rank"          => 0,
+                    "isActive"      => 1,
+                    "isCover"       => 0,
+                    "createdAt"     => date("Y-m-d H:i:s"),
+                    "productID"     => $id
+                )
+            );
+
+        } else {
+            echo "There was an error!";
+        }
+
+    }
+
     public function delete($id){
 
         if(!isAllowedDeleteModule()){

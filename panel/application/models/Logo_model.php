@@ -2,7 +2,7 @@
 
 class Logo_model extends MY_Model
 {
-    public $tableName = "logo";
+    public $tableName = "logos";
 
     public function __construct()
     {

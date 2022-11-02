@@ -14,7 +14,7 @@
                                         <div class="col-md-12">
                                             <div class="mb-3">
                                                 <label for="date" class="form-label text-color">Project Date</label>
-                                                <input type="date" class="form-control" name="date" id="date" placeholder="Project Date">
+                                                <input type="text" class="form-control" name="date" id="date" placeholder="Project Date">
                                             </div>
                                         </div>
                                     </div>

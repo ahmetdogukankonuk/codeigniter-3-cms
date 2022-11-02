@@ -21,6 +21,7 @@
                                             <th scope="col">Surname</th>
                                             <th scope="col">E-Mail</th>
                                             <th scope="col">User Role</th>
+                                            <th scope="col">Authority</th>
                                             <th scope="col">Situation</th>
                                             <th scope="col">Action</th>
                                         </tr>
@@ -35,6 +36,11 @@
                                                 <td> <?php echo $item->surname; ?> </td>
                                                 <td> <?php echo $item->email; ?> </td>
                                                 <td> <?php echo get_user_role($item->userRoleID); ?> </td>
+                                                <td>
+                                                    <div class="form-check form-switch d-flex justify-content-center">
+                                                        <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     <div class="form-check form-switch d-flex justify-content-center">
                                                         <input class="form-check-input fs-4" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
@@ -65,6 +71,7 @@
                                             <th scope="col">Surname</th>
                                             <th scope="col">E-Mail</th>
                                             <th scope="col">User Role</th>
+                                            <th scope="col">Authority</th>
                                             <th scope="col">Situation</th>
                                             <th scope="col">Action</th>
                                         </tr>
