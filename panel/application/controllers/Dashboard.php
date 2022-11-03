@@ -13,13 +13,15 @@ class Dashboard extends CI_Controller {
 
     }
 
-
+    /* Index function is the index page of the URL request */
     public function index(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to see this module, if not we send them to base url */
         if(!isAllowedViewModule()){
             redirect(base_url());
         }

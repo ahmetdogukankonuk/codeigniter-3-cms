@@ -49,9 +49,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+/* The route is a way of creating a request URL for your application. */
 $route['default_controller']                = 'dashboard';
 $route['404_override']                      = '';
 $route['translate_uri_dashes']              = FALSE;
+
+/* First write the request url in $route["URL"] 
+then write the controller of the function you want to request and the function. */
+
+/* $route["MAIN URL / SUB URL"]             = "CONTROLLER / FUNCTION"; */
+
+/* If you want to get a specific id's info then you can use this sample */
+/* $route["MAIN URL / SUB URL / (:any)"]    = "CONTROLLER / FUNCTION / $1"; */
 
 $route["categories"]                        = "product_categories";
 $route["categories/new"]                    = "product_categories/new_form";

@@ -60,6 +60,8 @@ $autoload['packages'] = array();
 */
 $autoload['libraries'] = array("session", "database");
 
+/* INCLUDE LIBRARIES THAT YOU WANT TO USE IN WHOLE PROJECT SO IT CAN BE AUTOLOADED HERE */
+
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers
@@ -90,6 +92,8 @@ $autoload['drivers'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 $autoload['helper'] = array("url", "text", "file", "form", "tools", "permissions");
+
+/* INCLUDE HELPERS THAT YOU WANT TO USE IN WHOLE PROJECT SO IT CAN BE AUTOLOADED HERE */
 
 /*
 | -------------------------------------------------------------------

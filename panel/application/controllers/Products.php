@@ -17,13 +17,15 @@ class Products extends CI_Controller {
 
     }
 
-
+    /* Index function is the index page of the URL request */
     public function index(){
        
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to see this module, if not we send them to base url */
         if(!isAllowedViewModule()){
             redirect(base_url());
         }
@@ -42,13 +44,15 @@ class Products extends CI_Controller {
         
 	}
 
-
+    /* New Record Page */
     public function new_form(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to add new record to this module, if not we send them back */
         if(!isAllowedWriteModule()){
             redirect(base_url("products"));
         }
@@ -71,6 +75,7 @@ class Products extends CI_Controller {
 
     public function add_product(){
 
+        /* Here we check if the user logged in is allowed to add new record to this module, if not we send them back */
         if(!isAllowedWriteModule()){
             redirect(base_url("products"));
         }
@@ -136,13 +141,15 @@ class Products extends CI_Controller {
 
     }
 
-
+    /* Update Record Page */
     public function update_form($id){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("products"));
         }
@@ -171,9 +178,10 @@ class Products extends CI_Controller {
 
     }
 
-
+    /* Here we update the specific record by id */
     public function update_product($id){
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("products"));
         }
@@ -244,13 +252,15 @@ class Products extends CI_Controller {
 
     }
 
-
+    /* Product Images Page */
     public function image_form($id){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to see this module, if not we send them to base url */
         if(!isAllowedViewModule()){
             redirect(base_url());
         }
@@ -306,9 +316,10 @@ class Products extends CI_Controller {
 
     }
 
-
+    /* Activity Setter */
     public function isActiveSetter($id){
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             die();
         }
@@ -329,9 +340,10 @@ class Products extends CI_Controller {
 
     }
 
-
+    /* On Home Page Setter */
     public function isOnMainSetter($id){
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             die();
         }
@@ -351,9 +363,10 @@ class Products extends CI_Controller {
         }
     }
 
-
+    /* Suggested Record Setter */
     public function isSuggestedSetter($id){
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             die();
         }
@@ -376,6 +389,7 @@ class Products extends CI_Controller {
 
     public function imageIsActiveSetter($id){
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             die();
         }
@@ -398,6 +412,7 @@ class Products extends CI_Controller {
 
     public function isCoverSetter($id, $parent_id){
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             die();
         }
@@ -444,9 +459,10 @@ class Products extends CI_Controller {
         }
     }
 
-    
+    /* Deleting specific record by its id */
     public function delete($id){
 
+        /* Here we check if the user logged in is allowed to delete the module, if not we dont give permisson to delete this record */
         if(!isAllowedDeleteModule()){
             redirect(base_url("products"));
         }
@@ -480,9 +496,10 @@ class Products extends CI_Controller {
 
     }
 
-
+    /* Deleting specific record by its id */
     public function imageDelete($id, $parent_id){
         
+        /* Here we check if the user logged in is allowed to delete the module, if not we dont give permisson to delete this record */
         if(!isAllowedDeleteModule()){
             redirect(base_url("products"));
         }

@@ -17,13 +17,15 @@ class Users extends CI_Controller {
 
     }
 
-
+    /* Index function is the index page of the URL request */
     public function index(){
         
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to see this module, if not we send them to base url */
         if(!isAllowedViewModule()){
             redirect(base_url());
         }
@@ -42,13 +44,15 @@ class Users extends CI_Controller {
         
 	}
 
-
+    /* Admin registration page */
     public function new_form(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to add new record to this module, if not we send them back */
         if(!isAllowedWriteModule()){
             redirect(base_url("users"));
         }
@@ -74,9 +78,10 @@ class Users extends CI_Controller {
 
     }
 
-
+    /* Admin registration function */
     public function admin_register(){
 
+        /* Here we check if the user logged in is allowed to add new record to this module, if not we send them back */
         if(!isAllowedWriteModule()){
             redirect(base_url("users"));
         }
@@ -148,13 +153,15 @@ class Users extends CI_Controller {
 
     }
 
-
+    /* Update Record Page */
     public function update_form($id){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("users"));
         }
@@ -189,9 +196,10 @@ class Users extends CI_Controller {
 
     }
 
-
+    /* Here we update the specific record by id */
     public function update_user($id){
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("users"));
         }
@@ -269,10 +277,12 @@ class Users extends CI_Controller {
 
     public function authorized_users(){
         
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to see this module, if not we send them to base url */
         if(!isAllowedViewModule()){
             redirect(base_url());
         }
@@ -293,13 +303,15 @@ class Users extends CI_Controller {
         
 	}
 
-
+    /* Change password page */
     public function update_password_form($id){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("users"));
         }
@@ -320,13 +332,15 @@ class Users extends CI_Controller {
 
     }
 
-
+    /* Here we update the specific record by id */
     public function update_password($id){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("users"));
         }
@@ -389,9 +403,10 @@ class Users extends CI_Controller {
 
     }
 
-
+    /* Activity Setter */
     public function isActiveSetter($id){
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             die();
         }
@@ -412,9 +427,10 @@ class Users extends CI_Controller {
 
     }
 
-
+    /* Authority Setter */
     public function isAuthoritySetter($id){
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             die();
         }
@@ -436,9 +452,10 @@ class Users extends CI_Controller {
 
     }
 
-
+    /* Deleting specific record by its id */
     public function delete($id){
 
+        /* Here we check if the user logged in is allowed to delete the module, if not we dont give permisson to delete this record */
         if(!isAllowedDeleteModule()){
             redirect(base_url("users"));
         }
@@ -472,9 +489,10 @@ class Users extends CI_Controller {
 
     }
 
-    
+    /* Deleting specific record by its id */
     public function authorizedDelete($id){
 
+        /* Here we check if the user logged in is allowed to delete the module, if not we dont give permisson to delete this record */
         if(!isAllowedDeleteModule()){
             redirect(base_url("users"));
         }

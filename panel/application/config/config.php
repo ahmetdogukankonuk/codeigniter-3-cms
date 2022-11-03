@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://192.168.64.2/cms/panel/';
+/* CHANGE THE BASE URL HERE */
 
 /*
 |--------------------------------------------------------------------------
@@ -391,6 +392,7 @@ $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
+/* YOU CAN CHANGE SESSION SETTINGS HERE */
 
 /*
 |--------------------------------------------------------------------------

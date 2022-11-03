@@ -13,7 +13,7 @@ class Userop extends CI_Controller {
 
     }
 
-
+    /* Logout function kills user session and redirects to login page */
     public function logout(){
 
         $this->session->unset_userdata("user");
@@ -21,7 +21,7 @@ class Userop extends CI_Controller {
         
     }
 
-
+    /* Login page */
     public function login(){
 
         if(get_active_user()){
@@ -37,7 +37,7 @@ class Userop extends CI_Controller {
 
     }
 
-
+    /* Login function sets userdata session and redirects to home page */
     public function do_login(){
         
         $this->load->library("form_validation");
@@ -98,7 +98,7 @@ class Userop extends CI_Controller {
         }
     }
 
-
+    /* Admin registration application page */
     public function register(){
 
         if(get_active_user()){
@@ -114,7 +114,7 @@ class Userop extends CI_Controller {
 
     }
 
-
+    /* Admin registration application function */
     public function admin_register(){
         
         $this->load->library("form_validation");
@@ -189,7 +189,7 @@ class Userop extends CI_Controller {
 
     }
 
-
+    /* Forget password page */
     public function forget_password(){
         
         if(get_active_user()){

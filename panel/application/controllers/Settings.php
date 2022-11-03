@@ -24,13 +24,15 @@ class Settings extends CI_Controller {
 
     }
 
-
+    /* Index function is the index page of the URL request */
     public function index(){
         
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to see this module, if not we send them to base url */
         if(!isAllowedViewModule()){
             redirect(base_url());
         }
@@ -107,10 +109,12 @@ class Settings extends CI_Controller {
 
     public function website_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -183,10 +187,12 @@ class Settings extends CI_Controller {
 
     public function company_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -259,10 +265,12 @@ class Settings extends CI_Controller {
 
     public function social_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -335,10 +343,12 @@ class Settings extends CI_Controller {
 
     public function address_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -405,10 +415,12 @@ class Settings extends CI_Controller {
 
     public function about_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -475,10 +487,12 @@ class Settings extends CI_Controller {
 
     public function mission_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -545,10 +559,12 @@ class Settings extends CI_Controller {
 
     public function vision_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -615,10 +631,12 @@ class Settings extends CI_Controller {
 
     public function privacy_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -685,10 +703,12 @@ class Settings extends CI_Controller {
 
     public function terms_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -755,10 +775,12 @@ class Settings extends CI_Controller {
 
     public function navbar_logo_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -863,10 +885,12 @@ class Settings extends CI_Controller {
 
     public function footer_logo_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
@@ -971,10 +995,12 @@ class Settings extends CI_Controller {
     
     public function favicon_update(){
 
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("settings"));
         }
