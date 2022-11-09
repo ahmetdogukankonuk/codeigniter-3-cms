@@ -1,5 +1,5 @@
         <div class="px-4 page-title title-color">
-            <h3>Change Password</h3>
+            <h3>Change Password of <?php echo $item->name; ?> <?php echo $item->surname; ?> </h3>
         </div>
 
         <section class="mb-5">

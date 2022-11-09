@@ -147,6 +147,18 @@ class Users extends CI_Controller {
             $viewData->subViewFolder    = "add";
             $viewData->form_error       = true;
 
+            $viewData->user_roles = $this->user_roles_model->get_all(
+                array(
+                    "isActive"  => 1
+                )
+            );
+    
+            $viewData->countries = $this->country_model->get_all(
+                array(
+                    "isActive"  => 1
+                )
+            );
+
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
             
         }
@@ -266,6 +278,12 @@ class Users extends CI_Controller {
             $viewData->item = $this->users_model->get(
                 array(
                     "id"    => $id,
+                )
+            );
+
+            $viewData->user_roles = $this->user_roles_model->get_all(
+                array(
+                    "isActive"  => 1
                 )
             );
 

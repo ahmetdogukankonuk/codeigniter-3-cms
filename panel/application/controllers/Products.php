@@ -135,6 +135,12 @@ class Products extends CI_Controller {
             $viewData->subViewFolder    = "add";
             $viewData->form_error       = true;
 
+            $viewData->product_categories = $this->product_categories_model->get_all(
+                array(
+                    "isActive"  => 1
+                )
+            );    
+
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
             
         }
@@ -246,6 +252,12 @@ class Products extends CI_Controller {
                     "id"    => $id,
                 )
             );
+
+            $viewData->product_categories = $this->product_categories_model->get_all(
+                array(
+                    "isActive"  => 1
+                )
+            );    
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         }
