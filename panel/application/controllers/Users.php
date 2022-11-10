@@ -286,6 +286,12 @@ class Users extends CI_Controller {
                     "isActive"  => 1
                 )
             );
+		
+            $viewData->countries = $this->country_model->get_all(
+                array(
+                    "isActive"  => 1
+                )
+            );
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         }
