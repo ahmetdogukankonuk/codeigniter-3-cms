@@ -2,7 +2,7 @@
                                 <div class="card border-0 rounded-4 shadow py-2 card-bg">
                                     <div class="card-header card-bg">
                                         <h5 class="card-title text-color mb-0">
-                                            <strong>Footer Logo</strong>
+                                            <strong><?php echo $this->lang->line('footer-logo'); ?></strong>
                                         </h5>
                                     </div>
                                     <div class="card-body mx-2">
@@ -15,20 +15,20 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
-                                                        <label for="footerLogo" class="form-label text-color">Select a Logo for Footer</label>
+                                                        <label for="footerLogo" class="form-label text-color"><?php echo $this->lang->line('select-a-logo-for-footer'); ?></label>
                                                         <input class="form-control" type="file" name="footerLogo" id="footerLogo">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
-                                                        <label for="footerLogoSize" class="form-label text-color"> Footer Logo Size (Rem)</label>
-                                                        <input type="number" class="form-control" name="footerLogoSize" id="footerLogoSize" placeholder="Footer Logo Size" value="<?php echo $logo->footerLogoSize; ?>">
+                                                        <label for="footerLogoSize" class="form-label text-color"> <?php echo $this->lang->line('footer-logo-size'); ?> (Rem)</label>
+                                                        <input type="number" class="form-control" name="footerLogoSize" id="footerLogoSize" placeholder="<?php echo $this->lang->line('footer-logo-size'); ?>" value="<?php echo $logo->footerLogoSize; ?>">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="d-grid mt-3">
                                                 <button type="submit" class="btn btn-theme rounded-4 p-2">
-                                                    Save
+                                                    <?php echo $this->lang->line('save'); ?>
                                                 </button>
                                             </div>
                                         </form>

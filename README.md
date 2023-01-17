@@ -1,4 +1,5 @@
 # CodeIgniter 3 & Bootstrap 5 Responsive CMS 
+## Now CMS is available in English, French, Spanish, Russian, Arabian, Turkish, German, Persian & Portuguese!
 ## Feel Free To Use & Follow For More Projects :)
 
 ![cms.gif](cms.gif)
@@ -27,6 +28,7 @@ This is a responsive CodeIgniter 3 & Bootstrap 5 Responsive CMS with features li
 * Drag & Drop Multiple image upload
 * Ability assign a user role to each user
 * Ability to control viewing, adding, updating, deleting permissions according to user roles
+* Multi language support
 
 ## Technologies
 

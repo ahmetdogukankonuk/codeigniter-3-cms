@@ -1,5 +1,5 @@
         <div class="px-4 page-title title-color">
-            <h3>Change Password of <?php echo $item->name; ?> <?php echo $item->surname; ?> </h3>
+            <h3> <?php echo $this->lang->line('change-password'); ?> </h3>
         </div>
 
         <section class="mb-5">
@@ -12,25 +12,25 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="password" class="form-label text-color">Password</label>
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                                                <label for="password" class="form-label text-color"><?php echo $this->lang->line('password'); ?></label>
+                                                <input type="password" class="form-control" name="password" id="password" placeholder="<?php echo $this->lang->line('password'); ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="re_password" class="form-label text-color">Confirm Password</label>
-                                                <input type="password" class="form-control" name="re_password" id="re_password" placeholder="Confirm Password">
+                                                <label for="re_password" class="form-label text-color"><?php echo $this->lang->line('confirm-password'); ?></label>
+                                                <input type="password" class="form-control" name="re_password" id="re_password" placeholder="<?php echo $this->lang->line('confirm-password'); ?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="d-grid mt-3">
                                         <button type="submit" class="btn btn-theme rounded-4 p-2">
-                                            Save
+                                            <?php echo $this->lang->line('save'); ?>
                                         </button>
                                     </div>
                                     <div class="d-grid mt-2">
                                         <button type="submit" class="btn btn-outline-primary rounded-4 p-2">
-                                            Cancel
+                                            <?php echo $this->lang->line('cancel'); ?>
                                         </button>
                                     </div>
                                 </form>

@@ -1,5 +1,5 @@
         <div class="px-4 page-title title-color">
-            <h3>Settings</h3>
+            <h3><?php echo $this->lang->line('settings'); ?></h3>
         </div>
         
         <section class="mb-5">

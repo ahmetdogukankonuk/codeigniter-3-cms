@@ -1,5 +1,5 @@
         <div class="px-4 page-title title-color">
-            <h3>New Project for Portfolio</h3>
+            <h3> <?php echo $this->lang->line('new-project-for-portfolio'); ?> </h3>
         </div>
 
         <section class="mb-5">
@@ -13,8 +13,8 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mb-3">
-                                                <label for="date" class="form-label text-color">Project Date</label>
-                                                <input type="text" class="form-control" name="date" id="date" placeholder="Project Date">
+                                                <label for="date" class="form-label text-color"><?php echo $this->lang->line('date'); ?></label>
+                                                <input type="text" class="form-control" name="date" id="date" placeholder="<?php echo $this->lang->line('date'); ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -22,14 +22,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="title" class="form-label text-color">Project Name (English)</label>
-                                                <input type="text" class="form-control" name="title" id="title" placeholder="Project Name (English)">
+                                                <label for="title" class="form-label text-color"><?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('english'); ?>)</label>
+                                                <input type="text" class="form-control" name="title" id="title" placeholder="<?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('english'); ?>)">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="title_tr" class="form-label text-color">Project Name (Turkish)</label>
-                                                <input type="text" class="form-control" name="title_tr" id="title_tr" placeholder="Project Name (Turkish)">
+                                                <label for="title_tr" class="form-label text-color"><?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('turkish'); ?>)</label>
+                                                <input type="text" class="form-control" name="title_tr" id="title_tr" placeholder="<?php echo $this->lang->line('title'); ?> (<?php echo $this->lang->line('turkish'); ?>)">
                                             </div>
                                         </div>
                                     </div>
@@ -37,14 +37,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="description" class="form-label text-color">Project Description (English)</label>
-                                                <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Project Description (English)"></textarea>
+                                                <label for="description" class="form-label text-color"><?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('english'); ?>)</label>
+                                                <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="<?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('english'); ?>)"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="description_tr" class="form-label text-color">Project Description (Turkish)</label>
-                                                <textarea class="form-control" name="description_tr" id="description_tr" cols="30" rows="10" placeholder="Project Description (Turkish)"></textarea>
+                                                <label for="description_tr" class="form-label text-color"><?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('turkish'); ?>)</label>
+                                                <textarea class="form-control" name="description_tr" id="description_tr" cols="30" rows="10" placeholder="<?php echo $this->lang->line('description'); ?> (<?php echo $this->lang->line('turkish'); ?>)"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -52,8 +52,8 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mb-3">
-                                                <label for="video" class="form-label text-color">Project Video</label>
-                                                <input type="text" class="form-control" name="video" id="video" placeholder="Project Video">
+                                                <label for="video" class="form-label text-color"><?php echo $this->lang->line('project-video'); ?></label>
+                                                <input type="text" class="form-control" name="video" id="video" placeholder="<?php echo $this->lang->line('project-video'); ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -61,14 +61,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="companyName" class="form-label text-color">Company Name</label>
-                                                <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Company Name">
+                                                <label for="companyName" class="form-label text-color"><?php echo $this->lang->line('company-name'); ?></label>
+                                                <input type="text" class="form-control" name="companyName" id="companyName" placeholder="<?php echo $this->lang->line('company-name'); ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="companyWebsite" class="form-label text-color">Company Website</label>
-                                                <input type="text" class="form-control" name="companyWebsite" id="companyWebsite" placeholder="Company Website">
+                                                <label for="companyWebsite" class="form-label text-color"><?php echo $this->lang->line('company-website'); ?></label>
+                                                <input type="text" class="form-control" name="companyWebsite" id="companyWebsite" placeholder="<?php echo $this->lang->line('company-website'); ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -76,26 +76,26 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="companyPhone" class="form-label text-color">Company Phone</label>
-                                                <input type="text" class="form-control" name="companyPhone" id="companyPhone" placeholder="Company Phone">
+                                                <label for="companyPhone" class="form-label text-color"><?php echo $this->lang->line('company-phone'); ?></label>
+                                                <input type="text" class="form-control" name="companyPhone" id="companyPhone" placeholder="<?php echo $this->lang->line('company-phone'); ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="companyMail" class="form-label text-color">Company Mail</label>
-                                                <input type="text" class="form-control" name="companyMail" id="companyMail" placeholder="Company Mail">
+                                                <label for="companyMail" class="form-label text-color"><?php echo $this->lang->line('company-mail'); ?></label>
+                                                <input type="text" class="form-control" name="companyMail" id="companyMail" placeholder="<?php echo $this->lang->line('company-mail'); ?>">
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <div class="d-grid mt-3">
                                         <button type="submit" class="btn btn-theme rounded-4 p-2">
-                                            Save
+                                            <?php echo $this->lang->line('save'); ?>
                                         </button>
                                     </div>
                                     <div class="d-grid mt-2">
                                         <button type="submit" class="btn btn-outline-primary rounded-4 p-2">
-                                            Cancel
+                                            <?php echo $this->lang->line('cancel'); ?>
                                         </button>
                                     </div>
                                 </form>

@@ -2,7 +2,7 @@
                                 <div class="card border-0 rounded-4 shadow py-2 card-bg">
                                     <div class="card-header card-bg">
                                         <h5 class="card-title text-color mb-0">
-                                            <strong>Navbar Logo</strong>
+                                            <strong><?php echo $this->lang->line('navbar-logo'); ?></strong>
                                         </h5>
                                     </div>
                                     <div class="card-body mx-2">
@@ -15,7 +15,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
-                                                        <label for="navbarLogo" class="form-label text-color">Select a Logo for Navbar</label>
+                                                        <label for="navbarLogo" class="form-label text-color"><?php echo $this->lang->line('select-a-logo-for-navbar'); ?></label>
                                                         <input class="form-control" type="file" name="navbarLogo" id="navbarLogo">
                                                     </div>
                                                 </div>
@@ -28,7 +28,7 @@
                                             </div>
                                             <div class="d-grid mt-3">
                                                 <button type="submit" class="btn btn-theme rounded-4 p-2">
-                                                    Save
+                                                    <?php echo $this->lang->line('save'); ?>
                                                 </button>
                                             </div>
                                         </form>

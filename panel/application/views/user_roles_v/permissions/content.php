@@ -1,7 +1,7 @@
         <?php $permissions = json_decode($item->permissions); ?>
 
         <div class="px-4 page-title title-color">
-            <h3>User Permissions</h3>
+            <h3> <?php echo $this->lang->line('user-permissions'); ?> </h3>
         </div>
 
         <section class="mb-5">
@@ -17,11 +17,11 @@
                                         <thead class="text-center">
                                             <tr>
                                                 <th scope="col"></th>
-                                                <th scope="col">Module Name</th>
-                                                <th scope="col">View</th>
-                                                <th scope="col">Add</th>
-                                                <th scope="col">Update</th>
-                                                <th scope="col">Delete</th>
+                                                <th scope="col"> <?php echo $this->lang->line('module-name'); ?> </th>
+                                                <th scope="col"> <?php echo $this->lang->line('view'); ?> </th>
+                                                <th scope="col"> <?php echo $this->lang->line('add'); ?> </th>
+                                                <th scope="col"> <?php echo $this->lang->line('update'); ?> </th>
+                                                <th scope="col"> <?php echo $this->lang->line('delete'); ?> </th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-center sortable" style="vertical-align: baseline;">
@@ -69,23 +69,23 @@
                                         <tfoot class="text-center">
                                             <tr>
                                                 <th scope="col"></th>
-                                                <th scope="col">Module Name</th>
-                                                <th scope="col">View</th>
-                                                <th scope="col">Add</th>
-                                                <th scope="col">Update</th>
-                                                <th scope="col">Delete</th>
+                                                <th scope="col"> <?php echo $this->lang->line('module-name'); ?> </th>
+                                                <th scope="col"> <?php echo $this->lang->line('view'); ?> </th>
+                                                <th scope="col"> <?php echo $this->lang->line('add'); ?> </th>
+                                                <th scope="col"> <?php echo $this->lang->line('update'); ?> </th>
+                                                <th scope="col"> <?php echo $this->lang->line('delete'); ?> </th>
                                             </tr>
                                         </tfoot>
                                     </table>
 
 
                                     <div class="d-grid gap-2 col-12 mx-auto mt-4">
-                                        <button class="btn btn-theme rounded-4" type="submit">Save</button>
+                                        <button class="btn btn-theme rounded-4" type="submit"> <?php echo $this->lang->line('save'); ?> </button>
                                     </div>
 
                                     <div class="d-grid mt-2">
                                         <a href="<?php echo base_url("user-roles") ?>" class="btn btn-outline-primary rounded-4 p-2">
-                                            User Roles
+                                            <?php echo $this->lang->line('user-roles'); ?>
                                         </a>
                                     </div>
 

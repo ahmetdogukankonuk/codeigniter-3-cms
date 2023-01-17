@@ -145,4 +145,44 @@ function setUserRoles(){
 
 }
 
+function get_orders_sum() {
+    $t =& get_instance();
+    $t->db->select_sum('orderTotal');
+    $query = $t->db->get('orders');
+    return $query->row()->orderTotal;
+}
+
+
+function get_active_products_count() {
+    $t =& get_instance();
+    $t->db->from('products');
+    $t->db->where('isActive', 1);
+    return $t->db->count_all_results();
+}
+
+function get_products_count() {
+    $t =& get_instance();
+    $t->db->from('products');
+    return $t->db->count_all_results();
+}
+
+function get_active_users_count() {
+    $t =& get_instance();
+    $t->db->from('users');
+    $t->db->where('isActive', 1);
+    return $t->db->count_all_results();
+}
+
+function get_users_count() {
+    $t =& get_instance();
+    $t->db->from('users');
+    return $t->db->count_all_results();
+}
+
+function get_orders_count() {
+    $t =& get_instance();
+    $t->db->from('orders');
+    return $t->db->count_all_results();
+}
+
 ?>

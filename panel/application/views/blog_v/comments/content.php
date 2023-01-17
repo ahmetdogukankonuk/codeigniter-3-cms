@@ -13,11 +13,11 @@
                                     <thead class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Username</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('username'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('title'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody id="sortable" class="text-center" style="vertical-align: baseline;">
@@ -56,11 +56,11 @@
                                     <tfoot class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Username</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('username'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('title'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </tfoot>
                                 </table>

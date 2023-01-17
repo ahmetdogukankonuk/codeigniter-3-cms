@@ -1,7 +1,7 @@
         <div class="px-4 page-title title-color">
-            <h3>Sliders</h3>
+            <h3> <?php echo $this->lang->line('sliders'); ?> </h3>
             <a href="<?php echo base_url("sliders/new") ?>" class="btn add-new-button text-white rounded-4 shadow float-end">
-                <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
+                <span><i class="bi bi-file-earmark-plus"></i> <?php echo $this->lang->line('add-new'); ?></span>
             </a>
         </div>
         
@@ -16,11 +16,11 @@
                                     <thead class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('title'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('image'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody id="sortable" class="text-center" style="vertical-align: baseline;">
@@ -61,11 +61,11 @@
                                     <tfoot class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Title</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('title'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('image'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </tfoot>
                                 </table>

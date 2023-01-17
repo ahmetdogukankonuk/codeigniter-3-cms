@@ -8,13 +8,15 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <div class="main-box-text mb-2 text-color">
-                                            Lorem, ipsum.
+                                            <?php echo $this->lang->line('USERS'); ?>
                                         </div>
                                         <div>
                                             <span class="people-icon">
                                                 <i class="bi bi-people fs-3"></i>
                                             </span>
-                                            <span class="main-box-number mx-2">40,000</span>
+                                            <span class="main-box-number mx-2">
+                                                <?php echo get_users_count(); ?>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -28,13 +30,15 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <div class="main-box-text mb-2">
-                                            Lorem, ipsum.
+                                            <?php echo $this->lang->line('PRODUCTS'); ?>
                                         </div>
                                         <div>
                                             <span class="box-icon">
                                                 <i class="bi bi-box fs-3"></i>
                                             </span>
-                                            <span class="main-box-number mx-2">40,000</span>
+                                            <span class="main-box-number mx-2">
+                                                <?php echo get_products_count(); ?>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -48,13 +52,15 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <div class="main-box-text mb-2">
-                                            Lorem, ipsum.
+                                            <?php echo $this->lang->line('ORDERS'); ?>
                                         </div>
                                         <div>
                                             <span class="chat-icon">
-                                                <i class="bi bi-chat fs-3"></i>
+                                                <i class="bi bi-bag fs-3"></i>
                                             </span>
-                                            <span class="main-box-number mx-2">40,000</span>
+                                            <span class="main-box-number mx-2">
+                                                <?php echo get_orders_count(); ?>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -68,13 +74,15 @@
                                 <div class="row align-items-center">
                                     <div class="col">
                                         <div class="main-box-text mb-2">
-                                            Lorem, ipsum.
+                                            <?php echo $this->lang->line('REVENUE'); ?>
                                         </div>
                                         <div>
                                             <span class="dollar-icon">
                                                 <i class="bi bi-currency-dollar fs-3"></i>
                                             </span>
-                                            <span class="main-box-number mx-2">40,000</span>
+                                            <span class="main-box-number mx-2">
+                                                <?php echo get_orders_sum(); ?>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

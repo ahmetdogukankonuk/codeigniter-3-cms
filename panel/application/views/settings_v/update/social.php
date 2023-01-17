@@ -2,7 +2,7 @@
                                 <div class="card border-0 rounded-4 shadow py-2 card-bg">
                                     <div class="card-header card-bg">
                                         <h5 class="card-title text-color mb-0">
-                                            <strong>Social Media</strong>
+                                            <strong><?php echo $this->lang->line('social-media'); ?></strong>
                                         </h5>
                                     </div>
                                     <div class="card-body mx-2">
@@ -65,7 +65,7 @@
                                             </div>
                                             <div class="d-grid mt-3">
                                                 <button type="submit" class="btn btn-theme rounded-4 p-2">
-                                                    Save
+                                                    <?php echo $this->lang->line('save'); ?>
                                                 </button>
                                             </div>
                                         </form>

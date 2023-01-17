@@ -3,40 +3,40 @@
                             <div class="card-body mx-3">
                                 <div class="list-group list-group-flush" role="tablist">
                                     <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#website" role="tab">
-                                        Website
+                                        <?php echo $this->lang->line('website'); ?>
                                     </a>
 									<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#company" role="tab">
-                                        Company
+                                        <?php echo $this->lang->line('company'); ?>
                                     </a>
 									<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#social" role="tab">
-                                        Social Media
+                                        <?php echo $this->lang->line('social-media'); ?>
                                     </a>
 									<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#address" role="tab">
-                                        Address
+                                        <?php echo $this->lang->line('address'); ?>
                                     </a>
 									<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#about" role="tab">
-                                        About Us
+                                        <?php echo $this->lang->line('about'); ?>
                                     </a>
 									<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#mission" role="tab">
-                                        Mission
+                                        <?php echo $this->lang->line('mission'); ?>
                                     </a>
 									<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#vision" role="tab">
-                                        Vision
+                                        <?php echo $this->lang->line('vision'); ?>
                                     </a>
 									<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#privacy" role="tab">
-                                        Privacy Policy
+                                        <?php echo $this->lang->line('privacy-policy'); ?>
                                     </a>
 									<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#terms" role="tab">
-                                        Terms of Service
+                                        <?php echo $this->lang->line('terms-of-service'); ?>
                                     </a>
                                     <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#navbarlogo" role="tab">
-                                        Navbar Logo
+                                        <?php echo $this->lang->line('navbar-logo'); ?>
                                     </a>
                                     <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#footerlogo" role="tab">
-                                        Footer Logo
+                                        <?php echo $this->lang->line('footer-logo'); ?>
                                     </a>
                                     <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#favicon" role="tab">
-                                        Favicon
+                                        <?php echo $this->lang->line('favicon'); ?>
                                     </a>
 								</div>
                             </div>

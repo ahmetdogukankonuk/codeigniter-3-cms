@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product_categories extends CI_Controller {
+class Product_categories extends MY_Controller {
 
     public $viewFolder = "";
 

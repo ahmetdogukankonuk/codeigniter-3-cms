@@ -3,11 +3,11 @@
                 <b> Lorem LLC </b>
             </h3>
         </div>
-        <section class="mt-6">
+        <section class="mt-6" style="top: 50%; left: 50%;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 offset-md-3">
-                        <div class="card border-0 rounded-4 shadow p-5">
+                        <div class="card border-0 rounded-4 shadow p-5 centerx">
                             <div class="col-md-12">
                                 <h6 class="text-center mb-4">
                                     <b> A lot of hard work is hidden behind nice things. </b>

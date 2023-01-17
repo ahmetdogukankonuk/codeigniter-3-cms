@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Dashboard extends MY_Controller {
 
     public $viewFolder = "";
 
@@ -11,6 +11,11 @@ class Dashboard extends CI_Controller {
 
         $this->viewFolder = "dashboard_v";
 
+    }
+
+    public function switchLanguage($dil){
+        $this->session->set_userdata('lang',$dil);
+        redirect($_SERVER['HTTP_REFERER']);
     }
 
     /* Index function is the index page of the URL request */

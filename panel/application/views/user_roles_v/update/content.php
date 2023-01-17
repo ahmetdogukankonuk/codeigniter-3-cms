@@ -1,5 +1,5 @@
         <div class="px-4 page-title title-color">
-            <h3>Update User Role</h3>
+            <h3> <?php echo $this->lang->line('update-user-role'); ?> </h3>
         </div>
 
         <section class="mb-5">
@@ -12,19 +12,19 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="">
-                                                <label for="title" class="form-label text-color">Title</label>
-                                                <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="<?php echo $item->title; ?>">
+                                                <label for="title" class="form-label text-color"><?php echo $this->lang->line('title'); ?></label>
+                                                <input type="text" class="form-control" name="title" id="title" placeholder="<?php echo $this->lang->line('title'); ?>" value="<?php echo $item->title; ?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="d-grid mt-3">
                                         <button type="submit" class="btn btn-theme rounded-4 p-2">
-                                            Update
+                                            <?php echo $this->lang->line('update'); ?>
                                         </button>
                                     </div>
                                     <div class="d-grid mt-2">
                                         <a href="<?php echo base_url("user-roles") ?>" class="btn btn-outline-primary rounded-4 p-2">
-                                            Cancel
+                                            <?php echo $this->lang->line('cancel'); ?>
                                         </a>
                                     </div>
                                 </form>

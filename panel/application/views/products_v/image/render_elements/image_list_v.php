@@ -2,12 +2,12 @@
                                     <thead class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Image Title</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Cover Image</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('image-title'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('image'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('cover-image'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody id="sortable" class="text-center" style="vertical-align: baseline;">
@@ -56,12 +56,12 @@
                                     <tfoot class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Image Title</th>
-                                            <th scope="col">Image</th>
-                                            <th scope="col">Cover Image</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('image-title'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('image'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('cover-image'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </tfoot>
                                 </table>

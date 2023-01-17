@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_roles extends CI_Controller {
+class User_roles extends MY_Controller {
 
     public $viewFolder = "";
 

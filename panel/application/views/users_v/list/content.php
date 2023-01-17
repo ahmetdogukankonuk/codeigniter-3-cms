@@ -1,7 +1,7 @@
         <div class="px-4 page-title title-color">
-            <h3>Users</h3>
+            <h3> <?php echo $this->lang->line('users'); ?> </h3>
             <a href="<?php echo base_url("users/new") ?>" class="btn add-new-button text-white rounded-4 shadow float-end">
-                <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
+                <span><i class="bi bi-file-earmark-plus"></i> <?php echo $this->lang->line('add-new'); ?></span>
             </a>
         </div>
 
@@ -16,14 +16,14 @@
                                     <thead class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Surname</th>
-                                            <th scope="col">E-Mail</th>
-                                            <th scope="col">User Role</th>
-                                            <th scope="col">Authority</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('name'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('surname'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('e-mail'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('user-role'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('authority'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-center" style="vertical-align: baseline;">
@@ -78,14 +78,14 @@
                                     <tfoot class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Surname</th>
-                                            <th scope="col">E-Mail</th>
-                                            <th scope="col">User Role</th>
-                                            <th scope="col">Authority</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('name'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('surname'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('e-mail'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('user-role'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('authority'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </tfoot>
                                 </table>

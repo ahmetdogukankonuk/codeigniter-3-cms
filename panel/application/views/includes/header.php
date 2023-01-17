@@ -10,20 +10,20 @@
                     <div class="dropdown-menu shadow-lg rounded-4">
                         <a class="dropdown-item" href="<?php echo base_url("profile"); ?>">
                             <i class="bi bi-person dropdown-icon mx-1"></i>
-                            Profile
+                            <?php echo $this->lang->line('profile'); ?>
                         </a>
                         <a class="dropdown-item" href="<?php echo base_url("settings"); ?>">
                             <i class="bi bi-gear dropdown-icon mx-1"></i>
-                            Settings
+                            <?php echo $this->lang->line('settings'); ?>
                         </a>
                         <a class="dropdown-item" href="<?php echo base_url("logout"); ?>">
                             <i class="bi bi-box-arrow-left dropdown-icon mx-1"></i>
-                            Logout
+                            <?php echo $this->lang->line('logout'); ?>
                         </a>
                         <a class="dropdown-item">
                             <div class="form-check form-switch d-flex justify-content-start">
                                 <input class="form-check-input fs-6 me-2" type="checkbox" role="switch" id="darkMode" onclick="changeStatus()">
-                                Dark Mode
+                                <?php echo $this->lang->line('dark-mode'); ?>
                             </div>
                         </a>
                     </div>

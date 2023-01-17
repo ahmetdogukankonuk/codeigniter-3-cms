@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sliders extends CI_Controller {
+class Sliders extends MY_Controller {
 
     public $viewFolder = "";
 

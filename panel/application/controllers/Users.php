@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Users extends CI_Controller {
+class Users extends MY_Controller {
 
     public $viewFolder = "";
 
@@ -282,6 +282,12 @@ class Users extends CI_Controller {
             );
 
             $viewData->user_roles = $this->user_roles_model->get_all(
+                array(
+                    "isActive"  => 1
+                )
+            );
+		
+            $viewData->countries = $this->country_model->get_all(
                 array(
                     "isActive"  => 1
                 )

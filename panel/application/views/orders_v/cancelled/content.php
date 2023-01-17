@@ -1,7 +1,7 @@
         <div class="px-4 page-title">
-            <h3 class="title-color">Cancelled Orders</h3>
+            <h3 class="title-color"> <?php echo $this->lang->line('cancelled-orders'); ?> </h3>
             <a href="" class="btn add-new-button text-white rounded-4 shadow float-end">
-                <span><i class="bi bi-file-earmark-plus"></i> Add New</span>
+                <span><i class="bi bi-file-earmark-plus"></i> <?php echo $this->lang->line('add-new'); ?></span>
             </a>
         </div>
 
@@ -16,12 +16,12 @@
                                     <thead class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Customer Name</th>
-                                            <th scope="col">Customer Surname</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('customer-name'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('customer-surname'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('date'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-center text-color" style="vertical-align: baseline;">
@@ -52,7 +52,7 @@
                                                         <a href="index.html">
                                                             <i class="bi bi-pencil-square fs-5 text-secondary mx-2"></i>
                                                         </a>
-                                                        <a class="remove-btn" data-url="<?php echo base_url("orders/cancelledDelete/$item->id"); ?>">
+                                                        <a class="remove-btn" data-url="<?php echo base_url("orders/delete/$item->id"); ?>">
                                                             <i class="bi bi-trash fs-5 text-danger mx-2"></i>
                                                         </a>
                                                     </div>
@@ -64,12 +64,12 @@
                                     <tfoot class="text-center">
                                         <tr>
                                             <th scope="col"></th>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Customer Name</th>
-                                            <th scope="col">Customer Surname</th>
-                                            <th scope="col">Date</th>
-                                            <th scope="col">Situation</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col"> <?php echo $this->lang->line('id'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('customer-name'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('customer-surname'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('date'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('situation'); ?> </th>
+                                            <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </tfoot>
                                 </table>

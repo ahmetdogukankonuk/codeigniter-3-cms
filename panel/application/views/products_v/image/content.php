@@ -1,5 +1,5 @@
         <div class="px-4 page-title title-color">
-            <h3>Product Images</h3>
+            <h3> <?php echo $this->lang->line('product-images'); ?> </h3>
         </div>
 
         <section>
@@ -10,8 +10,8 @@
                             <div class="card-body mx-3 table-responsive">
                                 <form action="/file-upload" class="dropzone" id="my-awesome-dropzone">
                                     <div class="dz-message">
-                                        <h3 class="m-h-lg">Drag & Drop Files Here to Upload</h3>
-                                        <p class="m-b-lg text-muted">You can drag and drop your images to upload, or you can click and select here.</p>
+                                        <h3 class="m-h-lg"> <?php echo $this->lang->line('drag-and-drop-files-here-to-upload'); ?> </h3>
+                                        <p class="m-b-lg text-muted"> <?php echo $this->lang->line("you-can-drag-and-drop-your-images-to-upload-or-you-can-click and-select-here"); ?> </p>
                                     </div>
                                 </form>
                             </div>
