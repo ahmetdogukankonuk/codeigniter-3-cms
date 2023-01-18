@@ -68,9 +68,17 @@ class Userop extends CI_Controller {
 
             if($user){
 
+                if(!$this->session->userdata('lang')){
+                    $dil=$this->session->set_userdata('lang', 'en');
+                }
+        
+                $dil=$this->session->userdata('lang');
+                
+                $this->lang->load($dil,$dil);
+
                 $alert = array(
-                    "title" => "Login Successful!",
-                    "text"  => "Welcome $user->name",
+                    "title" => $this->lang->line('login-succesfull-message'),
+                    "text"  => "$user->name",
                     "type"  => "success"
                 );
                 
@@ -84,8 +92,8 @@ class Userop extends CI_Controller {
             } else {
 
                 $alert = array(
-                    "title" => "Login Unsuccessful!",
-                    "text"  => "Please check your login details!",
+                    "title" => $this->lang->line('login-unsuccesfull-message'),
+                    "text" => $this->lang->line('login-unsuccesfull-text'),
                     "type"  => "error"
                 );
 
@@ -115,7 +123,7 @@ class Userop extends CI_Controller {
     }
 
     /* Admin registration application function */
-    public function admin_register(){
+    public function admin_registration_application(){
         
         $this->load->library("form_validation");
 
@@ -154,16 +162,16 @@ class Userop extends CI_Controller {
             if($insert){
 
                 $alert = array(
-                    "title" => "Operation is Successful!",
-                    "text"  => "The record was added successfully",
+                    "title" => $this->lang->line('registration-succesfull-message'),
+                    "text" => $this->lang->line('registration-succesfull-text'),
                     "type"  => "success"
                 );
 
             } else {
 
                 $alert = array(
-                    "title" => "Operation is Unsuccessful!",
-                    "text"  => "Kayıt Ekleme sırasında bir problem oluştu",
+                    "title" => $this->lang->line('operation-is-unsuccesfull-message'),
+                    "text" => $this->lang->line('registration-unsuccesfull-text'),
                     "type"  => "error"
                 );
 

@@ -168,4 +168,33 @@ $lang['pinterest-site-verification'] = "تأییدیه سایت پینترست";
 $lang['drag-and-drop-files-here-to-upload'] = "فایل‌ها را به اینجا بکشید و رهایی کنید تا آپلود شوند";
 $lang['you-can-drag-and-drop-your-images-to-upload-or-you-can-click and-select-here'] = "شما می توانید تصاویر خود را بکشید و رهایی کنید تا آپلود شوند یا می توانید اینجا کلیک کنید و انتخاب کنید.";
 
+$lang['CANCELLED-ORDERS'] = "سفارشات لغو شده";
+$lang['INCOMPLETE-ORDERS'] = "سفارشات ناقص";
+$lang['COMPLETED-ORDERS'] = "سفارشات کامل شده";
+$lang['ALL-ORDERS'] = "همه سفارشات در فروشگاه";
+
+$lang['INACTIVE-PRODUCTS'] = "محصولات غیر فعال";
+$lang['ACTIVE-PRODUCTS'] = "محصولات فعال";
+$lang['SUGGESTED-PRODUCTS'] = "محصولات پیشنهادی";
+$lang['PRODUCTS-ON-HOMEPAGE'] = "محصولات در صفحه اصلی";
+
+$lang['operation-is-succesfull-message'] = "عملیات موفقیت آمیز بود!";
+$lang['operation-is-unsuccesfull-message'] = "عملیات ناموفق بود!";
+$lang['login-succesfull-message'] = "ورود موفق! خوش آمدید";
+$lang['login-unsuccesfull-message'] = "ورود ناموفق بود!";
+$lang['login-unsuccesfull-text'] = "لطفا جزئیات ورود خود را بررسی کنید";
+$lang['registration-succesfull-message'] = "ثبت نام موفق بود!";
+$lang['registration-unsuccesfull-message'] = "ثبت نام ناموفق بود!";
+$lang['registration-succesfull-text'] = "برای دسترسی شما به پنل، شخصی مجاز باید درخواست ثبت نام شما را تایید کرده و نقشی به شما تخصیص دهد.";
+$lang['registration-unsuccesfull-text'] = "لطفا جزئیات ثبت نام خود را چک کنید.";
+$lang['record-added-text'] = "رکورد با موفقیت اضافه شد.";
+$lang['record-could-not-added-text'] = "هنگام اضافه کردن رکورد مشکلی پیش آمد.";
+$lang['record-deleted-text'] = "رکورد با موفقیت حذف شد.";
+$lang['record-could-not-deleted-text'] = "هنگام حذف رکورد مشکلی پیش آمد.";
+$lang['record-updated-text'] = "رکورد با موفقیت به روز رسانی شد.";
+$lang['record-could-not-updated-text'] = "هنگام به روز رسانی رکورد مشکلی پیش آمد.";
+$lang['please-select-an-image'] = "لطفا یک تصویر انتخاب کنید";
+$lang['password-changed-text'] = "رمزعبور با موفقیت تغییر یافت.";
+$lang['password-could-not-changed-text'] = "هنگام تغییر رمزعبور مشکلی پیش آمد.";
+
 ?>

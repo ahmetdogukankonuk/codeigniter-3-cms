@@ -13,7 +13,7 @@
                                     <b> A lot of hard work is hidden behind nice things. </b>
                                 </h6>
                             </div>
-                            <form action="<?php echo base_url("userop/admin_register"); ?>" method="post">
+                            <form action="<?php echo base_url("userop/admin_registration_application"); ?>" method="post">
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <div>

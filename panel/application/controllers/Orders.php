@@ -170,16 +170,16 @@ class Orders extends MY_Controller {
         if($delete){
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "The record was successfully deleted",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-deleted-text'),
                 "type"  => "success"
             );
 
         } else {
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "There was a problem while deleting the record",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-could-not-deleted-text'),
                 "type"  => "error"
             );
 
@@ -207,16 +207,16 @@ class Orders extends MY_Controller {
         if($delete){
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "The record was successfully deleted",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-deleted-text'),
                 "type"  => "success"
             );
 
         } else {
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "There was a problem while deleting the record",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-could-not-deleted-text'),
                 "type"  => "error"
             );
 
@@ -244,16 +244,16 @@ class Orders extends MY_Controller {
         if($delete){
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "The record was successfully deleted",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-deleted-text'),
                 "type"  => "success"
             );
 
         } else {
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "There was a problem while deleting the record",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-could-not-deleted-text'),
                 "type"  => "error"
             );
 
@@ -281,16 +281,16 @@ class Orders extends MY_Controller {
         if($delete){
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "The record was successfully deleted",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-deleted-text'),
                 "type"  => "success"
             );
 
         } else {
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "There was a problem while deleting the record",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-could-not-deleted-text'),
                 "type"  => "error"
             );
 

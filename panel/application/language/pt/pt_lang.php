@@ -119,7 +119,7 @@ $lang['update-slider'] = "Atualizar Slider";
 $lang['update-user-role'] = "Atualizar Papel de Usuário";
 $lang['update-user'] = "Atualizar Usuário";
 
-$$lang['project-video'] = "Vídeo do projeto";
+$lang['project-video'] = "Vídeo do projeto";
 $lang['company-name'] = "Nome da empresa";
 $lang['company-website'] = "Website da empresa";
 $lang['company-phone'] = "Telefone da empresa";
@@ -167,5 +167,34 @@ $lang['pinterest-site-verification'] = "Verificação do site do Pinterest";
 
 $lang['drag-and-drop-files-here-to-upload'] = "Arraste e solte arquivos aqui para fazer upload";
 $lang['you-can-drag-and-drop-your-images-to-upload-or-you-can-click and-select-here'] = "Você pode arrastar e soltar suas imagens para fazer upload ou pode clicar e selecionar aqui.";
+
+$lang['CANCELLED-ORDERS'] = "PEDIDOS CANCELADOS";
+$lang['INCOMPLETE-ORDERS'] = "PEDIDOS INCOMPLETOS";
+$lang['COMPLETED-ORDERS'] = "PEDIDOS CONCLUÍDOS";
+$lang['ALL-ORDERS'] = "TODOS OS PEDIDOS NA LOJA";
+
+$lang['INACTIVE-PRODUCTS'] = "PRODUTOS INATIVOS";
+$lang['ACTIVE-PRODUCTS'] = "PRODUTOS ATIVOS";
+$lang['SUGGESTED-PRODUCTS'] = "PRODUTOS SUGERIDOS";
+$lang['PRODUCTS-ON-HOMEPAGE'] = "PRODUTOS NA PÁGINA INICIAL";
+
+$lang['operation-is-succesfull-message'] = "Operação bem-sucedida!";
+$lang['operation-is-unsuccesfull-message'] = "Operação não bem-sucedida!";
+$lang['login-succesfull-message'] = "Login bem-sucedido! Bem-vindo";
+$lang['login-unsuccesfull-message'] = "Login não bem-sucedido!";
+$lang['login-unsuccesfull-text'] = "Por favor, verifique seus detalhes de login";
+$lang['registration-succesfull-message'] = "Registro bem-sucedido!";
+$lang['registration-unsuccesfull-message'] = "Registro não bem-sucedido!";
+$lang['registration-succesfull-text'] = "Para ter acesso ao painel, alguém autorizado deve aprovar sua inscrição e atribuir-lhe um papel";
+$lang['registration-unsuccesfull-text'] = "Por favor, verifique seus detalhes de registro";
+$lang['record-added-text'] = "O registro foi adicionado com sucesso";
+$lang['record-could-not-added-text'] = "Ocorreu um problema durante a adição do registro";
+$lang['record-deleted-text'] = "O registro foi excluído com sucesso";
+$lang['record-could-not-deleted-text'] = "Ocorreu um problema durante a exclusão do registro";
+$lang['record-updated-text'] = "O registro foi atualizado com sucesso";
+$lang['record-could-not-updated-text'] = "Ocorreu um problema durante a atualização do registro";
+$lang['please-select-an-image'] = "Por favor, selecione uma imagem";
+$lang['password-changed-text'] = "A senha foi alterada com sucesso";
+$lang['password-could-not-changed-text'] = "Ocorreu um problema durante a alteração da senha";
 
 ?>

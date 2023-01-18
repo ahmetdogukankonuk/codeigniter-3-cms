@@ -178,7 +178,7 @@ select{
   left: auto !important;
   right: 0 !important;
   margin-top: .6rem !important;
-  width: 10rem !important;
+  width: 12rem !important;
   background-color: var(--dropdown-bg-color);
   border: 1px solid;
   border-color: var(--dropdown-border-color);
@@ -373,6 +373,22 @@ a{
 .dollar-icon{
   color: #76c893;
 }
+
+.cancelled-orders-icon{
+  color: rgb(255, 0, 0);
+}
+
+.incomplete-orders-icon{
+  color: #90e0ef;
+}
+
+.completed-orders-icon{
+  color: rgb(23, 100, 243);
+}
+
+.all-orders-icon{
+  color: #76c893;
+}
 /* Dashboard Index End */
 
 /* Tables Start */
@@ -380,6 +396,14 @@ a{
   display: flex;
   justify-content: space-between;
   margin-top: 6rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.page-with-cards-title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
   align-items: center;
 }

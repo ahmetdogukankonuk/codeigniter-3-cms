@@ -168,4 +168,33 @@ $lang['pinterest-site-verification'] = "Pinterest Site Doğrulama";
 $lang['drag-and-drop-files-here-to-upload'] = "Yüklemek için Dosyaları Buraya Sürükleyip Bırakın";
 $lang['you-can-drag-and-drop-your-images-to-upload-or-you-can-click and-select-here'] = "Yüklemek için resimlerinizi sürükleyip bırakabilir veya burayı tıklayıp seçebilirsiniz.";
 
+$lang['CANCELLED-ORDERS'] = "İPTAL EDİLEN SİPARİŞLER";
+$lang['INCOMPLETE-ORDERS'] = "TAMAMLANMAMIŞ SİPARİŞLER";
+$lang['COMPLETED-ORDERS'] = "TAMAMLANMIŞ SİPARİŞLER";
+$lang['ALL-ORDERS'] = "MAĞAZA İÇİ TÜM SİPARİŞLER";
+
+$lang['INACTIVE-PRODUCTS'] = "İNAKTİF ÜRÜNLER";
+$lang['ACTIVE-PRODUCTS'] = "AKTİF ÜRÜNLER";
+$lang['SUGGESTED-PRODUCTS'] = "ÖNERİLEN ÜRÜNLER";
+$lang['PRODUCTS-ON-HOMEPAGE'] = "ANASAYFADAKİ ÜRÜNLER";
+
+$lang['operation-is-succesfull-message'] = "İşlem Başarılı!";
+$lang['operation-is-unsuccesfull-message'] = "İşlem Başarısız!";
+$lang['login-succesfull-message'] = "Giriş Başarılı! Hoşgeldiniz";
+$lang['login-unsuccesfull-message'] = "Giriş Başarısız!";
+$lang['login-unsuccesfull-text'] = "Lütfen giriş bilgilerinizi kontrol edin";
+$lang['registration-succesfull-message'] = "Kayıt Başarılı!";
+$lang['registration-unsuccesfull-message'] = "Kayıt Başarısız!";
+$lang['registration-succesfull-text'] = "Panelinize erişebilmek için yetkilendirilmiş bir kişinin başvurunuzu onaylaması ve size bir rol ataması gerekmektedir";
+$lang['registration-unsuccesfull-text'] = "Lütfen kayıt bilgilerinizi kontrol edin";
+$lang['record-added-text'] = "Kayıt başarıyla eklendi";
+$lang['record-could-not-added-text'] = "Kayıt eklenirken bir sorun oluştu";
+$lang['record-deleted-text'] = "Kayıt başarıyla silindi";
+$lang['record-could-not-deleted-text'] = "Kayıt silinirken bir sorun oluştu";
+$lang['record-updated-text'] = "Kayıt başarıyla güncellendi";
+$lang['record-could-not-updated-text'] = "Kayıt güncellenirken bir sorun oluştu";
+$lang['please-select-an-image'] = "Lütfen bir resim seçin";
+$lang['password-changed-text'] = "Parola başarıyla değiştirildi";
+$lang['password-could-not-changed-text'] = "Parola değiştirilirken bir sorun oluştu";
+
 ?>

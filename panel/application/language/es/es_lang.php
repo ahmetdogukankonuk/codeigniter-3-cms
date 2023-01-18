@@ -168,4 +168,33 @@ $lang['pinterest-site-verification'] = "Verificación del sitio web de Pinterest
 $lang['drag-and-drop-files-here-to-upload'] = "Arrastra y suelta archivos aquí para subirlos";
 $lang['you-can-drag-and-drop-your-images-to-upload-or-you-can-click-and-select-here'] = "Puedes arrastrar y soltar tus imágenes para subirlas o puedes hacer clic y seleccionar aquí.";
 
+$lang['CANCELLED-ORDERS'] = "PEDIDOS CANCELADOS";
+$lang['INCOMPLETE-ORDERS'] = "PEDIDOS INCOMPLETOS";
+$lang['COMPLETED-ORDERS'] = "PEDIDOS COMPLETOS";
+$lang['ALL-ORDERS'] = "TODOS LOS PEDIDOS EN LA TIENDA";
+
+$lang['INACTIVE-PRODUCTS'] = "PRODUCTOS INACTIVOS";
+$lang['ACTIVE-PRODUCTS'] = "PRODUCTOS ACTIVOS";
+$lang['SUGGESTED-PRODUCTS'] = "PRODUCTOS SUGERIDOS";
+$lang['PRODUCTS-ON-HOMEPAGE'] = "PRODUCTOS EN LA PÁGINA DE INICIO";
+
+$lang['operation-is-succesfull-message'] = "¡Operación exitosa!";
+$lang['operation-is-unsuccesfull-message'] = "¡Operación fallida!";
+$lang['login-succesfull-message'] = "¡Inicio de sesión exitoso! Bienvenido";
+$lang['login-unsuccesfull-message'] = "¡Inicio de sesión fallido!";
+$lang['login-unsuccesfull-text'] = "Por favor, verifica tus detalles de inicio de sesión";
+$lang['registration-succesfull-message'] = "¡Registro exitoso!";
+$lang['registration-unsuccesfull-message'] = "¡Registro fallido!";
+$lang['registration-succesfull-text'] = "Para tener acceso al panel, alguien autorizado debe aprobar tu solicitud y asignarte un rol";
+$lang['registration-unsuccesfull-text'] = "Por favor, verifica tus detalles de registro";
+$lang['record-added-text'] = "El registro se agregó con éxito";
+$lang['record-could-not-added-text'] = "Ocurrió un problema durante la adición del registro";
+$lang['record-deleted-text'] = "El registro se eliminó con éxito";
+$lang['record-could-not-deleted-text'] = "Ocurrió un problema durante la eliminación del registro";
+$lang['record-updated-text'] = "El registro se actualizó con éxito";
+$lang['record-could-not-updated-text'] = "Ocurrió un problema durante la actualización del registro";
+$lang['please-select-an-image'] = "Por favor, selecciona una imagen";
+$lang['password-changed-text'] = "La contraseña se cambió con éxito";
+$lang['password-could-not-changed-text'] = "Ocurrió un problema durante el cambio de contraseña";
+
 ?>

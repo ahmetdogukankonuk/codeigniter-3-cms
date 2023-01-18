@@ -168,4 +168,33 @@ $lang['pinterest-site-verification'] = "Проверка сайта Pinterest";
 $lang['drag-and-drop-files-here-to-upload'] = "Перетащите файлы сюда для загрузки";
 $lang['you-can-drag-and-drop-your-images-to-upload-or-you-can-click and-select-here'] = "Вы можете перетаскивать изображения для загрузки или нажимать и выбирать здесь.";
 
+$lang['CANCELLED-ORDERS'] = "ОТМЕНЕННЫЕ ЗАКАЗЫ";
+$lang['INCOMPLETE-ORDERS'] = "НЕЗАВЕРШЕННЫЕ ЗАКАЗЫ";
+$lang['COMPLETED-ORDERS'] = "ЗАВЕРШЕННЫЕ ЗАКАЗЫ";
+$lang['ALL-ORDERS'] = "ВСЕ ЗАКАЗЫ В МАГАЗИНЕ";
+
+$lang['INACTIVE-PRODUCTS'] = "НЕАКТИВНЫЕ ТОВАРЫ";
+$lang['ACTIVE-PRODUCTS'] = "АКТИВНЫЕ ТОВАРЫ";
+$lang['SUGGESTED-PRODUCTS'] = "РЕКОМЕНДУЕМЫЕ ТОВАРЫ";
+$lang['PRODUCTS-ON-HOMEPAGE'] = "ТОВАРЫ НА ГЛАВНОЙ СТРАНИЦЕ";
+
+$lang['operation-is-succesfull-message'] = "Операция прошла успешно!";
+$lang['operation-is-unsuccesfull-message'] = "Операция не удалась!";
+$lang['login-succesfull-message'] = "Вход выполнен успешно! Добро пожаловать";
+$lang['login-unsuccesfull-message'] = "Вход не удался!";
+$lang['login-unsuccesfull-text'] = "Пожалуйста, проверьте данные для входа";
+$lang['registration-succesfull-message'] = "Регистрация прошла успешно!";
+$lang['registration-unsuccesfull-message'] = "Регистрация не удалась!";
+$lang['registration-succesfull-text'] = "Для доступа к панели, кто-то из авторизованных должен одобрить вашу заявку и назначить вам роль";
+$lang['registration-unsuccesfull-text'] = "Пожалуйста, проверьте ваши данные регистрации";
+$lang['record-added-text'] = "Запись была успешно добавлена";
+$lang['record-could-not-added-text'] = "Во время добавления записи произошла ошибка";
+$lang['record-deleted-text'] = "Запись была успешно удалена";
+$lang['record-could-not-deleted-text'] = "Во время удаления записи произошла ошибка";
+$lang['record-updated-text'] = "Запись была успешно обновлена";
+$lang['record-could-not-updated-text'] = "Во время обновления записи произошла ошибка";
+$lang['please-select-an-image'] = "Пожалуйста, выберите изображение";
+$lang['password-changed-text'] = "Пароль успешно изменен";
+$lang['password-could-not-changed-text'] = "При смене пароля возникла проблема";
+
 ?>

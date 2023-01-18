@@ -104,16 +104,16 @@ class Portfolio extends MY_Controller {
             if($insert){
 
                 $alert = array(
-                    "title" => "Operation is Successful!",
-                    "text"  => "The record was added successfully",
+                    "title" => $this->lang->line('operation-is-succesfull-message'),
+                    "text" => $this->lang->line('record-added-text'),
                     "type"  => "success"
                 );
 
             } else {
 
                 $alert = array(
-                    "title" => "Operation is not Successful!",
-                    "text"  => "There was a problem while adding data",
+                    "title" => $this->lang->line('operation-is-unsuccesfull-message'),
+                    "text" => $this->lang->line('record-could-not-added-text'),
                     "type"  => "error"
                 );
                 
@@ -204,16 +204,16 @@ class Portfolio extends MY_Controller {
             if($update){
 
                 $alert = array(
-                    "title" => "Operation is Successful!",
-                    "text"  => "The record was updated successfully",
+                    "title" => $this->lang->line('operation-is-succesfull-message'),
+                    "text"  => $this->lang->line('record-updated-text'),
                     "type"  => "success"
                 );
 
             } else {
 
                 $alert = array(
-                    "title" => "Operation is Unsuccessful!",
-                    "text"  => "There was a problem while updating the record",
+                    "title" => $this->lang->line('operation-is-unsuccesfull-message'),
+                    "text"  => $this->lang->line('record-could-not-updated-text'),
                     "type"  => "error"
                 );
             }
@@ -433,16 +433,16 @@ class Portfolio extends MY_Controller {
         if($delete){
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "The record was successfully deleted",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-deleted-text'),
                 "type"  => "success"
             );
 
         } else {
 
             $alert = array(
-                "title" => "Operation is Successful!",
-                "text"  => "There was a problem while deleting the record",
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-could-not-deleted-text'),
                 "type"  => "error"
             );
 

@@ -1,4 +1,6 @@
-        <div class="px-4 page-title title-color">
+        <?php $this->load->view("{$viewFolder}/cards"); ?>
+
+        <div class="px-4 page-with-cards-title title-color">
             <h3> <?php echo $this->lang->line('products'); ?> </h3>
             <a href="<?php echo base_url("products/new") ?>" class="btn add-new-button btn-theme text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> <?php echo $this->lang->line('add-new'); ?></span>

@@ -168,4 +168,33 @@ $lang['pinterest-site-verification'] = "التحقق من موقع بينتير�
 $lang['drag-and-drop-files-here-to-upload'] = "سحب وإسقاط الملفات هنا لتحميل";
 $lang['you-can-drag-and-drop-your-images-to-upload-or-you-can-click and-select-here'] = "يمكنك سحب وإسقاط الصور الخاصة بك لتحميل ، أو يمكنك النقر وحدد هنا.";
 
+$lang['CANCELLED-ORDERS'] = "طلبات ملغية";
+$lang['INCOMPLETE-ORDERS'] = "طلبات غير مكتملة";
+$lang['COMPLETED-ORDERS'] = "طلبات مكتملة";
+$lang['ALL-ORDERS'] = "جميع الطلبات في المتجر";
+
+$lang['INACTIVE-PRODUCTS'] = "المنتجات غير النشطة";
+$lang['ACTIVE-PRODUCTS'] = "المنتجات النشطة";
+$lang['SUGGESTED-PRODUCTS'] = "المنتجات المقترحة";
+$lang['PRODUCTS-ON-HOMEPAGE'] = "المنتجات على الصفحة الرئيسية";
+
+$lang['operation-is-succesfull-message'] = "العملية ناجحة!";
+$lang['operation-is-unsuccesfull-message'] = "العملية فاشلة!";
+$lang['login-succesfull-message'] = "تسجيل الدخول ناجح! مرحباً";
+$lang['login-unsuccesfull-message'] = "تسجيل الدخول فاشل!";
+$lang['login-unsuccesfull-text'] = "يرجى التحقق من تفاصيل تسجيل الدخول الخاصة بك";
+$lang['registration-succesfull-message'] = "تسجيل ناجح!";
+$lang['registration-unsuccesfull-message'] = "تسجيل فاشل!";
+$lang['registration-succesfull-text'] = "للحصول على الدخول إلى اللوحة، يجب على مسؤول معتمد أن يوافق على الطلب الخاص بك ويعين لك دوراً";
+$lang['registration-unsuccesfull-text'] = "يرجى التحقق من تفاصيل التسجيل الخاصة بك";
+$lang['record-added-text'] = "تمت إضافة السجل بنجاح";
+$lang['record-could-not-added-text'] = "حدثت مشكلة أثناء إضافة السجل";
+$lang['record-deleted-text'] = "تم حذف السجل بنجاح";
+$lang['record-could-not-deleted-text'] = "حدثت مشكلة أثناء حذف السجل";
+$lang['record-updated-text'] = "تم تحديث السجل بنجاح";
+$lang['record-could-not-updated-text'] = "حدثت مشكلة أثناء تحديث السجل";
+$lang['please-select-an-image'] = "يرجى تحديد صورة";
+$lang['password-changed-text'] = "تم تغيير كلمة المرور بنجاح";
+$lang['password-could-not-changed-text'] = "حدثت مشكلة أثناء تغيير كلمة المرور";
+
 ?>

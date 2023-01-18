@@ -168,4 +168,33 @@ $lang['pinterest-site-verification'] = "Pinterest Site Verification";
 $lang['drag-and-drop-files-here-to-upload'] = "Drag & Drop Files Here to Upload";
 $lang['you-can-drag-and-drop-your-images-to-upload-or-you-can-click and-select-here'] = "You can drag and drop your images to upload, or you can click and select here.";
 
+$lang['CANCELLED-ORDERS'] = "CANCELLED ORDERS";
+$lang['INCOMPLETE-ORDERS'] = "INCOMPLETE ORDERS";
+$lang['COMPLETED-ORDERS'] = "COMPLETED ORDERS";
+$lang['ALL-ORDERS'] = "ALL ORDERS IN SHOP";
+
+$lang['INACTIVE-PRODUCTS'] = "INACTIVE PRODUCTS";
+$lang['ACTIVE-PRODUCTS'] = "ACTIVE PRODUCTS";
+$lang['SUGGESTED-PRODUCTS'] = "SUGGESTED PRODUCTS";
+$lang['PRODUCTS-ON-HOMEPAGE'] = "PRODUCTS ON HOMEPAGE";
+
+$lang['operation-is-succesfull-message'] = "Operation is Successful!";
+$lang['operation-is-unsuccesfull-message'] = "Operation is Unsuccessful!";
+$lang['login-succesfull-message'] = "Login Successful! Welcome";
+$lang['login-unsuccesfull-message'] = "Login Unsuccessful!";
+$lang['login-unsuccesfull-text'] = "Please check your login details";
+$lang['registration-succesfull-message'] = "Registration Successful!";
+$lang['registration-unsuccesfull-message'] = "Registration Unsuccessful!";
+$lang['registration-succesfull-text'] = "In order for you to have access to the panel, someone authorized must approve your application and assign you a role";
+$lang['registration-unsuccesfull-text'] = "Please check your registration details";
+$lang['record-added-text'] = "The record was added successfully";
+$lang['record-could-not-added-text'] = "A problem occurred during adding the record";
+$lang['record-deleted-text'] = "The record was successfully deleted";
+$lang['record-could-not-deleted-text'] = "A problem occurred during deleting the record";
+$lang['record-updated-text'] = "The record was updated successfully";
+$lang['record-could-not-updated-text'] = "A problem occurred during updating the record";
+$lang['please-select-an-image'] = "Please select an image";
+$lang['password-changed-text'] = "The password changed successfully";
+$lang['password-could-not-changed-text'] = "A problem occurred during changing the password";
+
 ?>

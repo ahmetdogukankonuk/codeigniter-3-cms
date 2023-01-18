@@ -152,6 +152,26 @@ function get_orders_sum() {
     return $query->row()->orderTotal;
 }
 
+function get_on_main_products_count() {
+    $t =& get_instance();
+    $t->db->from('products');
+    $t->db->where('isOnMain', 1);
+    return $t->db->count_all_results();
+}
+
+function get_suggested_products_count() {
+    $t =& get_instance();
+    $t->db->from('products');
+    $t->db->where('isSuggested', 1);
+    return $t->db->count_all_results();
+}
+
+function get_inactive_products_count() {
+    $t =& get_instance();
+    $t->db->from('products');
+    $t->db->where('isActive', 0);
+    return $t->db->count_all_results();
+}
 
 function get_active_products_count() {
     $t =& get_instance();
@@ -176,6 +196,27 @@ function get_active_users_count() {
 function get_users_count() {
     $t =& get_instance();
     $t->db->from('users');
+    return $t->db->count_all_results();
+}
+
+function get_cancelled_orders_count() {
+    $t =& get_instance();
+    $t->db->from('orders');
+    $t->db->where('orderSituation', "Order Has Been Cancelled");
+    return $t->db->count_all_results();
+}
+
+function get_incomplete_orders_count() {
+    $t =& get_instance();
+    $t->db->from('orders');
+    $t->db->where('orderSituation', "Order is On Progress");
+    return $t->db->count_all_results();
+}
+
+function get_completed_orders_count() {
+    $t =& get_instance();
+    $t->db->from('orders');
+    $t->db->where('orderSituation', "Order Completed");
     return $t->db->count_all_results();
 }
 

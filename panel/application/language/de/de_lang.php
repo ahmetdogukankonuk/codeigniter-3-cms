@@ -168,4 +168,33 @@ $lang['pinterest-site-verification'] = "Pinterest-Site-Verifizierung";
 $lang['drag-and-drop-files-here-to-upload'] = "Dateien hierher ziehen und ablegen, um hochzuladen";
 $lang['you-can-drag-and-drop-your-images-to-upload-or-you-can-click-and-select-here'] = "Sie können Ihre Bilder hierher ziehen und ablegen, um hochzuladen, oder Sie können hier klicken und auswählen.";
 
+$lang['CANCELLED-ORDERS'] = "STORNIERTE BESTELLUNGEN";
+$lang['INCOMPLETE-ORDERS'] = "UNVOLLSTÄNDIGE BESTELLUNGEN";
+$lang['COMPLETED-ORDERS'] = "ABGESCHLOSSENE BESTELLUNGEN";
+$lang['ALL-ORDERS'] = "ALLE BESTELLUNGEN IM SHOP";
+
+$lang['INACTIVE-PRODUCTS'] = "INAKTIVE PRODUKTE";
+$lang['ACTIVE-PRODUCTS'] = "AKTIVE PRODUKTE";
+$lang['SUGGESTED-PRODUCTS'] = "EMPFOHLENE PRODUKTE";
+$lang['PRODUCTS-ON-HOMEPAGE'] = "PRODUKTE AUF DER HOMEPAGE";
+
+$lang['operation-is-succesfull-message'] = "Die Operation war erfolgreich!";
+$lang['operation-is-unsuccesfull-message'] = "Die Operation war nicht erfolgreich!";
+$lang['login-succesfull-message'] = "Anmeldung erfolgreich! Willkommen";
+$lang['login-unsuccesfull-message'] = "Anmeldung nicht erfolgreich!";
+$lang['login-unsuccesfull-text'] = "Bitte überprüfen Sie Ihre Anmeldeinformationen";
+$lang['registration-succesfull-message'] = "Registrierung erfolgreich!";
+$lang['registration-unsuccesfull-message'] = "Registrierung nicht erfolgreich!";
+$lang['registration-succesfull-text'] = "Damit Sie Zugang zum Panel haben, muss jemand Berechtigter Ihre Anfrage genehmigen und Ihnen eine Rolle zuweisen.";
+$lang['registration-unsuccesfull-text'] = "Bitte überprüfen Sie Ihre Registrierungsangaben";
+$lang['record-added-text'] = "Der Eintrag wurde erfolgreich hinzugefügt";
+$lang['record-could-not-added-text'] = "Es gab ein Problem beim Hinzufügen des Eintrags";
+$lang['record-deleted-text'] = "Der Eintrag wurde erfolgreich gelöscht";
+$lang['record-could-not-deleted-text'] = "Es gab ein Problem beim Löschen des Eintrags";
+$lang['record-updated-text'] = "Der Eintrag wurde erfolgreich aktualisiert";
+$lang['record-could-not-updated-text'] = "Es gab ein Problem beim Aktualisieren des Eintrags";
+$lang['please-select-an-image'] = "Bitte wählen Sie ein Bild aus";
+$lang['password-changed-text'] = "Das Passwort wurde erfolgreich geändert";
+$lang['password-could-not-changed-text'] = "Es gab ein Problem beim Ändern des Passworts";
+
 ?>

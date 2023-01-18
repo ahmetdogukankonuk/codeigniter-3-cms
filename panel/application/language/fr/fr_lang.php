@@ -168,4 +168,33 @@ $lang['pinterest-site-verification'] = "Vérification du Site Pinterest";
 $lang['drag-and-drop-files-here-to-upload'] = "Faire glisser et déposer des fichiers ici pour les télécharger";
 $lang['you-can-drag-and-drop-your-images-to-upload-or-you-can-click and-select-here'] = "Vous pouvez faire glisser et déposer vos images pour les télécharger ou vous pouvez cliquer et sélectionner ici.";
 
+$lang['CANCELLED-ORDERS'] = "COMMANDES ANNULÉES";
+$lang['INCOMPLETE-ORDERS'] = "COMMANDES INCOMPLÈTES";
+$lang['COMPLETED-ORDERS'] = "COMMANDES TERMINÉES";
+$lang['ALL-ORDERS'] = "TOUTES LES COMMANDES DANS LA BOUTIQUE";
+
+$lang['INACTIVE-PRODUCTS'] = "PRODUITS INACTIFS";
+$lang['ACTIVE-PRODUCTS'] = "PRODUITS ACTIFS";
+$lang['SUGGESTED-PRODUCTS'] = "PRODUITS SUGGÉRÉS";
+$lang['PRODUCTS-ON-HOMEPAGE'] = "PRODUITS SUR LA PAGE D'ACCUEIL";
+
+$lang['operation-is-succesfull-message'] = "Opération réussie !";
+$lang['operation-is-unsuccesfull-message'] = "Opération échouée !";
+$lang['login-succesfull-message'] = "Connexion réussie ! Bienvenue";
+$lang['login-unsuccesfull-message'] = "Connexion échouée !";
+$lang['login-unsuccesfull-text'] = "Veuillez vérifier vos informations de connexion";
+$lang['registration-succesfull-message'] = "Inscription réussie !";
+$lang['registration-unsuccesfull-message'] = "Inscription échouée !";
+$lang['registration-succesfull-text'] = "Afin d'avoir accès au panneau, quelqu'un de habilité doit approuver votre demande et vous attribuer un rôle";
+$lang['registration-unsuccesfull-text'] = "Veuillez vérifier vos informations d'inscription";
+$lang['record-added-text'] = "Le registre a été ajouté avec succès";
+$lang['record-could-not-added-text'] = "Un problème est survenu lors de l'ajout du registre";
+$lang['record-deleted-text'] = "Le registre a été supprimé avec succès";
+$lang['record-could-not-deleted-text'] = "Un problème est survenu lors de la suppression du registre";
+$lang['record-updated-text'] = "Le registre a été mis à jour avec succès";
+$lang['record-could-not-updated-text'] = "Un problème est survenu lors de la mise à jour du registre";
+$lang['please-select-an-image'] = "Veuillez sélectionner une image";
+$lang['password-changed-text'] = "Le mot de passe a été modifié avec succès";
+$lang['password-could-not-changed-text'] = "Un problème est survenu lors de la modification du mot de passe";
+
 ?>

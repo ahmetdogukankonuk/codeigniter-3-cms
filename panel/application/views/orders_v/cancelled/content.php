@@ -1,4 +1,6 @@
-        <div class="px-4 page-title">
+        <?php $this->load->view("{$viewFolder}/cards"); ?>
+
+        <div class="px-4 page-with-cards-title">
             <h3 class="title-color"> <?php echo $this->lang->line('cancelled-orders'); ?> </h3>
             <a href="" class="btn add-new-button text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> <?php echo $this->lang->line('add-new'); ?></span>
