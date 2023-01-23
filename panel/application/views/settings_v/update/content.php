@@ -13,6 +13,8 @@
 
                             <?php $this->load->view("{$viewFolder}/{$subViewFolder}/website"); ?>
 
+                            <?php $this->load->view("{$viewFolder}/{$subViewFolder}/email"); ?>
+
                             <?php $this->load->view("{$viewFolder}/{$subViewFolder}/company"); ?>
 
                             <?php $this->load->view("{$viewFolder}/{$subViewFolder}/social"); ?>

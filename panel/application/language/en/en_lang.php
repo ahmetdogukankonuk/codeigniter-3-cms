@@ -156,6 +156,7 @@ $lang['favicon'] = "Favicon";
 $lang['company-motto'] = "Company Motto";
 
 $lang['website'] = "Website";
+$lang['email'] = "E-Mail";
 $lang['website-title'] = "Website Title";
 $lang['website-description'] = "Website Description";
 $lang['website-author'] = "Website Author";

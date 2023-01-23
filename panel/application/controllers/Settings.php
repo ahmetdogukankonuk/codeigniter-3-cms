@@ -12,6 +12,7 @@ class Settings extends MY_Controller {
         $this->viewFolder = "settings_v";
 
         $this->load->model("website_model");
+        $this->load->model("email_model");
         $this->load->model("company_model");
         $this->load->model("social_model");
         $this->load->model("address_model");
@@ -40,6 +41,12 @@ class Settings extends MY_Controller {
 	    $viewData = new stdClass();
 
         $viewData->website = $this->website_model->get(
+            array(
+                "id"    => 1,
+            )
+        );
+
+        $viewData->email = $this->email_model->get(
             array(
                 "id"    => 1,
             )
@@ -174,6 +181,91 @@ class Settings extends MY_Controller {
             $viewData->form_error = true;
             
             $viewData->item = $this->website_model->get(
+                array(
+                    "id"    => 1,
+                )
+            );
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+        }
+
+    }
+
+
+    public function email_update(){
+
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
+        if(!isAllowedUpdateModule()){
+            redirect(base_url("settings"));
+        }
+
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("protocol", "Protocol", "required|trim");
+        $this->form_validation->set_rules("host", "Host", "required|trim");
+        $this->form_validation->set_rules("port", "Port", "required|trim");
+        $this->form_validation->set_rules("user", "User", "required|trim");
+        $this->form_validation->set_rules("password", "Password", "required|trim");
+        $this->form_validation->set_rules("from", "From", "required|trim");
+        $this->form_validation->set_rules("to", "To", "required|trim");
+        $this->form_validation->set_rules("userName", "User Name", "required|trim");
+
+        $validate = $this->form_validation->run();
+
+        if($validate){
+
+            $update = $this->email_model->update(
+                array(
+                        "id" => 1
+                ),
+                array(
+                    "protocol"      => $this->input->post("protocol"),
+                    "host"          => $this->input->post("host"),
+                    "port"          => $this->input->post("port"),
+                    "user"          => $this->input->post("user"),
+                    "password"      => $this->input->post("password"),
+                    "from"          => $this->input->post("from"),
+                    "to"            => $this->input->post("to"),
+                    "userName"      => $this->input->post("userName"),
+                    "updatedAt"     => date("Y-m-d H:i:s")
+                )
+            );
+
+            if($update){
+
+                $alert = array(
+                    "title" => $this->lang->line('operation-is-succesfull-message'),
+                    "text"  => $this->lang->line('record-updated-text'),
+                    "type"  => "success"
+                );
+
+            } else {
+
+                $alert = array(
+                    "title" => $this->lang->line('operation-is-unsuccesfull-message'),
+                    "text"  => $this->lang->line('record-could-not-updated-text'),
+                    "type"  => "error"
+                );
+            }
+
+            $this->session->set_flashdata("alert", $alert);
+
+            redirect(base_url("settings"));
+
+        } else {
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "update";
+            $viewData->form_error = true;
+            
+            $viewData->item = $this->email_model->get(
                 array(
                     "id"    => 1,
                 )

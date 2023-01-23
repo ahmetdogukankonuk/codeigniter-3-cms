@@ -5,6 +5,9 @@
                                     <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#website" role="tab">
                                         <?php echo $this->lang->line('website'); ?>
                                     </a>
+                                    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#email" role="tab">
+                                        <?php echo $this->lang->line('email'); ?>
+                                    </a>
 									<a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#company" role="tab">
                                         <?php echo $this->lang->line('company'); ?>
                                     </a>

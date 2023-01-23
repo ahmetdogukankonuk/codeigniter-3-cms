@@ -371,8 +371,8 @@ class Users extends MY_Controller {
 
         $this->load->library("form_validation");
 
-        $this->form_validation->set_rules("password", "Password", "required|trim|min_length[6]|max_length[8]");
-        $this->form_validation->set_rules("re_password", "Confirm Password", "required|trim|min_length[6]|max_length[8]|matches[password]");
+        $this->form_validation->set_rules("password", "Password", "required|trim|min_length[6]|max_length[20]");
+        $this->form_validation->set_rules("re_password", "Confirm Password", "required|trim|min_length[6]|max_length[20]|matches[password]");
 
         $validate = $this->form_validation->run();
 

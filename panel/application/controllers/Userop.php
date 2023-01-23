@@ -213,4 +213,102 @@ class Userop extends CI_Controller {
 
     }
     
+    public function reset_password(){
+        
+        $this->load->library("form_validation");
+
+        $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email");
+
+        $this->form_validation->set_message(
+            array(
+                "required"      => "{field} alanı doldurulmalıdır.",
+                "valid_email"   => "Lütfen sisteme önceden kayıtlı bir email adresi giriniz.",
+            )
+        );
+
+        if($this->form_validation->run() == FALSE){
+
+            $viewData = new stdClass();
+
+            $viewData->viewFolder = $this->viewFolder;
+            $viewData->subViewFolder = "forget_password";
+            $viewData->form_error = true;
+
+            $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+        } else {
+            
+            $user = $this->users_model->get(
+                array(
+                    "isActive"  => 1,
+                    "email"     => $this->input->post("email")
+                )
+            );
+
+            if($user){
+
+                $this->load->helper("string");
+
+                $temp_password = random_string('alnum', 8);
+
+                $send = send_email($user->email, "Reset Your Password", "<center><h3> Password changed. You can login to system with this password: </h3></center> <center><h1><b>$temp_password</b></h1></center>");
+        
+                if($send){
+
+                    $this->users_model->update(
+                        array(
+                            "id" => $user->id
+                        ),
+                        array(
+                            "password" => md5($temp_password)
+                        )
+                    );
+
+                    $alert = array(
+                        "title" => $this->lang->line('operation-is-succesfull-message'),
+                        "text"  => "We have sent a new password to your mail",
+                        "type"  => "success"
+                    );
+    
+                    $this->session->set_flashdata("alert", $alert);
+    
+                    redirect(base_url("login"));
+    
+                    die();
+
+                }else{
+                    
+                    $alert = array(
+                        "title" => $this->lang->line('operation-is-unsuccesfull-message'),
+                        "text"  => "Somethings went wrong please try again",
+                        "type"  => "error"
+                    );
+    
+                    $this->session->set_flashdata("alert", $alert);
+    
+                    redirect(base_url("forget-password"));
+    
+                    die();
+
+                }
+
+            }else{
+
+                $alert = array(
+                    "title" => $this->lang->line('operation-is-unsuccesfull-message'),
+                    "text"  => "Böyle bir kullanıcı bulunamadı",
+                    "type"  => "error"
+                );
+
+                $this->session->set_flashdata("alert", $alert);
+
+                redirect(base_url("forget-password"));
+
+                die();
+                
+            }
+        }
+
+    }
+    
 }
