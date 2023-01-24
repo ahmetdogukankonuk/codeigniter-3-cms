@@ -161,6 +161,10 @@ class Userop extends CI_Controller {
             
             if($insert){
 
+                $toEmail = $this->input->post("email");
+
+                $send = send_email($toEmail, "Welcome to CMS", "<center><h3> Welcome to CMS! You have been succesfully signed up to CMS. You need to wait to get authority to CMS Panel. </h3></center>");
+
                 $alert = array(
                     "title" => $this->lang->line('registration-succesfull-message'),
                     "text" => $this->lang->line('registration-succesfull-text'),

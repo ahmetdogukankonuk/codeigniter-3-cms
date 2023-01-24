@@ -46,4 +46,13 @@ class MY_Model extends CI_Model
         return $this->db->insert($this->tableName, $data);
     }
 
+    /* Get User Info by ID */
+    public function get_user_by_id($id) {
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
+
 }

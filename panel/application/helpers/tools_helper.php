@@ -68,6 +68,13 @@ function get_user_surname($userID = 0){
 
 }
 
+function get_user_email_by_id($id) {
+    $t =& get_instance();
+    $t->load->model('users_model');
+    $user = $t->users_model->get_user_by_id($id);
+    return $user->email;
+}
+
 function get_user_role($userRoleID = 0){
 
     $t = &get_instance();
@@ -180,7 +187,6 @@ function send_email($toEmail = "", $subject = "", $message = ""){
     return $t->email->send();
 
 }
-
 
 function get_orders_sum() {
     $t =& get_instance();

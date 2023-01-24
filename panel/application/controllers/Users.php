@@ -120,6 +120,12 @@ class Users extends MY_Controller {
             );
 
             if($insert){
+                
+                $toEmail = $this->input->post("email");
+
+                $userRole = get_user_role($this->input->post("userRoleID"));
+
+                $send = send_email($toEmail, "Welcome to CMS", "<center><h3> Welcome to CMS! You have been added to CMS as $userRole. </h3></center>");
 
                 $alert = array(
                     "title" => $this->lang->line('operation-is-succesfull-message'),
@@ -248,6 +254,10 @@ class Users extends MY_Controller {
 
             if($update){
 
+                $toEmail = get_user_email_by_id($id);
+
+                $send = send_email($toEmail, "User Information Updated", "<center><h3> Your Information Has Been Updated </h3></center>");
+
                 $alert = array(
                     "title" => $this->lang->line('operation-is-succesfull-message'),
                     "text"  => $this->lang->line('record-updated-text'),
@@ -358,7 +368,7 @@ class Users extends MY_Controller {
 
     /* Here we update the specific record by id */
     public function update_password($id){
-
+        
         /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
@@ -386,6 +396,10 @@ class Users extends MY_Controller {
             );
             
             if($update){
+
+                $toEmail = get_user_email_by_id($id);
+
+                $send = send_email($toEmail, "Password Changed", "<center><h3> Your Password Has Been Changed </h3></center>");
 
                 $alert = array(
                     "title" => $this->lang->line('operation-is-succesfull-message'),
@@ -447,6 +461,21 @@ class Users extends MY_Controller {
                     "isActive"  => $isActive
                 )
             );
+
+            if($isActive == 1){
+
+                $toEmail = get_user_email_by_id($id);
+
+                $send = send_email($toEmail, "Account Has Been Activated", "<center><h3> Your Account Has Been Activated! </h3></center>");
+            
+            } else{
+
+                $toEmail = get_user_email_by_id($id);
+
+                $send = send_email($toEmail, "You Are Banned", "<center><h3> Access to your account is blocked! </h3></center>");
+
+            }
+
         }
 
     }
@@ -471,6 +500,21 @@ class Users extends MY_Controller {
                     "isAuthority"  => $isAuthority
                 )
             );
+
+            if($isAuthority == 1){
+
+                $toEmail = get_user_email_by_id($id);
+
+                $send = send_email($toEmail, "You are Authorized", "<center><h3> Your account has been authorized to access the CMS panel. </h3></center>");
+            
+            } else{
+
+                $toEmail = get_user_email_by_id($id);
+
+                $send = send_email($toEmail, "Your Authority Has Been Revoked", "<center><h3> The permission to access the CMS panel has been revoked from your account. </h3></center>");
+
+            }
+
         }
 
 

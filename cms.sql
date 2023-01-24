@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: localhost
--- Üretim Zamanı: 02 Kas 2022, 16:17:10
+-- Üretim Zamanı: 24 Oca 2023, 01:04:55
 -- Sunucu sürümü: 10.4.22-MariaDB
 -- PHP Sürümü: 8.1.2
 
@@ -467,6 +467,26 @@ INSERT INTO `country` (`id`, `iso`, `name`, `isActive`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `email_settings`
+--
+
+CREATE TABLE `email_settings` (
+  `id` int(11) NOT NULL,
+  `protocol` varchar(255) NOT NULL,
+  `host` varchar(255) NOT NULL,
+  `port` varchar(255) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `from` varchar(255) NOT NULL,
+  `to` varchar(255) NOT NULL,
+  `userName` varchar(255) NOT NULL,
+  `updatedAt` datetime NOT NULL DEFAULT current_timestamp(),
+  `isActive` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `logos`
 --
 
@@ -543,7 +563,18 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `userID`, `name`, `surname`, `companyName`, `phone`, `email`, `addressTitle`, `country`, `city`, `town`, `postCode`, `address`, `orderTotal`, `orderTime`, `orderType`, `orderNotes`, `orderPayment`, `orderSituation`, `createdAt`, `updatedAt`) VALUES
-(1, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 119.90, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, '0', '2022-11-02 14:19:53', '2022-11-02 15:16:53');
+(1, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 70.00, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order Completed', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(2, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 129.90, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order Has Been Cancelled', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(3, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 70.00, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order is On Progress', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(4, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 129.90, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order Completed', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(5, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 129.90, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order Completed', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(6, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 70.00, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order is On Progress', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(7, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 70.00, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order Has Been Cancelled', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(8, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 129.90, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order Has Been Cancelled', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(9, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 70.00, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order is On Progress', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(10, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 129.90, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order Completed', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(11, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 129.90, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order Completed', '2022-11-02 14:19:53', '2022-11-02 15:16:53'),
+(12, 2, 'Joe', 'Doe', 'Joe Doe\'s Company', '+111111', 'joedoe@gmail.com', 'Joe Doe\'s Home', 'UNITED STATES', 'California', 'Los Angeles', 'ITSLABABYX', 'Lorem ipsum dolor sit amet.', 70.00, '2022-11-02 15:16:53', 'Credit Card', 'Lorem ipsum dolor sit amet.', 1, 'Order is On Progress', '2022-11-02 14:19:53', '2022-11-02 15:16:53');
 
 -- --------------------------------------------------------
 
@@ -666,7 +697,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `rank`, `categoryID`, `title`, `title_tr`, `description`, `description_tr`, `video`, `price`, `isActive`, `isSuggested`, `isOnMain`, `createdAt`, `updatedAt`) VALUES
-(1, 0, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'https://www.youtube.com/watch?v=y3mVbF3Fr-g', 99.00, 1, 1, 1, '2022-11-01 15:19:17', '2022-11-01 15:19:26');
+(1, 0, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'https://www.youtube.com/watch?v=y3mVbF3Fr-g', 99.00, 0, 1, 1, '2022-11-01 15:19:17', '2022-11-01 15:19:26'),
+(2, 0, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'https://www.youtube.com/watch?v=y3mVbF3Fr-g', 99.00, 0, 1, 1, '2022-11-01 15:19:17', '2022-11-01 15:19:26'),
+(3, 0, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'https://www.youtube.com/watch?v=y3mVbF3Fr-g', 99.00, 1, 1, 1, '2022-11-01 15:19:17', '2022-11-01 15:19:26'),
+(4, 0, 1, 'Lorem ipsum dolor', 'Lorem ipsum dolor', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vitae lorem elementum, molestie nibh nec, ultrices urna. Morbi erat diam, congue sed laoreet nec, lacinia ac odio. Nulla varius mi tempor fringilla varius. Pellentesque tempor leo nec nunc consectetur, ut viverra orci congue. Morbi et faucibus dolor. Sed consequat, lacus vel imperdiet tempor, enim sapien commodo ex, rutrum tempus elit tellus vitae ante. Etiam et lorem sapien. Vivamus eleifend neque erat. In eu neque condimentum, elementum odio a, porta odio. Curabitur ligula arcu, sagittis id metus vel, vestibulum suscipit ipsum. Suspendisse ullamcorper magna ligula. Sed tempor dolor rhoncus varius tristique.', 'https://www.youtube.com/watch?v=y3mVbF3Fr-g', 99.00, 1, 1, 1, '2022-11-01 15:19:17', '2022-11-01 15:19:26'),
+(5, 0, 1, 'deneme', 'deneme', 'deneme', 'deneme', '', 1.00, 1, 0, 0, '2023-01-17 20:02:05', '2023-01-17 20:02:05'),
+(6, 0, 1, 'deneme', 'deneme', 'deneme', 'deneme', '', 2.00, 1, 0, 0, '2023-01-17 20:03:46', '2023-01-17 20:03:46');
 
 -- --------------------------------------------------------
 
@@ -840,7 +876,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `userRoleID`, `name`, `surname`, `email`, `password`, `addressTitle`, `companyName`, `country`, `city`, `town`, `address`, `postCode`, `isActive`, `isAuthority`, `createdAt`, `updatedAt`) VALUES
 (1, 2, 'Jane', 'Doe', 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '', '', '', '', '', '', '', 1, 1, '2022-11-01 13:24:49', '2022-11-01 16:00:19'),
-(2, 1, 'Joe', 'Doe', 'joedoe@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'x', NULL, 'ZAMBIA', 'x', 'x', 'x', 'x', 1, 1, '2022-11-01 16:02:02', '2022-11-02 14:33:55');
+(2, 1, 'Joe', 'Doe', 'joedoe@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'x', NULL, 'ZAMBIA', 'x', 'x', 'x', 'x', 1, 1, '2022-11-01 16:02:02', '2022-11-09 13:54:38'),
+(7, 2, 'Ahmet', 'Konuk', 'ahmetdogukankonuk@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Fetih Mahallesi Aslanlıkışla Caddesi Karşehir Sitesi Ferhat Apartman 263/18 Konya/Karatay', NULL, 'TURKEY', 'Karatay', 'Karatay', 'Fetih Mahallesi Aslanlıkışla Caddesi Karşehir Sitesi Ferhat Apartman 263/18 Konya/Karatay', '42030', 1, 1, '2023-01-24 00:39:39', '2023-01-24 00:39:39');
 
 -- --------------------------------------------------------
 
@@ -862,8 +899,9 @@ CREATE TABLE `user_roles` (
 --
 
 INSERT INTO `user_roles` (`id`, `title`, `permissions`, `isActive`, `createdAt`, `updatedAt`) VALUES
-(1, 'Customer', 'null', 1, '2022-11-01 13:26:32', '2022-11-01 16:00:36'),
-(2, 'CEO', '{\"users\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"product_categories\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"portfolio\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"blog\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"orders\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"dashboard\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"userop\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"products\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"user_roles\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"sliders\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"settings\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"}}', 1, '2022-11-01 13:27:04', '2022-11-01 14:26:37');
+(1, 'Admin', '{\"users\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"product_categories\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"portfolio\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"blog\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"orders\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"dashboard\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"userop\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"products\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"user_roles\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"sliders\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"settings\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"}}', 1, '2022-11-01 13:26:32', '2022-11-01 16:00:36'),
+(2, 'CEO', '{\"users\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"product_categories\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"portfolio\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"blog\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"orders\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"dashboard\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"userop\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"products\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"user_roles\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"sliders\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"settings\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"}}', 1, '2022-11-01 13:27:04', '2022-11-01 14:26:37'),
+(3, 'Personel', '{\"product_categories\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"dashboard\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"},\"products\":{\"read\":\"on\",\"write\":\"on\",\"update\":\"on\",\"delete\":\"on\"}}', 1, '2023-01-13 20:05:24', '2023-01-13 20:05:24');
 
 -- --------------------------------------------------------
 
@@ -963,6 +1001,12 @@ ALTER TABLE `contactform`
 -- Tablo için indeksler `country`
 --
 ALTER TABLE `country`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Tablo için indeksler `email_settings`
+--
+ALTER TABLE `email_settings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1126,6 +1170,12 @@ ALTER TABLE `country`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=240;
 
 --
+-- Tablo için AUTO_INCREMENT değeri `email_settings`
+--
+ALTER TABLE `email_settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `logos`
 --
 ALTER TABLE `logos`
@@ -1141,7 +1191,7 @@ ALTER TABLE `mission`
 -- Tablo için AUTO_INCREMENT değeri `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `order_details`
@@ -1171,7 +1221,7 @@ ALTER TABLE `privacypolicy`
 -- Tablo için AUTO_INCREMENT değeri `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `product_images`
@@ -1213,13 +1263,13 @@ ALTER TABLE `terms`
 -- Tablo için AUTO_INCREMENT değeri `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `user_roles`
 --
 ALTER TABLE `user_roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `vision`
