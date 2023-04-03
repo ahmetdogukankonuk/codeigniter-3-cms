@@ -1,6 +1,6 @@
-        <div class="px-4 page-title title-color">
-            <h3> <?php echo $this->lang->line('product-categories'); ?> </h3>
-            <a href="<?php echo base_url("categories/new") ?>" class="btn add-new-button text-white rounded-4 shadow float-end">
+            <div class="px-4 page-title title-color">
+            <h3> Brands </h3>
+            <a href="<?php echo base_url("brands/new") ?>" class="btn add-new-button text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> <?php echo $this->lang->line('add-new'); ?> </span>
             </a>
         </div>
@@ -33,7 +33,7 @@
                                                 <td>
                                                     <div class="form-check form-switch d-flex justify-content-center">
                                                         <input 
-                                                            data-url="<?php echo base_url("product_categories/isOnMainSetter/$item->id"); ?>"
+                                                            data-url="<?php echo base_url("brands/isOnMainSetter/$item->id"); ?>"
                                                             class="situationSetter form-check-input fs-4" 
                                                             type="checkbox" role="switch" id="isOnMain" 
                                                             dataID="<?php echo $item->id; ?>"
@@ -44,7 +44,7 @@
                                                 <td>
                                                     <div class="form-check form-switch d-flex justify-content-center">
                                                         <input 
-                                                            data-url="<?php echo base_url("product_categories/isActiveSetter/$item->id"); ?>"
+                                                            data-url="<?php echo base_url("brands/isActiveSetter/$item->id"); ?>"
                                                             class="situationSetter form-check-input fs-4" 
                                                             type="checkbox" role="switch" id="situationSetter" 
                                                             dataID="<?php echo $item->id; ?>"
@@ -54,10 +54,10 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="<?php echo base_url("categories/update/$item->id"); ?>">
+                                                        <a href="<?php echo base_url("brands/update/$item->id"); ?>">
                                                             <i class="bi bi-pencil-square fs-5 text-info mx-2"></i>
                                                         </a>
-                                                        <a class="remove-btn" data-url="<?php echo base_url("product_categories/delete/$item->id"); ?>">
+                                                        <a class="remove-btn" data-url="<?php echo base_url("brands/delete/$item->id"); ?>">
                                                             <i class="bi bi-trash fs-5 text-danger mx-2"></i>
                                                         </a>
                                                     </div>

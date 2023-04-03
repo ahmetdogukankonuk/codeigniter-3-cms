@@ -287,7 +287,7 @@ class User_roles extends MY_Controller {
 
         $this->session->set_flashdata("alert", $alert);
 
-        redirect(base_url("user-roles/permissions/$id"));
+        redirect(base_url("user-roles"));
 
     }
 

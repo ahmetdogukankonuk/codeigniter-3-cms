@@ -39,19 +39,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12 my-3">
-                                            <img class="img-fluid rounded-4" src="<?php echo base_url("uploads/product_categories_v/$item->imgUrl"); ?>" alt="">
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="mb-3">
-                                            <label for="imgUrl" class="form-label"><?php echo $this->lang->line('select-an-image'); ?></label>
-                                            <input class="form-control" type="file" name="imgUrl" id="imgUrl">
-                                        </div>
-                                    </div>
                                     
                                     <div class="d-grid mt-3">
                                         <button type="submit" class="btn btn-theme rounded-4 p-2">

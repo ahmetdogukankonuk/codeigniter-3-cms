@@ -90,6 +90,18 @@
                             <div class="collapse" id="dashboard-collapse">
                                 <ul class="btn-toggle-nav list-unstyled fw-normal pt-2 small">
                                     <li>
+                                        <?php if(isAllowedViewModule("brands")) { ?>
+                                            <a href="<?php echo base_url("brands/new"); ?>" class="sidebar-sublink rounded">
+                                                <i class="bi bi-app-indicator sub-sidebar-icon"></i>
+                                                New Brand
+                                            </a>
+                                        <?php } ?>
+                                        <?php if(isAllowedViewModule("brands")) { ?>
+                                            <a href="<?php echo base_url("brands"); ?>" class="sidebar-sublink rounded">
+                                                <i class="bi bi-app sub-sidebar-icon"></i>
+                                                Brands
+                                            </a>
+                                        <?php } ?>
                                         <?php if(isAllowedViewModule("product_categories")) { ?>
                                             <a href="<?php echo base_url("categories/new"); ?>" class="sidebar-sublink rounded">
                                                 <i class="bi bi-folder-plus sub-sidebar-icon"></i>

@@ -10,6 +10,7 @@ class Userop extends CI_Controller {
         $this->viewFolder = "users_v";
 
         $this->load->model("users_model");
+        $this->load->model("user_logins_model");
 
     }
 
@@ -67,6 +68,51 @@ class Userop extends CI_Controller {
             );
 
             if($user){
+                
+                // Load the user_agent library
+                $this->load->library('user_agent');
+
+                // Get the user's IP address
+                $ip_address = $this->input->ip_address();
+
+                // Get the user's MAC address
+                $mac_address = shell_exec('getmac');
+
+                $this->load->library("form_validation");
+
+                $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email");
+                
+                $validate = $this->form_validation->run();
+
+                $email = $this->input->post("email");
+
+                if($validate){
+
+                    $insert = $this->user_logins_model->add(
+                        array(
+                            "userID"        => $user->id,
+                            "userRoleID"    => $user->userRoleID,
+                            "email"         => $email,
+                            "ipAddress"     => $ip_address,
+                            "macAdress"     => $mac_address,
+                            "panel"         => "Admin Panel",
+                            "time"          => date("Y-m-d H:i:s")
+                        )
+                    );
+
+                } else {
+
+                    $alert = array(
+                        "title" => "Login Unsuccessful!",
+                        "text"  => "Please check your login details",
+                        "type"  => "error"
+                    );
+    
+                    $this->session->set_flashdata("alert", $alert);
+    
+                    redirect(base_url("login"));    
+
+                }
 
                 if(!$this->session->userdata('lang')){
                     $dil=$this->session->set_userdata('lang', 'en');
@@ -92,8 +138,8 @@ class Userop extends CI_Controller {
             } else {
 
                 $alert = array(
-                    "title" => $this->lang->line('login-unsuccesfull-message'),
-                    "text" => $this->lang->line('login-unsuccesfull-text'),
+                    "title" => "Login Unsuccessful!",
+                    "text"  => "Please check your login details",
                     "type"  => "error"
                 );
 

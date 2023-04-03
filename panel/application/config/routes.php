@@ -63,6 +63,10 @@ then write the controller of the function you want to request and the function. 
 /* If you want to get a specific id's info then you can use this sample */
 /* $route["MAIN URL / SUB URL / (:any)"]    = "CONTROLLER / FUNCTION / $1"; */
 
+$route["brands"]                            = "brands";
+$route["brands/new"]                        = "brands/new_form";
+$route["brands/update/(:any)"]              = "brands/update_form/$1";
+
 $route["categories"]                        = "product_categories";
 $route["categories/new"]                    = "product_categories/new_form";
 $route["categories/update/(:any)"]          = "product_categories/update_form/$1";

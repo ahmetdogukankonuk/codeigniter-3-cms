@@ -35,8 +35,8 @@ This is a responsive CodeIgniter 3 & Bootstrap 5 Responsive CMS with features li
 Project is created with;
 
 * CodeIgniter 3.1.13
-* Bootstrap 5.1.3
-* Bootstrap Icons 1.8.0
+* Bootstrap 5.3.0
+* Bootstrap Icons 1.10.3
 * Chart.js 3.7.0
 * Jquery 3.5.1
 * Jquery UI 1.13.1
