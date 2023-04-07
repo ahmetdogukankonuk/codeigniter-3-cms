@@ -67,9 +67,9 @@ $route["brands"]                            = "brands";
 $route["brands/new"]                        = "brands/new_form";
 $route["brands/update/(:any)"]              = "brands/update_form/$1";
 
-$route["categories"]                        = "product_categories";
-$route["categories/new"]                    = "product_categories/new_form";
-$route["categories/update/(:any)"]          = "product_categories/update_form/$1";
+$route["product-categories"]                = "product_categories";
+$route["product-categories/new"]            = "product_categories/new_form";
+$route["product-categories/update/(:any)"]  = "product_categories/update_form/$1";
 
 $route["products"]                          = "products";
 $route["products/images/(:any)"]            = "products/image_form/$1";

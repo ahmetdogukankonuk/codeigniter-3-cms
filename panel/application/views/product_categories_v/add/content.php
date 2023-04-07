@@ -38,6 +38,13 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="mb-3">
+                                            <label for="imgUrl" class="form-label"><?php echo $this->lang->line('select-an-image'); ?></label>
+                                            <input class="form-control" type="file" name="imgUrl" id="imgUrl">
+                                        </div>
+                                    </div>
                                     
                                     <div class="d-grid mt-3">
                                         <button type="submit" class="btn btn-theme rounded-4 p-2">
@@ -45,9 +52,9 @@
                                         </button>
                                     </div>
                                     <div class="d-grid mt-2">
-                                        <button type="submit" class="btn btn-outline-primary rounded-4 p-2">
+                                        <a href="<?php echo base_url("product-categories"); ?>" class="btn btn-outline-primary rounded-4 p-2">
                                             <?php echo $this->lang->line('cancel'); ?>
-                                        </button>
+                                        </a>
                                     </div>
                                 </form>
                             </div>

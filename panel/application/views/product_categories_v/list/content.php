@@ -1,6 +1,6 @@
         <div class="px-4 page-title title-color">
             <h3> <?php echo $this->lang->line('product-categories'); ?> </h3>
-            <a href="<?php echo base_url("categories/new") ?>" class="btn add-new-button text-white rounded-4 shadow float-end">
+            <a href="<?php echo base_url("product-categories/new") ?>" class="btn add-new-button text-white rounded-4 shadow float-end">
                 <span><i class="bi bi-file-earmark-plus"></i> <?php echo $this->lang->line('add-new'); ?> </span>
             </a>
         </div>
@@ -54,7 +54,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <a href="<?php echo base_url("categories/update/$item->id"); ?>">
+                                                        <a href="<?php echo base_url("product-categories/update/$item->id"); ?>">
                                                             <i class="bi bi-pencil-square fs-5 text-info mx-2"></i>
                                                         </a>
                                                         <a class="remove-btn" data-url="<?php echo base_url("product_categories/delete/$item->id"); ?>">

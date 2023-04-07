@@ -98,7 +98,7 @@ class Brands extends MY_Controller {
 
             $file_name = md5(uniqid(mt_rand(), true)) . "." . pathinfo($_FILES["imgUrl"]["name"], PATHINFO_EXTENSION);
 
-            $config["allowed_types"] = "jpg|jpeg|png|webp";
+            $config["allowed_types"] = "jpg|jpeg|png|webp|svg";
             $config["upload_path"]   = "uploads/$this->viewFolder/";
             $config["file_name"] = $file_name;
 
@@ -222,7 +222,7 @@ class Brands extends MY_Controller {
 
                 $file_name = md5(uniqid(mt_rand(), true)) . "." . pathinfo($_FILES["imgUrl"]["name"], PATHINFO_EXTENSION);
 
-                $config["allowed_types"] = "jpg|jpeg|png|webp";
+                $config["allowed_types"] = "jpg|jpeg|png|webp|svg";
                 $config["upload_path"] = "uploads/$this->viewFolder/";
                 $config["file_name"] = $file_name;
 
@@ -256,7 +256,7 @@ class Brands extends MY_Controller {
 
                     $this->session->set_flashdata("alert", $alert);
 
-                    redirect(base_url("categories/update/$id"));
+                    redirect(base_url("brands/update/$id"));
 
                     die();
 

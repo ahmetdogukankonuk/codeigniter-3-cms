@@ -103,13 +103,13 @@
                                             </a>
                                         <?php } ?>
                                         <?php if(isAllowedViewModule("product_categories")) { ?>
-                                            <a href="<?php echo base_url("categories/new"); ?>" class="sidebar-sublink rounded">
+                                            <a href="<?php echo base_url("product-categories/new"); ?>" class="sidebar-sublink rounded">
                                                 <i class="bi bi-folder-plus sub-sidebar-icon"></i>
                                                 <?php echo $this->lang->line('new-category'); ?>
                                             </a>
                                         <?php } ?>
                                         <?php if(isAllowedViewModule("product_categories")) { ?>
-                                            <a href="<?php echo base_url("categories"); ?>" class="sidebar-sublink rounded">
+                                            <a href="<?php echo base_url("product-categories"); ?>" class="sidebar-sublink rounded">
                                                 <i class="bi bi-folder sub-sidebar-icon"></i>
                                                 <?php echo $this->lang->line('categories'); ?>
                                             </a>

@@ -30,30 +30,19 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="mb-3">
+                                                        <label for="password" class="form-label text-color"> Password </label>
+                                                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $email->password; ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="mb-3">
                                                         <label for="user" class="form-label text-color"> User </label>
                                                         <input type="text" class="form-control" name="user" id="user" placeholder="User" value="<?php echo $email->user; ?>">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="password" class="form-label text-color"> Password </label>
-                                                        <input type="tel" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $email->password; ?>">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="from" class="form-label text-color"> From </label>
-                                                        <input type="tel" class="form-control" name="from" id="from" placeholder="From" value="<?php echo $email->from; ?>">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="mb-3">
-                                                        <label for="to" class="form-label text-color"> To </label>
-                                                        <input type="tel" class="form-control" name="to" id="to" placeholder="To" value="<?php echo $email->to; ?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

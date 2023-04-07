@@ -2,7 +2,7 @@
 
 class Products_model extends MY_Model
 {
-    public $tableName = "products";
+    public $tableName = "product_categories";
 
     public function __construct()
     {

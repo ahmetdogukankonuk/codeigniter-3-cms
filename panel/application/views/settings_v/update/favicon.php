@@ -6,7 +6,7 @@
                                         </h5>
                                     </div>
                                     <div class="card-body mx-2">
-                                        <form action="<?php echo base_url("settings/favicon_update"); ?>" method="post" enctype="multipart/form-data">
+                                        <form action="<?php echo base_url("settings/update_favicon"); ?>" method="post" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col-md-12 mb-4 mt-2">
                                                     <img class="img-fluid rounded-4" src="<?php echo base_url("uploads/settings_v/$logo->favicon"); ?>" alt="">

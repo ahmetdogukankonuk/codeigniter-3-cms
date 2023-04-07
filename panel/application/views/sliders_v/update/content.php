@@ -9,6 +9,13 @@
                         <div class="card border-0 rounded-4 shadow py-5 card-bg">
                             <div class="px-xl-5 px-4">
                                 <form action="<?php echo base_url("sliders/update_slider/$item->id"); ?>" method="post" enctype="multipart/form-data">
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12 my-3">
+                                            <img class="img-fluid rounded-4" src="<?php echo base_url("uploads/sliders_v/$item->imgUrl"); ?>" alt="">
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mb-3">
@@ -32,13 +39,7 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12 my-3">
-                                            <img class="img-fluid rounded-4" src="<?php echo base_url("uploads/sliders_v/$item->imgUrl"); ?>" alt="">
-                                        </div>
-                                    </div>
-
+                                    
                                     <div class="row">
                                         <div class="mb-3">
                                             <label for="imgUrl" class="form-label"><?php echo $this->lang->line('select-an-image'); ?></label>

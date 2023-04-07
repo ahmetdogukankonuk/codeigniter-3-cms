@@ -865,7 +865,8 @@ class Settings extends MY_Controller {
     }
 
 
-    public function navbar_logo_update(){
+    /* Here we update the specific record by id */
+    public function update_navbar_logo(){
 
         /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
@@ -880,27 +881,35 @@ class Settings extends MY_Controller {
         $this->load->library("form_validation");
         $this->load->helper("tools");
         
-        $this->form_validation->set_rules("navbarLogoSize", "Navbar Logo Size", "required|trim");
-
+        $this->form_validation->set_rules("navbarLogoSize", "Footer Logo Size", "required|trim");
+        
         $validate = $this->form_validation->run();
 
         if($validate){
 
             if($_FILES["navbarLogo"]["name"] !== "") {
 
-                $file_name = convertToSEO(pathinfo($_FILES["navbarLogo"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["navbarLogo"]["name"], PATHINFO_EXTENSION);
+                $file_name = md5(uniqid(mt_rand(), true)) . "." . pathinfo($_FILES["navbarLogo"]["name"], PATHINFO_EXTENSION);
 
-                $config["allowed_types"] = "jpg|jpeg|png";
+                $config["allowed_types"] = "jpg|jpeg|png|webp|svg";
                 $config["upload_path"] = "uploads/$this->viewFolder/";
                 $config["file_name"] = $file_name;
 
                 $this->load->library("upload", $config);
+
+                // Check if old image exists and delete it
+                $old_image = $this->logo_model->get(array("id" => 1));
+                if($old_image->navbarLogo && file_exists("uploads/$this->viewFolder/".$old_image->navbarLogo)) {
+                    unlink("uploads/$this->viewFolder/".$old_image->navbarLogo);
+                }
 
                 $upload = $this->upload->do_upload("navbarLogo");
 
                 if ($upload) {
 
                     $uploaded_file = $this->upload->data("file_name");
+
+                    $user = $this->session->userdata("user");
 
                     $data = array(
                         "navbarLogoSize"    => $this->input->post("navbarLogoSize"),
@@ -975,7 +984,8 @@ class Settings extends MY_Controller {
     }
 
 
-    public function footer_logo_update(){
+    /* Here we update the specific record by id */
+    public function update_footer_logo(){
 
         /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
@@ -991,26 +1001,34 @@ class Settings extends MY_Controller {
         $this->load->helper("tools");
         
         $this->form_validation->set_rules("footerLogoSize", "Footer Logo Size", "required|trim");
-
+        
         $validate = $this->form_validation->run();
 
         if($validate){
 
             if($_FILES["footerLogo"]["name"] !== "") {
 
-                $file_name = convertToSEO(pathinfo($_FILES["footerLogo"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["footerLogo"]["name"], PATHINFO_EXTENSION);
+                $file_name = md5(uniqid(mt_rand(), true)) . "." . pathinfo($_FILES["footerLogo"]["name"], PATHINFO_EXTENSION);
 
-                $config["allowed_types"] = "jpg|jpeg|png";
+                $config["allowed_types"] = "jpg|jpeg|png|webp|svg";
                 $config["upload_path"] = "uploads/$this->viewFolder/";
                 $config["file_name"] = $file_name;
 
                 $this->load->library("upload", $config);
+
+                // Check if old image exists and delete it
+                $old_image = $this->logo_model->get(array("id" => 1));
+                if($old_image->footerLogo && file_exists("uploads/$this->viewFolder/".$old_image->footerLogo)) {
+                    unlink("uploads/$this->viewFolder/".$old_image->footerLogo);
+                }
 
                 $upload = $this->upload->do_upload("footerLogo");
 
                 if ($upload) {
 
                     $uploaded_file = $this->upload->data("file_name");
+
+                    $user = $this->session->userdata("user");
 
                     $data = array(
                         "footerLogoSize"    => $this->input->post("footerLogoSize"),
@@ -1085,7 +1103,8 @@ class Settings extends MY_Controller {
     }
 
     
-    public function favicon_update(){
+    /* Here we update the specific record by id */
+    public function update_favicon(){
 
         /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
@@ -1101,26 +1120,34 @@ class Settings extends MY_Controller {
         $this->load->helper("tools");
         
         $this->form_validation->set_rules("faviconSize", "Favicon Logo Size", "required|trim");
-
+        
         $validate = $this->form_validation->run();
 
         if($validate){
 
             if($_FILES["favicon"]["name"] !== "") {
 
-                $file_name = convertToSEO(pathinfo($_FILES["favicon"]["name"], PATHINFO_FILENAME)) . "." . pathinfo($_FILES["favicon"]["name"], PATHINFO_EXTENSION);
+                $file_name = md5(uniqid(mt_rand(), true)) . "." . pathinfo($_FILES["favicon"]["name"], PATHINFO_EXTENSION);
 
-                $config["allowed_types"] = "jpg|jpeg|png";
+                $config["allowed_types"] = "jpg|jpeg|png|webp|svg";
                 $config["upload_path"] = "uploads/$this->viewFolder/";
                 $config["file_name"] = $file_name;
 
                 $this->load->library("upload", $config);
+
+                // Check if old image exists and delete it
+                $old_image = $this->logo_model->get(array("id" => 1));
+                if($old_image->favicon && file_exists("uploads/$this->viewFolder/".$old_image->favicon)) {
+                    unlink("uploads/$this->viewFolder/".$old_image->favicon);
+                }
 
                 $upload = $this->upload->do_upload("favicon");
 
                 if ($upload) {
 
                     $uploaded_file = $this->upload->data("file_name");
+
+                    $user = $this->session->userdata("user");
 
                     $data = array(
                         "faviconSize"    => $this->input->post("faviconSize"),
@@ -1146,7 +1173,7 @@ class Settings extends MY_Controller {
             } else {
 
                 $data = array(
-                    "faviconSize"       => $this->input->post("faviconSize")
+                    "faviconSize"    => $this->input->post("faviconSize")
                 );
 
             }
