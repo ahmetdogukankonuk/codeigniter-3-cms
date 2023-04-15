@@ -31,8 +31,8 @@ class Blog extends MY_Controller {
         
 	    $viewData = new stdClass();
 
-        $items = $this->blog_model->get_all(
-            array(), "rank ASC"
+        $items = $this->blog_model->get_posts(
+            array(), "id DESC"
         );
 
         $viewData->viewFolder = $this->viewFolder;
@@ -121,7 +121,6 @@ class Blog extends MY_Controller {
                         "text"                  => $this->input->post("text"),
                         "text_tr"               => $this->input->post("text_tr"),
                         "imgUrl"                => $uploaded_file,
-                        "rank"                  => 0,
                         "isActive"              => 1,
                         "isOnMain"              => 0,
                         "createdAt"             => date("Y-m-d H:i:s"),
@@ -422,7 +421,7 @@ class Blog extends MY_Controller {
 
 	    $viewData = new stdClass();
 
-        $items = $this->blog_comments_model->get_all(
+        $items = $this->blog_comments_model->get_blog_comments(
             array(), "id DESC"
         );
 

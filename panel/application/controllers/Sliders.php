@@ -30,7 +30,7 @@ class Sliders extends MY_Controller {
         
 	    $viewData = new stdClass();
 
-        $items = $this->sliders_model->get_all(
+        $items = $this->sliders_model->get_sliders(
             array(), "rank ASC"
         );
 
@@ -319,6 +319,36 @@ class Sliders extends MY_Controller {
             );
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+        }
+
+    }
+
+
+    /* Rank Setter */
+    public function rankSetter(){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        $data = $this->input->post("data");
+
+        parse_str($data, $order);
+
+        $items = $order["ord"];
+
+        foreach ($items as $rank => $id){
+
+            $this->sliders_model->update(
+                array(
+                    "id"        => $id,
+                    "rank !="   => $rank
+                ),
+                array(
+                    "rank"      => $rank
+                )
+            );
 
         }
 

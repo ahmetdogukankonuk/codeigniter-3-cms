@@ -71,4 +71,28 @@ class MY_Model extends CI_Model
         return $query->result();
     }
 
+    /* Get Categories Info List */
+    public function get_posts() {
+        $this->db->select('id, title, imgUrl, isOnMain, isActive');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('blog');
+        return $query->result();
+    }
+
+    /* Get Categories Info List */
+    public function get_blog_comments() {
+        $this->db->select('id, postID, userID, title, isActive');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('blog_comments');
+        return $query->result();
+    }
+
+    /* Get Categories Info List */
+    public function get_sliders() {
+        $this->db->select('id, title, imgUrl, isActive');
+        $this->db->order_by('rank', 'ASC');
+        $query = $this->db->get('sliders');
+        return $query->result();
+    }
+
 }

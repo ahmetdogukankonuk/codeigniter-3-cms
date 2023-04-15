@@ -24,11 +24,11 @@
                                             <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </thead>
-                                    <tbody id="sortable" class="text-center" style="vertical-align: baseline;">
+                                    <tbody class="text-center" style="vertical-align: baseline;">
                                         
                                         <?php foreach($items as $item) { ?>
                                             <tr id="ord-<?php echo $item->id; ?>">
-                                                <td class="sortable"><i class="bi bi-list fs-5"></i></td>
+                                                <td><i class="bi bi-list fs-5"></i></td>
                                                 <td> <?php echo $item->id; ?> </td>
                                                 <td> <?php echo $item->title; ?> </td>
                                                 <td>
