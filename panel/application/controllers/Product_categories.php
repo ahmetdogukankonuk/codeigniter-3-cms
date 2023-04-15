@@ -30,9 +30,7 @@ class Product_categories extends MY_Controller {
         
 	    $viewData = new stdClass();
 
-        $items = $this->product_categories_model->get_all(
-            array(), "rank ASC"
-        );
+        $items = $this->product_categories_model->get_categories();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
@@ -366,6 +364,35 @@ class Product_categories extends MY_Controller {
                     "isActive"  => $isActive
                 )
             );
+        }
+
+    }
+
+    /* Rank Setter */
+    public function rankSetter(){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        $data = $this->input->post("data");
+
+        parse_str($data, $order);
+
+        $items = $order["ord"];
+
+        foreach ($items as $rank => $id){
+
+            $this->product_categories_model->update(
+                array(
+                    "id"        => $id,
+                    "rank !="   => $rank
+                ),
+                array(
+                    "rank"      => $rank
+                )
+            );
+
         }
 
     }
