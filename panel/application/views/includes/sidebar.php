@@ -93,13 +93,13 @@
                                         <?php if(isAllowedViewModule("brands")) { ?>
                                             <a href="<?php echo base_url("brands/new"); ?>" class="sidebar-sublink rounded">
                                                 <i class="bi bi-app-indicator sub-sidebar-icon"></i>
-                                                New Brand
+                                                <?php echo $this->lang->line('new-brand'); ?>
                                             </a>
                                         <?php } ?>
                                         <?php if(isAllowedViewModule("brands")) { ?>
                                             <a href="<?php echo base_url("brands"); ?>" class="sidebar-sublink rounded">
                                                 <i class="bi bi-app sub-sidebar-icon"></i>
-                                                Brands
+                                                <?php echo $this->lang->line('brands'); ?>
                                             </a>
                                         <?php } ?>
                                         <?php if(isAllowedViewModule("product_categories")) { ?>

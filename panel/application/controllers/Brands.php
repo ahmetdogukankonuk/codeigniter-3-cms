@@ -314,6 +314,35 @@ class Brands extends MY_Controller {
 
     }
 
+    /* Rank Setter */
+    public function rankSetter(){
+
+        if(!isAllowedUpdateModule()){
+            die();
+        }
+
+        $data = $this->input->post("data");
+
+        parse_str($data, $order);
+
+        $items = $order["ord"];
+
+        foreach ($items as $rank => $id){
+
+            $this->brands_model->update(
+                array(
+                    "id"        => $id,
+                    "rank !="   => $rank
+                ),
+                array(
+                    "rank"      => $rank
+                )
+            );
+
+        }
+
+    }
+
     public function isOnMainSetter($id){
 
         /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */

@@ -29,6 +29,24 @@ function get_category_title($categoryID = 0){
 
 }
 
+function get_brand_title($brandID = 0){
+
+    $t = &get_instance();
+
+    $t->load->model("brands_model");
+
+    $brand = $t->brands_model->get(
+        array(
+            "id"    => $brandID
+        )
+    );
+
+    if($brand)
+        return $brand->title;
+    else
+        return "<b style='color:red'>Not Defined</b>";
+
+}
 
 function get_user_name($userID = 0){
 

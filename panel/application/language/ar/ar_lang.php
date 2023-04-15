@@ -197,4 +197,8 @@ $lang['please-select-an-image'] = "يرجى تحديد صورة";
 $lang['password-changed-text'] = "تم تغيير كلمة المرور بنجاح";
 $lang['password-could-not-changed-text'] = "حدثت مشكلة أثناء تغيير كلمة المرور";
 
+$lang['brands'] = "العلامات التجارية";
+$lang['select-a-brand'] = "اختر علامة تجارية";
+$lang['new-brand'] = "علامة تجارية جديدة";
+
 ?>

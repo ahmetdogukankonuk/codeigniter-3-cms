@@ -10,13 +10,24 @@
                             <div class="px-xl-5 px-4">
                                 <form action="<?php echo base_url("products/add_product"); ?>" method="post" enctype="multipart/form-data">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label for="categoryID" class="form-label text-color"><?php echo $this->lang->line('category'); ?></label>
                                                 <select class="form-select" name="categoryID" id="categoryID"  aria-label="Default select example">
                                                     <option selected><?php echo $this->lang->line('select-a-category'); ?></option>
                                                     <?php foreach($product_categories as $product_categories) { ?>
                                                         <option value="<?php echo $product_categories->id; ?>"><?php echo $product_categories->title; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="brandID" class="form-label text-color"><?php echo $this->lang->line('brands'); ?></label>
+                                                <select class="form-select" name="brandID" id="brandID"  aria-label="Default select example">
+                                                    <option selected><?php echo $this->lang->line('select-a-brand'); ?></option>
+                                                    <?php foreach($brands as $brands) { ?>
+                                                        <option value="<?php echo $brands->id; ?>"><?php echo $brands->title; ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>

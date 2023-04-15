@@ -197,4 +197,8 @@ $lang['please-select-an-image'] = "Lütfen bir resim seçin";
 $lang['password-changed-text'] = "Parola başarıyla değiştirildi";
 $lang['password-could-not-changed-text'] = "Parola değiştirilirken bir sorun oluştu";
 
+$lang['brands'] = "Markalar";
+$lang['select-a-brand'] = "Bir Marka Seçin";
+$lang['new-brand'] = "Yeni Marka";
+
 ?>

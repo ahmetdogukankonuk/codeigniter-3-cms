@@ -197,4 +197,8 @@ $lang['please-select-an-image'] = "Por favor, selecione uma imagem";
 $lang['password-changed-text'] = "A senha foi alterada com sucesso";
 $lang['password-could-not-changed-text'] = "Ocorreu um problema durante a alteração da senha";
 
+$lang['brands'] = "Marcas";
+$lang['select-a-brand'] = "Selecionar uma marca";
+$lang['new-brand'] = "Nova marca";
+
 ?>

@@ -12,6 +12,7 @@ class Products extends MY_Controller {
         $this->viewFolder = "products_v";
 
         $this->load->model("product_categories_model");
+        $this->load->model("brands_model");
         $this->load->model("products_model");
         $this->load->model("product_images_model");
 
@@ -65,6 +66,12 @@ class Products extends MY_Controller {
             )
         );
 
+        $viewData->brands = $this->brands_model->get_all(
+            array(
+                "isActive"  => 1
+            )
+        );
+
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "add";
 
@@ -83,6 +90,7 @@ class Products extends MY_Controller {
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("categoryID", "Product Category", "required|trim");
+        $this->form_validation->set_rules("brandID", "Product Brand", "required|trim");
         $this->form_validation->set_rules("title", "Product Name English", "required|trim");
         $this->form_validation->set_rules("price", "Product Price", "required|trim");
         
@@ -93,6 +101,7 @@ class Products extends MY_Controller {
             $insert = $this->products_model->add(
                 array(
                     "categoryID"            => $this->input->post("categoryID"),
+                    "brandID"               => $this->input->post("brandID"),
                     "title"                 => $this->input->post("title"),
                     "title_tr"              => $this->input->post("title_tr"),
                     "description"           => $this->input->post("description"),
@@ -174,6 +183,12 @@ class Products extends MY_Controller {
             )
         );
 
+        $viewData->brands = $this->brands_model->get_all(
+            array(
+                "isActive"  => 1
+            )
+        );
+
         $this->load->helper("tools");
 
         $viewData->viewFolder = $this->viewFolder;
@@ -208,6 +223,7 @@ class Products extends MY_Controller {
                 ),
                 array(
                     "categoryID"            => $this->input->post("categoryID"),
+                    "brandID"               => $this->input->post("brandID"),
                     "title"                 => $this->input->post("title"),
                     "title_tr"              => $this->input->post("title_tr"),
                     "description"           => $this->input->post("description"),
@@ -263,91 +279,7 @@ class Products extends MY_Controller {
         }
 
     }
-
-    /* Product Images Page */
-    public function image_form($id){
-
-        /* Here we check if there is a user logged in or not, if not we send them to login page */
-        if(!get_active_user()){
-            redirect(base_url("login"));
-        }
-
-        /* Here we check if the user logged in is allowed to see this module, if not we send them to base url */
-        if(!isAllowedViewModule()){
-            redirect(base_url());
-        }
-        
-        $viewData = new stdClass();
-        $viewData->viewFolder = $this->viewFolder;
-        $viewData->subViewFolder = "image";
-
-        $viewData->item = $this->products_model->get(
-            array(
-                "id"    => $id
-            )
-        );
-
-        $viewData->item_images = $this->product_images_model->get_all(
-            array(
-                "productID"    => $id
-            ), "rank ASC"
-        );
-
-        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
-
-    }
-
-    public function image_upload($id){
-
-        // Validate the user's input and check if the uploaded file is actually an image
-        if(!isAllowedWriteModule() || empty($_FILES["file"]) || !in_array($_FILES["file"]["type"], array("image/jpg", "image/jpeg", "image/png", "image/webp", "image/svg", "image/gif"))){
-            die();
-        }
     
-        // Generate a secure file name
-        $file_name = bin2hex(random_bytes(8)) . '.' . pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
-    
-        // Move uploaded files outside of the web root directory to prevent direct access and execution of uploaded files
-        $upload_path = FCPATH . 'uploads' . DIRECTORY_SEPARATOR . $this->viewFolder . DIRECTORY_SEPARATOR;
-        if (!file_exists($upload_path)) {
-            mkdir($upload_path, 0777, true);
-        }
-    
-        $config["allowed_types"] = "jpg|jpeg|png|webp|svg";
-        $config["upload_path"]   = $upload_path;
-        $config["file_name"] = $file_name;
-    
-        $this->load->library("upload", $config);
-    
-        try {
-            // Use a try-catch block to handle exceptions that may occur during the upload process
-            $upload = $this->upload->do_upload("file");
-    
-            if($upload){
-    
-                $uploaded_file = $file_name;
-    
-                $this->product_images_model->add(
-                    array(
-                        "imgUrl"        => $file_name,
-                        "rank"          => 0,
-                        "isActive"      => 1,
-                        "isCover"       => 0,
-                        "createdAt"     => date("Y-m-d H:i:s"),
-                        "productID"     => $id
-                    )
-                );
-                
-            } else {
-                echo "islem basarisiz";
-            }
-            
-        } catch (Exception $e) {
-            // Log the error or handle it in some other way
-            echo $e;
-        }
-    }
-
     /* Activity Setter */
     public function isActiveSetter($id){
 
@@ -418,30 +350,178 @@ class Products extends MY_Controller {
         }
     }
 
+    /* Deleting specific record by its id */
+    public function delete($id){
 
-    public function imageIsActiveSetter($id){
+        /* Here we check if the user logged in is allowed to delete the module, if not we dont give permisson to delete this record */
+        if(!isAllowedDeleteModule()){
+            redirect(base_url("products"));
+        }
 
-        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
+        $delete = $this->products_model->delete(
+            array(
+                "id"    => $id
+            )
+        );
+
+        if($delete){
+
+            $alert = array(
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-deleted-text'),
+                "type"  => "success"
+            );
+
+        } else {
+
+            $alert = array(
+                "title" => $this->lang->line('operation-is-succesfull-message'),
+                "text"  => $this->lang->line('record-could-not-deleted-text'),
+                "type"  => "error"
+            );
+
+        }
+
+        $this->session->set_flashdata("alert", $alert);
+        redirect(base_url("products"));
+
+    }
+
+    /* Product Images Page */
+    public function image_form($id){
+
+        /* Here we check if there is a user logged in or not, if not we send them to login page */
+        if(!get_active_user()){
+            redirect(base_url("login"));
+        }
+
+        /* Here we check if the user logged in is allowed to see this module, if not we send them to base url */
+        if(!isAllowedViewModule()){
+            redirect(base_url());
+        }
+        
+        $viewData = new stdClass();
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "image";
+
+        $viewData->item = $this->products_model->get(
+            array(
+                "id"    => $id
+            )
+        );
+
+        $viewData->item_images = $this->product_images_model->get_all(
+            array(
+                "productID"    => $id
+            ), "rank ASC"
+        );
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
+
+    }
+
+    /* Image Uploader */
+    public function image_upload($id){
+
+        // Validate the user's input and check if the uploaded file is actually an image
+        if(!isAllowedWriteModule() || empty($_FILES["file"]) || !in_array($_FILES["file"]["type"], array("image/jpg", "image/jpeg", "image/png", "image/webp", "image/svg", "image/gif"))){
+            die();
+        }
+    
+        // Generate a secure file name
+        $file_name = bin2hex(random_bytes(8)) . '.' . pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+    
+        // Move uploaded files outside of the web root directory to prevent direct access and execution of uploaded files
+        $upload_path = FCPATH . 'uploads' . DIRECTORY_SEPARATOR . $this->viewFolder . DIRECTORY_SEPARATOR;
+        if (!file_exists($upload_path)) {
+            mkdir($upload_path, 0777, true);
+        }
+    
+        $config["allowed_types"] = "jpg|jpeg|png|webp|svg";
+        $config["upload_path"]   = $upload_path;
+        $config["file_name"] = $file_name;
+    
+        $this->load->library("upload", $config);
+    
+        try {
+            // Use a try-catch block to handle exceptions that may occur during the upload process
+            $upload = $this->upload->do_upload("file");
+    
+            if($upload){
+    
+                $uploaded_file = $file_name;
+    
+                $this->product_images_model->add(
+                    array(
+                        "imgUrl"        => $file_name,
+                        "rank"          => 0,
+                        "isActive"      => 1,
+                        "isCover"       => 0,
+                        "createdAt"     => date("Y-m-d H:i:s"),
+                        "productID"     => $id
+                    )
+                );
+                
+            } else {
+                echo "islem basarisiz";
+            }
+            
+        } catch (Exception $e) {
+            // Log the error or handle it in some other way
+            echo $e;
+        }
+    }
+
+    /* Image List Refresher */
+    public function refresh_image_list($id){
+
+        $viewData = new stdClass();
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "image";
+
+        $viewData->item_images = $this->product_images_model->get_all(
+            array(
+                "productID"    => $id
+            )
+        );
+
+        $render_html = $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/render_elements/image_list_v", $viewData, true);
+
+        echo $render_html;
+
+    }
+
+    /* Image Rank Setter */
+    public function imageRankSetter(){
+
         if(!isAllowedUpdateModule()){
             die();
         }
 
-        if($id){
+        $data = $this->input->post("data");
 
-            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
+        parse_str($data, $order);
+
+        $items = $order["ord"];
+
+        foreach ($items as $rank => $id){
 
             $this->product_images_model->update(
                 array(
-                    "id"    => $id
+                    "id"        => $id,
+                    "rank !="   => $rank
                 ),
                 array(
-                    "isActive"  => $isActive
+                    "rank"      => $rank
                 )
             );
+
         }
+
     }
 
-
+    /* Image Cover Setter */
     public function isCoverSetter($id, $parent_id){
 
         /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
@@ -491,93 +571,31 @@ class Products extends MY_Controller {
         }
     }
 
-    /* Deleting specific record by its id */
-    public function delete($id){
+    /* Image Active Setter */
+    public function imageIsActiveSetter($id){
 
-        /* Here we check if the user logged in is allowed to delete the module, if not we dont give permisson to delete this record */
-        if(!isAllowedDeleteModule()){
-            redirect(base_url("products"));
-        }
-
-        $delete = $this->products_model->delete(
-            array(
-                "id"    => $id
-            )
-        );
-
-        if($delete){
-
-            $alert = array(
-                "title" => $this->lang->line('operation-is-succesfull-message'),
-                "text"  => $this->lang->line('record-deleted-text'),
-                "type"  => "success"
-            );
-
-        } else {
-
-            $alert = array(
-                "title" => $this->lang->line('operation-is-succesfull-message'),
-                "text"  => $this->lang->line('record-could-not-deleted-text'),
-                "type"  => "error"
-            );
-
-        }
-
-        $this->session->set_flashdata("alert", $alert);
-        redirect(base_url("products"));
-
-    }
-
-    public function refresh_image_list($id){
-
-        $viewData = new stdClass();
-
-        $viewData->viewFolder = $this->viewFolder;
-        $viewData->subViewFolder = "image";
-
-        $viewData->item_images = $this->product_images_model->get_all(
-            array(
-                "productID"    => $id
-            )
-        );
-
-        $render_html = $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/render_elements/image_list_v", $viewData, true);
-
-        echo $render_html;
-
-    }
-
-    /* Image Rank Setter */
-    public function imageRankSetter(){
-
+        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             die();
         }
 
-        $data = $this->input->post("data");
+        if($id){
 
-        parse_str($data, $order);
-
-        $items = $order["ord"];
-
-        foreach ($items as $rank => $id){
+            $isActive = ($this->input->post("data") === "true") ? 1 : 0;
 
             $this->product_images_model->update(
                 array(
-                    "id"        => $id,
-                    "rank !="   => $rank
+                    "id"    => $id
                 ),
                 array(
-                    "rank"      => $rank
+                    "isActive"  => $isActive
                 )
             );
-
         }
-
     }
 
-     /* Deleting specific record by its id */
-     public function imageDelete($id, $parent_id){
+    /* Deleting specific Image by its id */
+    public function imageDelete($id, $parent_id){
 
         /* Here we check if the user logged in is allowed to delete the module, if not we don't give permission to delete this record */
         if(!isAllowedDeleteModule()){

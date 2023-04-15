@@ -197,4 +197,8 @@ $lang['please-select-an-image'] = "Bitte wählen Sie ein Bild aus";
 $lang['password-changed-text'] = "Das Passwort wurde erfolgreich geändert";
 $lang['password-could-not-changed-text'] = "Es gab ein Problem beim Ändern des Passworts";
 
+$lang['brands'] = "Marken";
+$lang['select-a-brand'] = "Wählen Sie eine Marke aus";
+$lang['new-brand'] = "Neue Marke";
+
 ?>

@@ -198,4 +198,8 @@ $lang['please-select-an-image'] = "Please select an image";
 $lang['password-changed-text'] = "The password changed successfully";
 $lang['password-could-not-changed-text'] = "A problem occurred during changing the password";
 
+$lang['brands'] = "Brands";
+$lang['select-a-brand'] = "Select a Brand";
+$lang['new-brand'] = "New Brand";
+
 ?>
