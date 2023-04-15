@@ -31,9 +31,7 @@ class Blog extends MY_Controller {
         
 	    $viewData = new stdClass();
 
-        $items = $this->blog_model->get_posts(
-            array(), "id DESC"
-        );
+        $items = $this->blog_model->get_posts();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
@@ -421,9 +419,7 @@ class Blog extends MY_Controller {
 
 	    $viewData = new stdClass();
 
-        $items = $this->blog_comments_model->get_blog_comments(
-            array(), "id DESC"
-        );
+        $items = $this->blog_comments_model->get_blog_comments();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "comments";

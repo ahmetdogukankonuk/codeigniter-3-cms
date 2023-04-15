@@ -30,9 +30,7 @@ class Orders extends MY_Controller {
        
 	    $viewData = new stdClass();
 
-        $items = $this->orders_model->get_all(
-            array(), "id DESC"
-        );
+        $items = $this->orders_model->get_orders();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
@@ -57,11 +55,7 @@ class Orders extends MY_Controller {
 
 	    $viewData = new stdClass();
 
-        $items = $this->orders_model->get_all(
-            array(
-                "orderSituation"    => "Order Completed",
-            ), "id DESC"
-        );
+        $items = $this->orders_model->get_completed_orders();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "completed";
@@ -86,11 +80,7 @@ class Orders extends MY_Controller {
 
 	    $viewData = new stdClass();
 
-        $items = $this->orders_model->get_all(
-            array(
-                "orderSituation"    => "Order is On Progress",
-            ), "id DESC"
-        );
+        $items = $this->orders_model->get_incomplete_orders();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "incomplete";
@@ -115,11 +105,7 @@ class Orders extends MY_Controller {
         
 	    $viewData = new stdClass();
 
-        $items = $this->orders_model->get_all(
-            array(
-                "orderSituation"    => "Order Has Been Cancelled",
-            ), "id DESC"
-        );
+        $items = $this->orders_model->get_cancelled_orders();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "cancelled";
@@ -128,30 +114,6 @@ class Orders extends MY_Controller {
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         
 	}
-
-    /* Order Situation Setter */
-    public function orderSituationSetter($id){
-
-        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
-        if(!isAllowedUpdateModule()){
-            die();
-        }
-        
-        if($id){
-
-            $orderSituation = ($this->input->post("data") === "true") ? 1 : 0;
-
-            $this->orders_model->update(
-                array(
-                    "id"    => $id
-                ),
-                array(
-                    "orderSituation"  => $orderSituation
-                )
-            );
-        }
-
-    }
 
     /* Deleting specific record by its id */
     public function delete($id){

@@ -34,18 +34,8 @@
                                                 <td> <?php echo $item->id; ?> </td>
                                                 <td> <?php echo get_user_name($item->userID); ?> </td>
                                                 <td> <?php echo get_user_surname($item->userID); ?> </td>
-                                                <td> <?php echo $item->orderTime; ?> </td>
-                                                <td>
-                                                    <div class="form-check form-switch d-flex justify-content-center">
-                                                        <input 
-                                                            data-url="<?php echo base_url("orders/orderSituationSetter/$item->id"); ?>"
-                                                            class="situationSetter form-check-input fs-4" 
-                                                            type="checkbox" role="switch" id="situationSetter" 
-                                                            dataID="<?php echo $item->id; ?>"
-                                                            <?php echo ($item->orderSituation == 1) ? "checked" : ""; ?>
-                                                        />
-                                                    </div>
-                                                </td>
+                                                <td> <?php echo $item->createdAt; ?> </td>
+                                                <td class="text-danger"> <?php echo $item->orderSituation; ?> </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
                                                         <a href="order-images.html">

@@ -33,9 +33,7 @@ class Products extends MY_Controller {
         
 	    $viewData = new stdClass();
 
-        $items = $this->products_model->get_products(
-            array(), "id DESC"
-        );
+        $items = $this->products_model->get_products();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
@@ -60,11 +58,7 @@ class Products extends MY_Controller {
 
         $viewData = new stdClass();
 
-        $viewData->product_categories = $this->product_categories_model->get_categories(
-            array(
-                "isActive"  => 1
-            )
-        );
+        $viewData->product_categories = $this->product_categories_model->get_active_categories();
 
         $viewData->brands = $this->brands_model->get_all(
             array(
@@ -144,11 +138,7 @@ class Products extends MY_Controller {
             $viewData->subViewFolder    = "add";
             $viewData->form_error       = true;
 
-            $viewData->product_categories = $this->product_categories_model->get_categories(
-                array(
-                    "isActive"  => 1
-                )
-            );    
+            $viewData->product_categories = $this->product_categories_model->get_active_categories();    
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
             
@@ -177,11 +167,7 @@ class Products extends MY_Controller {
             )
         );
         
-        $viewData->product_categories = $this->product_categories_model->get_categories(
-            array(
-                "isActive"  => 1
-            )
-        );
+        $viewData->product_categories = $this->product_categories_model->get_active_categories();
 
         $viewData->brands = $this->brands_model->get_all(
             array(
@@ -269,11 +255,7 @@ class Products extends MY_Controller {
                 )
             );
 
-            $viewData->product_categories = $this->product_categories_model->get_categories(
-                array(
-                    "isActive"  => 1
-                )
-            );    
+            $viewData->product_categories = $this->product_categories_model->get_active_categories();    
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         }

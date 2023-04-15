@@ -63,11 +63,54 @@ class MY_Model extends CI_Model
         return $query->result();
     }
 
-    /* Get Categories Info List */
+    public function get_active_categories() {
+        $this->db->select('id, rank, title, isOnMain, isActive');
+        $this->db->where('isActive', 1);
+        $this->db->order_by('rank', 'ASC');
+        $query = $this->db->get('product_categories');
+        return $query->result();
+    }
+
+    /* Get Products Info List */
     public function get_products() {
         $this->db->select('id, categoryID, title, title_tr, isSuggested, isOnMain, isActive');
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get('products');
+        return $query->result();
+    }
+
+    /* Get Orders Info List */
+    public function get_orders() {
+        $this->db->select('id, userID, name, surname, createdAt, orderSituation');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('orders');
+        return $query->result();
+    }
+
+    /* Get Orders Info List */
+    public function get_completed_orders() {
+        $this->db->select('id, userID, name, surname, createdAt, orderSituation');
+        $this->db->where('orderSituation', 'Order Completed');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('orders');
+        return $query->result();
+    }
+
+    /* Get Orders Info List */
+    public function get_incomplete_orders() {
+        $this->db->select('id, userID, name, surname, createdAt, orderSituation');
+        $this->db->where('orderSituation', 'Order is On Progress');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('orders');
+        return $query->result();
+    }
+    
+    /* Get Orders Info List */
+    public function get_cancelled_orders() {
+        $this->db->select('id, userID, name, surname, createdAt, orderSituation');
+        $this->db->where('orderSituation', 'Order Has Been Cancelled');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('orders');
         return $query->result();
     }
 
