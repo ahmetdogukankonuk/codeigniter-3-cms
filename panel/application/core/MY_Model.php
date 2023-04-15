@@ -63,4 +63,12 @@ class MY_Model extends CI_Model
         return $query->result();
     }
 
+    /* Get Categories Info List */
+    public function get_products() {
+        $this->db->select('id, categoryID, title, title_tr, isSuggested, isOnMain, isActive');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('products');
+        return $query->result();
+    }
+
 }

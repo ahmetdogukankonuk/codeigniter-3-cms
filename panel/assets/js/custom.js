@@ -13,7 +13,7 @@ $(document).ready(function () {
             showCancelButton: true,
             confirmButtonColor: '#03045e',
             cancelButtonColor: '#0077b6',
-            confirmButtonText: 'Yes, delete it!',
+            confirmButtonText: 'Yes, Delete!',
             cancelButtonText : "No"
         }).then(function (result) {
             if (result.value) {
@@ -55,12 +55,27 @@ $(document).ready(function () {
 
     })
 
+
     $(".sortable").on("sortupdate", function(event, ui){
         
         var $data = $(this).sortable("serialize");
         var $data_url = $(this).data("url");
 
         $.post($data_url, {data : $data}, function(response){})
+
+    })
+
+    var uploadSection = Dropzone.forElement("#dropzone");
+
+    uploadSection.on("complete", function(file){
+
+        var $data_url = $("#dropzone").data("url");
+
+        $.post($data_url, {}, function(response){
+
+            $(".image_list_container").html(response);
+
+        });
 
     })
 

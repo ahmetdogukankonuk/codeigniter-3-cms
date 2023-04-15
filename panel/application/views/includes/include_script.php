@@ -14,7 +14,6 @@
 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
         
         <!-- Custom JS -->
         <script src="<?php echo base_url("assets"); ?>/js/custom.js"></script>
@@ -24,6 +23,9 @@
         <!-- Alert & Notification JS -->
         <script src="<?php echo base_url("assets"); ?>/js/iziToast.min.js"></script>
         <script src="<?php echo base_url("assets"); ?>/js/sweetalert2.all.js"></script>
+
+         <!-- Dropzone JS -->
+        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
         
         <!-- Custom Alert JS -->
         <?php $this->load->view("includes/alert"); ?>

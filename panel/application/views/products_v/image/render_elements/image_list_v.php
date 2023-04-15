@@ -10,11 +10,11 @@
                                             <th scope="col"> <?php echo $this->lang->line('action'); ?> </th>
                                         </tr>
                                     </thead>
-                                    <tbody id="sortable" class="text-center" style="vertical-align: baseline;">
+                                    <tbody id="sortable" class="sortable text-center" data-url="<?php echo base_url("products/imageRankSetter"); ?>" style="vertical-align: baseline;">
                                     
                                         <?php foreach($item_images as $items){ ?>
                                             <tr id="ord-<?php echo $items->id; ?>">
-                                                <td class="sortable"><i class="bi bi-list fs-5"></i></td>
+                                                <td><i class="bi bi-list fs-5"></i></td>
                                                 <td> <?php echo $items->id; ?> </td>
                                                 <td> <?php echo $items->imgUrl; ?> </td>
                                                 <td>
