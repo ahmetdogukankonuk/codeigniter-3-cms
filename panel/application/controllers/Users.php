@@ -32,9 +32,7 @@ class Users extends MY_Controller {
 
 	    $viewData = new stdClass();
 
-        $items = $this->users_model->get_all(
-            array(), "id DESC"
-        );
+        $items = $this->users_model->get_users();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";
@@ -323,11 +321,7 @@ class Users extends MY_Controller {
         
 	    $viewData = new stdClass();
 
-        $items = $this->users_model->get_all(
-            array(
-                "isAuthority"   => 1
-            ), "id DESC"
-        );
+        $items = $this->users_model->get_authorized_users();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "authorized";
@@ -516,8 +510,7 @@ class Users extends MY_Controller {
             }
 
         }
-
-
+        
     }
 
     /* Deleting specific record by its id */

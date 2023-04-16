@@ -201,4 +201,6 @@ $lang['brands'] = "برندها";
 $lang['select-a-brand'] = "یک برند انتخاب کنید";
 $lang['new-brand'] = "برند جدید";
 
+$lang['portfolio-images'] = "تصاویر نمونه کارها";
+
 ?>

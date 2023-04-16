@@ -30,9 +30,7 @@ class User_roles extends MY_Controller {
         
 	    $viewData = new stdClass();
 
-        $items = $this->user_roles_model->get_all(
-            array(), "id DESC"
-        );
+        $items = $this->user_roles_model->get_user_roles();
 
         $viewData->viewFolder = $this->viewFolder;
         $viewData->subViewFolder = "list";

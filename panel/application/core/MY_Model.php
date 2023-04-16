@@ -146,4 +146,28 @@ class MY_Model extends CI_Model
         return $query->result();
     }
 
+    /* Get Users Info List */
+    public function get_users() {
+        $this->db->select('id, userRoleID, name, surname, email, isAuthority, isActive');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('users');
+        return $query->result();
+    }
+
+    /* Get Users Info List */
+    public function get_authorized_users() {
+        $this->db->select('id, userRoleID, name, surname, email, isAuthority, isActive');
+        $this->db->where('isAuthority', 1);
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('users');
+        return $query->result();
+    }
+
+    /* Get Users Info List */
+    public function get_user_roles() {
+        $this->db->select('id, title, isActive');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('user_roles');
+        return $query->result();
+    }
 }

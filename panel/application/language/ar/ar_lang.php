@@ -201,4 +201,6 @@ $lang['brands'] = "العلامات التجارية";
 $lang['select-a-brand'] = "اختر علامة تجارية";
 $lang['new-brand'] = "علامة تجارية جديدة";
 
+$lang['portfolio-images'] = "صور المحفظة";
+
 ?>
