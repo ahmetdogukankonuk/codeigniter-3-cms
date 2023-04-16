@@ -10,7 +10,7 @@
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="sortable" class="text-center" style="vertical-align: baseline;">
+                                    <tbody id="sortable" class="sortable text-center" data-url="<?php echo base_url("portfolio/imageRankSetter"); ?>" style="vertical-align: baseline;">
                                     
                                         <?php foreach($item_images as $items){ ?>
                                             <tr id="ord-<?php echo $items->id; ?>">

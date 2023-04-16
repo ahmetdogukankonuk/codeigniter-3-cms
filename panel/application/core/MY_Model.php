@@ -64,7 +64,7 @@ class MY_Model extends CI_Model
     }
 
     public function get_active_categories() {
-        $this->db->select('id, rank, title, isOnMain, isActive');
+        $this->db->select('id, rank, title, title_tr, isOnMain, isActive');
         $this->db->where('isActive', 1);
         $this->db->order_by('rank', 'ASC');
         $query = $this->db->get('product_categories');
@@ -116,7 +116,7 @@ class MY_Model extends CI_Model
 
     /* Get Categories Info List */
     public function get_posts() {
-        $this->db->select('id, title, imgUrl, isOnMain, isActive');
+        $this->db->select('id, title, title_tr, imgUrl, isOnMain, isActive');
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get('blog');
         return $query->result();
@@ -135,6 +135,14 @@ class MY_Model extends CI_Model
         $this->db->select('id, title, imgUrl, isActive');
         $this->db->order_by('rank', 'ASC');
         $query = $this->db->get('sliders');
+        return $query->result();
+    }
+
+    /* Get Portfolio Info List */
+    public function get_portfolio() {
+        $this->db->select('id, title, title_tr, isSuggested, isOnMain, isActive');
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get('portfolio');
         return $query->result();
     }
 

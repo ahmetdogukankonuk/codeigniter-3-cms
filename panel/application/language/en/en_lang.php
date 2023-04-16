@@ -202,4 +202,6 @@ $lang['brands'] = "Brands";
 $lang['select-a-brand'] = "Select a Brand";
 $lang['new-brand'] = "New Brand";
 
+$lang['portfolio-images'] = "Portfolio Images";
+
 ?>
