@@ -86,13 +86,6 @@ function get_user_surname($userID = 0){
 
 }
 
-function get_user_email_by_id($id) {
-    $t =& get_instance();
-    $t->load->model('users_model');
-    $user = $t->users_model->get_user_by_id($id);
-    return $user->email;
-}
-
 function get_user_role($userRoleID = 0){
 
     $t = &get_instance();
@@ -167,42 +160,6 @@ function setUserRoles(){
         $roles[$role->id] = $role->permissions;
     }
     $t->session->set_userdata("user_roles", $roles);
-
-}
-
-function send_email($toEmail = "", $subject = "", $message = ""){
-
-    $t = &get_instance();
-
-    $t->load->model("email_model");
-
-    $email_settings = $t->email_model->get(
-        array(
-            "isActive" => 1
-        )
-    );
-                
-    $config = array(
-        "protocol"  => $email_settings->protocol,
-        "smtp_host" => $email_settings->host,
-        "smtp_port" => $email_settings->port,
-        "smtp_user" => $email_settings->user,
-        "smtp_pass" => $email_settings->password,
-        "starttls"  => true,
-        "charset"   => "utf-8",
-        "mailtype"  => "html",
-        "wordwrap"  => true,
-        "newline"   => "\r\n"
-    );
-        
-    $t->load->library("email", $config);
-        
-    $t->email->from($email_settings->from, $email_settings->userName);
-    $t->email->to($toEmail);
-    $t->email->subject($subject);
-    $t->email->message($message);      
-    
-    return $t->email->send();
 
 }
 
@@ -286,5 +243,16 @@ function get_orders_count() {
     $t->db->from('orders');
     return $t->db->count_all_results();
 }
+
+function get_mac_address() {
+    ob_start();
+    system('ipconfig /all');
+    $result = ob_get_contents();
+    ob_clean();
+    $result = strstr($result, "Physical");
+    preg_match("/([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})/", $result, $mac);
+    return $mac[0];
+}
+
 
 ?>

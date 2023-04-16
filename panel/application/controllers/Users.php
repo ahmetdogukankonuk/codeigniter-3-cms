@@ -14,6 +14,7 @@ class Users extends MY_Controller {
         $this->load->model("user_roles_model");
         $this->load->model("users_model");
         $this->load->model("country_model");
+        $this->load->helper("email");
 
     }
 
@@ -372,7 +373,7 @@ class Users extends MY_Controller {
         if(!isAllowedUpdateModule()){
             redirect(base_url("users"));
         }
-
+        
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("password", "Password", "required|trim|min_length[6]|max_length[20]");

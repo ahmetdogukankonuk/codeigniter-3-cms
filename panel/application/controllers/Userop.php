@@ -11,6 +11,7 @@ class Userop extends CI_Controller {
 
         $this->load->model("users_model");
         $this->load->model("user_logins_model");
+        $this->load->helper("email");
 
     }
 
@@ -76,7 +77,7 @@ class Userop extends CI_Controller {
                 $ip_address = $this->input->ip_address();
 
                 // Get the user's MAC address
-                $mac_address = shell_exec('getmac');
+                $mac_address = get_mac_address();
 
                 $this->load->library("form_validation");
 
@@ -99,6 +100,11 @@ class Userop extends CI_Controller {
                             "time"          => date("Y-m-d H:i:s")
                         )
                     );
+
+                    if($insert){
+                        $toEmail = $email;
+                        $send = send_email($toEmail, "New Login", "<center><h3> New login was made to your account from ($ip_address) ip addresses. </h3></center>");
+                    }
 
                 } else {
 
