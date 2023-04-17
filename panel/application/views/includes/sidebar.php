@@ -76,6 +76,12 @@
                                                 <?php echo $this->lang->line('portuguese'); ?>
                                             </a>
                                         <?php } ?>
+                                        <?php if($this->session->userdata('lang')!="ch"){ ?>
+                                            <a href="<?php echo base_url("dashboard/switchLanguage/ch"); ?>" class="sidebar-sublink rounded">
+                                                <img class="sidebar-icon" src="<?php echo base_url("assets"); ?>/img/flags/chinese.png" height="18rem">
+                                                <?php echo $this->lang->line('chinese'); ?>
+                                            </a>
+                                        <?php } ?>
                                     </li>
                                 </ul>
                             </div>

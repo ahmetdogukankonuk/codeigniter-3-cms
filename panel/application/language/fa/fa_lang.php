@@ -9,6 +9,7 @@ $lang['spanish'] = "اسپانیایی";
 $lang['german'] = "آلمانی";
 $lang['persian'] = "فارسی";
 $lang['portuguese'] = "پرتغالی";
+$lang['chinese'] = "چینی";
 
 $lang['dashboard'] = "داشبورد";
 $lang['products'] = "محصولات";

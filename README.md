@@ -1,5 +1,5 @@
 # CodeIgniter 3 & Bootstrap 5 Responsive CMS 
-## Now CMS is available in English, French, Spanish, Russian, Arabian, Turkish, German, Persian & Portuguese!
+## Now CMS is available in 10 languages which are; English, French, Spanish, Russian, Arabian, Turkish, German, Persian, Portuguese & Chinese!
 ## Feel Free To Use & Follow For More Projects :)
 
 ![cms.gif](cms.gif)

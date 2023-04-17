@@ -112,7 +112,7 @@ class Users extends MY_Controller {
                     "postCode"              => $this->input->post("postCode"),
                     "address"               => $this->input->post("address"),
                     "isActive"              => 1,
-                    "isAuthority"           => 1,
+                    "isAuthority"           => 0,
                     "createdAt"             => date("Y-m-d H:i:s"),
                     "updatedAt"             => date("Y-m-d H:i:s")
                 )
