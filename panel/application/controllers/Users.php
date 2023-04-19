@@ -98,12 +98,15 @@ class Users extends MY_Controller {
 
         if($validate){
 
+            $password = $this->input->post("password");
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+
             $insert = $this->users_model->add(
                 array(
                     "name"                  => $this->input->post("name"),
                     "surname"               => $this->input->post("surname"),
                     "email"                 => $this->input->post("email"),
-                    "password"              => md5($this->input->post("password")),
+                    "password"              => $hash,
                     "userRoleID"            => $this->input->post("userRoleID"),
                     "addressTitle"          => $this->input->post("addressTitle"),
                     "country"               => $this->input->post("country"),
@@ -117,7 +120,7 @@ class Users extends MY_Controller {
                     "updatedAt"             => date("Y-m-d H:i:s")
                 )
             );
-
+            
             if($insert){
                 
                 $toEmail = $this->input->post("email");
@@ -361,15 +364,12 @@ class Users extends MY_Controller {
 
     }
 
-    /* Here we update the specific record by id */
     public function update_password($id){
         
-        /* Here we check if there is a user logged in or not, if not we send them to login page */
         if(!get_active_user()){
             redirect(base_url("login"));
         }
 
-        /* Here we check if the user logged in is allowed to update the module, if not we dont give permisson to update this record */
         if(!isAllowedUpdateModule()){
             redirect(base_url("users"));
         }
@@ -383,10 +383,12 @@ class Users extends MY_Controller {
 
         if($validate){
 
+            $password = $this->input->post("password");
+
             $update = $this->users_model->update(
                 array("id" => $id),
                 array(
-                    "password"      => md5($this->input->post("password")),
+                    "password"      => password_hash($password, PASSWORD_BCRYPT),
                 )
             );
             

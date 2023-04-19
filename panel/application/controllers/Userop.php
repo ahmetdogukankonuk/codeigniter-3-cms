@@ -46,49 +46,48 @@ class Userop extends CI_Controller {
 
         $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email");
         $this->form_validation->set_rules("password", "Password", "required|trim|min_length[6]|max_length[20]");
-
+    
         if($this->form_validation->run() == FALSE){
-
+    
             $viewData = new stdClass();
-
+    
             $viewData->viewFolder = $this->viewFolder;
             $viewData->subViewFolder = "login";
             $viewData->form_error = true;
-
+    
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
-
+    
         } else {
-
+    
             $user = $this->users_model->get(
                 array(
                     "email"         => $this->input->post("email"),
-                    "password"      => md5($this->input->post("password")),
                     "isAuthority"   => 1,
                     "isActive"      => 1
                 )
             );
-
-            if($user){
+    
+            if($user && password_verify($this->input->post("password"), $user->password)){
                 
                 // Load the user_agent library
                 $this->load->library('user_agent');
-
+    
                 // Get the user's IP address
                 $ip_address = $this->input->ip_address();
-
+    
                 // Get the user's MAC address
                 $mac_address = get_mac_address();
-
+    
                 $this->load->library("form_validation");
-
+    
                 $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email");
                 
                 $validate = $this->form_validation->run();
-
+    
                 $email = $this->input->post("email");
-
+    
                 if($validate){
-
+    
                     $insert = $this->user_logins_model->add(
                         array(
                             "userID"        => $user->id,
@@ -100,14 +99,14 @@ class Userop extends CI_Controller {
                             "time"          => date("Y-m-d H:i:s")
                         )
                     );
-
+    
                     if($insert){
                         $toEmail = $email;
                         $send = send_email($toEmail, "New Login", "<center><h3> New login was made to your account from ($ip_address) ip addresses. </h3></center>");
                     }
-
+    
                 } else {
-
+    
                     $alert = array(
                         "title" => "Login Unsuccessful!",
                         "text"  => "Please check your login details",
@@ -117,9 +116,9 @@ class Userop extends CI_Controller {
                     $this->session->set_flashdata("alert", $alert);
     
                     redirect(base_url("login"));    
-
+    
                 }
-
+    
                 if(!$this->session->userdata('lang')){
                     $dil=$this->session->set_userdata('lang', 'en');
                 }
@@ -127,7 +126,7 @@ class Userop extends CI_Controller {
                 $dil=$this->session->userdata('lang');
                 
                 $this->lang->load($dil,$dil);
-
+    
                 $alert = array(
                     "title" => $this->lang->line('login-succesfull-message'),
                     "text"  => "$user->name",
@@ -138,11 +137,11 @@ class Userop extends CI_Controller {
                 
                 $this->session->set_userdata("user", $user);
                 $this->session->set_flashdata("alert", $alert);
-
+    
                 redirect(base_url());
-
+    
             } else {
-
+    
                 $alert = array(
                     "title" => "Login Unsuccessful!",
                     "text"  => "Please check your login details",
@@ -198,12 +197,15 @@ class Userop extends CI_Controller {
 
         if($validate){
 
+            $password = $this->input->post("password");
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+
             $insert = $this->users_model->register_admin(
                 array(
                     "name"          => $this->input->post("name"),
                     "surname"       => $this->input->post("surname"),
                     "email"         => $this->input->post("email"),
-                    "password"      => md5($this->input->post("password")),
+                    "password"      => $hash,
                     "isActive"      => 1,
                     "isAuthority"   => 0,
                     "createdAt"     => date("Y-m-d H:i:s"),
@@ -270,28 +272,28 @@ class Userop extends CI_Controller {
     }
     
     public function reset_password(){
-        
+
         $this->load->library("form_validation");
 
         $this->form_validation->set_rules("email", "E-Mail", "required|trim|valid_email");
-
+    
         $this->form_validation->set_message(
             array(
                 "required"      => "{field} alanı doldurulmalıdır.",
                 "valid_email"   => "Lütfen sisteme önceden kayıtlı bir email adresi giriniz.",
             )
         );
-
+    
         if($this->form_validation->run() == FALSE){
-
+    
             $viewData = new stdClass();
-
+    
             $viewData->viewFolder = $this->viewFolder;
             $viewData->subViewFolder = "forget_password";
             $viewData->form_error = true;
-
+    
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
-
+    
         } else {
             
             $user = $this->users_model->get(
@@ -300,26 +302,26 @@ class Userop extends CI_Controller {
                     "email"     => $this->input->post("email")
                 )
             );
-
+    
             if($user){
-
+    
                 $this->load->helper("string");
-
-                $temp_password = random_string('alnum', 8);
-
+    
+                $temp_password = random_string('alnum', 10);
+    
                 $send = send_email($user->email, "Reset Your Password", "<center><h3> Password changed. You can login to system with this password: </h3></center> <center><h1><b>$temp_password</b></h1></center>");
         
                 if($send){
-
+    
                     $this->users_model->update(
                         array(
                             "id" => $user->id
                         ),
                         array(
-                            "password" => md5($temp_password)
+                            "password" => password_hash($temp_password, PASSWORD_BCRYPT)
                         )
                     );
-
+    
                     $alert = array(
                         "title" => $this->lang->line('operation-is-succesfull-message'),
                         "text"  => "We have sent a new password to your mail",
@@ -331,7 +333,7 @@ class Userop extends CI_Controller {
                     redirect(base_url("login"));
     
                     die();
-
+    
                 }else{
                     
                     $alert = array(
@@ -345,26 +347,26 @@ class Userop extends CI_Controller {
                     redirect(base_url("forget-password"));
     
                     die();
-
+    
                 }
-
+    
             }else{
-
+    
                 $alert = array(
                     "title" => $this->lang->line('operation-is-unsuccesfull-message'),
                     "text"  => "Böyle bir kullanıcı bulunamadı",
                     "type"  => "error"
                 );
-
+    
                 $this->session->set_flashdata("alert", $alert);
-
+    
                 redirect(base_url("forget-password"));
-
+    
                 die();
                 
             }
         }
-
-    }
+    
+    }    
     
 }
