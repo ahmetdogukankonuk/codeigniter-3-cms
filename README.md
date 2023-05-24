@@ -2,6 +2,8 @@
 ## Now CMS is available in 10 languages which are; English, French, Spanish, Russian, Arabian, Turkish, German, Persian, Portuguese & Chinese!
 ## Feel Free To Use & Follow For More Projects :)
 
+Due to security vulnerabilities and the risk of being compromised, the project transitioned from MD5 to Bcrypt. Bcrypt increases computational intensity and ensures security through salting. It is a safer option for future updates. Prioritizing password security, Bcrypt was chosen. 
+
 ![cms.gif](cms.gif)
 
 ## What is this CMS?
