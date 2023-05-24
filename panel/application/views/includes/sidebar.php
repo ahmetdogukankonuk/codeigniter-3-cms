@@ -285,6 +285,33 @@
                                 </ul>
                             </div>
                         </li>
+
+                        <?php if(isAllowedViewModule("email")) { ?>
+                        <li>
+                            <button class="btn btn-toggle sidebar-link align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#mail-collapse" aria-expanded="false">
+                                <i class="bi bi-envelope sidebar-icon"></i>
+                                Mails
+                            </button>
+                            <div class="collapse" id="mail-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pt-2 small">
+                                    <li>
+                                        <?php if(isAllowedViewModule("email")) { ?>
+                                            <a href="<?php echo base_url("mailer/new"); ?>" class="sidebar-sublink rounded">
+                                                <i class="bi bi-envelope-plus sub-sidebar-icon"></i>
+                                                New Mail
+                                            </a>
+                                        <?php } ?>
+                                        <?php if(isAllowedViewModule("email")) { ?>
+                                            <a href="<?php echo base_url("mailer"); ?>" class="sidebar-sublink rounded">
+                                                <i class="bi bi-envelope sub-sidebar-icon"></i>
+                                                Mails
+                                            </a>
+                                        <?php } ?>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <?php } ?>
                         
                         <?php if(isAllowedViewModule("settings")) { ?>
                             <a href="<?php echo base_url("settings"); ?>" class="sidebar-link mt-4 ms-01">

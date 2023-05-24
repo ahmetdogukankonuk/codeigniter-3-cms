@@ -170,4 +170,20 @@ class MY_Model extends CI_Model
         $query = $this->db->get('user_roles');
         return $query->result();
     }
+
+    /* Get Users Info List */
+    public function get_all_users_email() {
+        $this->db->select('id, email, isActive');
+        $this->db->order_by('id', 'ASC');
+        $query = $this->db->get('users');
+        return $query->result();
+    }
+
+    /* Get Users Info List */
+    public function get_all_newstellers_email() {
+        $this->db->select('id, email');
+        $this->db->order_by('id', 'ASC');
+        $query = $this->db->get('newsteller');
+        return $query->result();
+    }
 }

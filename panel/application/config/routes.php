@@ -106,6 +106,10 @@ $route["portfolio/images/(:any)"]           = "portfolio/image_form/$1";
 $route["portfolio/new"]                     = "portfolio/new_form";
 $route["portfolio/update/(:any)"]           = "portfolio/update_form/$1";
 
+$route["mailer"]                            = "email";
+$route["mailer/new"]                        = "email/new_form";
+$route["mailer/view/(:any)"]                = "email/view_form/$1";
+
 $route["settings"]                          = "settings";
 
 $route["login"]                             = "userop/login";
